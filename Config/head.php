@@ -72,6 +72,30 @@
         input[type="text"]:focus {
             width: 300px;
         }
+        #fb:hover {
+           color: #6495ED;
+       }
+
+       #ins:hover {
+           color: violet;
+       }
+
+       #twitter:hover {
+           color: #6495ED;
+       }
+
+       #ytb:hover {
+           color: red;
+       }
+
+       #link:link {
+           color: white;
+           text-decoration: none;
+       }
+
+       #link:hover {
+           color: #68EF7E;
+       }
     </style>
 </head>
 
@@ -128,3 +152,7 @@
             </div>
         </div>
     </nav>
+
+    <?php
+        include 'footer.php'
+   ?>
