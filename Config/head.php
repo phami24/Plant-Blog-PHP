@@ -152,7 +152,3 @@
             </div>
         </div>
     </nav>
-
-    <?php
-        include 'footer.php'
-   ?>
