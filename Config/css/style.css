@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.banner {
+    position: absolute;
+    animation: banner-text 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes banner-text {
+    0% {
+        left: 10%;
+        bottom: 25%;
+        opacity: 0;
+        width: 25%;
+    }
+
+    100% {
+        left: 20%;
+        bottom: 25%;
+        opacity: 1;
+        width: 25%;
+    }
+}
+
+.nav-link:hover {
+    color: rgb(155, 195, 82);
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"] {
+    width: 100px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 5px 16px 5px 16px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type="text"]:focus {
+    width: 300px;
+}
+#fb:hover {
+   color: #6495ED;
+}
+
+#ins:hover {
+   color: violet;
+}
+
+#twitter:hover {
+   color: #6495ED;
+}
+
+#ytb:hover {
+   color: red;
+}
+
+#link:link {
+   color: white;
+   text-decoration: none;
+}
+
+#link:hover {
+   color: #68EF7E;
+}
