@@ -1,4 +1,4 @@
-
+<!-- Đây là phần footer -->
 
    <footer class="text-center text-lg-start bg-success text-white">
        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -97,3 +97,4 @@
            <a href="gardenworld.com" class="text-reset fw-bold">GardenWorld.vn</a>
        </div>
    </footer>
+</body>
