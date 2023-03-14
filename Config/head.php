@@ -17,6 +17,8 @@
 </head>
 
 <body class="bg-light-subtle">
+    
+    <style><?php include'/xampp/htdocs/e-project1/Config/css/style.css' ?></style>
     <!-- Navbar -->
     <h1>Second Commit</h1>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-flex" id="navbar">
