@@ -8,74 +8,17 @@
     <title>Garden World</title>
     <!-- Title Logo -->
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-    <!-- Css -->
-    <link rel="stylesheet" href="style.css" />
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- Icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        .banner {
-            position: absolute;
-            animation: banner-text 3s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes banner-text {
-            0% {
-                left: 10%;
-                bottom: 25%;
-                opacity: 0;
-                width: 25%;
-            }
-
-            100% {
-                left: 20%;
-                bottom: 25%;
-                opacity: 1;
-                width: 25%;
-            }
-        }
-
-        .nav-link:hover {
-            color: rgb(155, 195, 82);
-        }
-
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        input[type="text"] {
-            width: 100px;
-            box-sizing: border-box;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: white;
-            background-position: 10px 10px;
-            background-repeat: no-repeat;
-            padding: 5px 16px 5px 16px;
-            -webkit-transition: width 0.4s ease-in-out;
-            transition: width 0.4s ease-in-out;
-        }
-
-        input[type="text"]:focus {
-            width: 300px;
-        }
-    </style>
 </head>
 
 <body class="bg-light-subtle">
+    
+    <style><?php include'/xampp/htdocs/e-project1/Config/css/style.css' ?></style>
     <!-- Navbar -->
     <h1>Second Commit</h1>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-flex" id="navbar">
