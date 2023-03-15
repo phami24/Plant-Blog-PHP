@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <title>Đăng nhập</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://keyreseller.tk/assets/font/iconic/css/material-design-iconic-font.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="https://keyreseller.tk/assets/vendor/dxcore/css/util.css">
+        <link rel="stylesheet" type="text/css" href="https://keyreseller.tk/assets/vendor/dxcore/css/main.css">
+        <link rel="stylesheet" href="https://keyreseller.tk/assets/vendor/bootstrap/css/bootstrap.v4.1.0.min.css">
+        <link rel="shortcut icon" href="https://keyreseller.tk/assets/img/favicon.png" />
+        <script src="https://keyreseller.tk/assets/vendor/jquery/js/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="limiter">
+    <div class="container-login100" style="background-image: url('/assets/img/bg-01.jpg');">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+            <form class="login100-form validate-form" method="POST">                                
+                <a class="d-block p-b-20 text-center" href="https://keyreseller.tk/">
+                    <img style="height: 50px;" src="/assets/img/logo.png"/>
+                </a>
+<!--                <span class="login100-form-title p-b-20">Đăng nhập</span>-->
+                                <div class="wrap-input100 validate-input m-b-23">
+                    <span class="label-input100">Tài khoản</span>
+                    <input required="" autofocus="" value="" class="input100" type="text" name="input_name" placeholder="Tài khoản">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <span class="label-input100">Mật khẩu</span>
+                    <input required="" class="input100" type="password" name="input_password" placeholder="Mật khẩu">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                </div>
+
+                <div class="text-right p-t-8 p-b-31">
+                    <a href="/dxcore/forget.html">Quên mật khẩu?</a>
+                </div>
+                
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button type="submit" class="login100-form-btn">Đăng nhập</button>
+                    </div>
+                </div>
+
+                <div class="flex-c-m p-t-30">
+                                                            
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.g-recaptcha').attr('data-sitekey','6Lcseb4bAAAAAGXCn9OJa-Zo0v9FKXDBt9Y33i9l');
+    $('.g-recaptcha').attr('data-callback','rcDone');
+    $('.g-recaptcha').attr('data-expired-callback','rcExpired');
+    $('button[type="submit"]').attr('disabled', true);
+    var rcDone = function () {
+        $('button[type="submit"]').removeAttr('disabled');
+    };
+    var rcExpired = function () {
+        $('button[type="submit"]').attr('disabled', true);
+    };
+</script>
+<script src="https://www.google.com/recaptcha/api.js?hl=vi"
+        async defer>
+</script>
+
+<style>
+    .g-recaptcha >div{
+        width: auto !important;
+    }
+</style>         </div>
+    </body>   
+</html>
