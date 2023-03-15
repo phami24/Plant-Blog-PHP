@@ -1,4 +1,4 @@
-<!-- Đây là phần footer -->
+
 
    <footer class="text-center text-lg-start bg-success text-white">
        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -76,17 +76,18 @@
                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                        <p><i class="fas fa-home me-3 text-secondary"></i><ion-icon name="business-outline"></ion-icon> 54 Le Thanh Nghi, Ha Noi</p>
-                       <p> <a href="mailto:toando2408@gmail.com" id="link">
+                       <p> <a href="mailto:toando2408@gmail.com" id="contact">
                                <i class="fas fa-envelope me-3 text-secondary"></i><ion-icon name="mail-outline"></ion-icon>
                                gardenworld@gmail.com
                        </p></a>
-                       <p><a href="tel:0984869908" id="link"><i class="fas fa-print me-3 text-secondary"></i><ion-icon name="call-outline"></ion-icon> 0984869908</a></p>
-                       <p><a href="tel:0984869908" id="link"><i class="fas fa-print me-3 text-secondary"></i><ion-icon name="call-outline"></ion-icon> 0984869908</a></p>
+                       <p><a href="tel:0984869908" id="contact"><i class="fas fa-print me-3 text-secondary"></i><ion-icon name="call-outline"></ion-icon> 0984869908</a></p>
+                       <p><a href="tel:0984869908" id="contact"><i class="fas fa-print me-3 text-secondary"></i><ion-icon name="call-outline"></ion-icon> 0984869908</a></p>
                        <p>
-                           <a href="https://www.facebook.com/toandv2408" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="fb" name="logo-facebook" style="font-size:25px;"></ion-icon></a>
-                           <a href="https://www.instagram.com/toandv.2408/" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="ins" name="logo-instagram" style="font-size:25px;"></ion-icon></a>
-                           <a href="https://twitter.com/Toandv2408" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="twitter" name="logo-twitter" style="font-size:25px;"></ion-icon></a>
-                           <a href="https://www.youtube.com/channel/UCwNr84m_ATZNSyklo2MQbtw" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="ytb" name="logo-youtube" style="font-size:25px;"></ion-icon></a>
+                           <a href="https://www.facebook.com/toandv2408" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="fb" name="logo-facebook" style="font-size:30px;"></ion-icon></a>
+                           <a href="https://www.instagram.com/toandv.2408/" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="ins" name="logo-instagram" style="font-size:30px;"></ion-icon></a>
+                           <a href="https://twitter.com/Toandv2408" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="twitter" name="logo-twitter" style="font-size:30px;"></ion-icon></a>
+                           <a href="https://www.youtube.com/channel/UCwNr84m_ATZNSyklo2MQbtw" target="_blank" style="color: white;"><i class="fas fa-print me-3 text-secondary"></i><ion-icon id="ytb" name="logo-youtube" style="font-size:30px;"></ion-icon></a>
+                           <br>
                        </p>
                    </div>
                </div>
@@ -97,4 +98,4 @@
            <a href="gardenworld.com" class="text-reset fw-bold">GardenWorld.vn</a>
        </div>
    </footer>
-</body>
+
