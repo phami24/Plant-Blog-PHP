@@ -40,6 +40,20 @@ LOCK TABLES `admin` WRITE;
 UNLOCK TABLES;
 
 --
+-- Temporary view structure for view `comment_view`
+--
+
+DROP TABLE IF EXISTS `comment_view`;
+/*!50001 DROP VIEW IF EXISTS `comment_view`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `comment_view` AS SELECT 
+ 1 AS `created_at`,
+ 1 AS `full_name`,
+ 1 AS `comment`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `comments`
 --
 
@@ -49,10 +63,9 @@ DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `comment_id` int NOT NULL AUTO_INCREMENT,
   `custommer_id` int DEFAULT NULL,
-  `full_name` varchar(255) DEFAULT NULL,
   `comment` text,
   `post_id` int DEFAULT NULL,
-  `create_atcreated_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`comment_id`),
   KEY `post_id` (`post_id`),
   KEY `custommer_id` (`custommer_id`),
@@ -109,6 +122,7 @@ CREATE TABLE `post` (
   `title` varchar(255) DEFAULT NULL,
   `post_img` varchar(255) DEFAULT NULL,
   `post_category_id` int DEFAULT NULL,
+  `status` int DEFAULT NULL,
   PRIMARY KEY (`post_id`),
   KEY `post_category_id` (`post_category_id`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`post_category_id`) REFERENCES `post_category` (`post_category_id`)
@@ -208,7 +222,6 @@ CREATE TABLE `topics` (
   `topic_id` int NOT NULL AUTO_INCREMENT,
   `topic_name` varchar(255) DEFAULT NULL,
   `content` text,
-  `topic_img` varchar(255) DEFAULT NULL,
   `post_id` int DEFAULT NULL,
   `product_id` int DEFAULT NULL,
   PRIMARY KEY (`topic_id`),
@@ -227,6 +240,50 @@ LOCK TABLES `topics` WRITE;
 /*!40000 ALTER TABLE `topics` DISABLE KEYS */;
 /*!40000 ALTER TABLE `topics` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `topics_img`
+--
+
+DROP TABLE IF EXISTS `topics_img`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `topics_img` (
+  `topic_img_id` int NOT NULL AUTO_INCREMENT,
+  `img_url` varchar(255) DEFAULT NULL,
+  `topic_id` int DEFAULT NULL,
+  PRIMARY KEY (`topic_img_id`),
+  KEY `topic_id` (`topic_id`),
+  CONSTRAINT `topics_img_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `topics_img`
+--
+
+LOCK TABLES `topics_img` WRITE;
+/*!40000 ALTER TABLE `topics_img` DISABLE KEYS */;
+/*!40000 ALTER TABLE `topics_img` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Final view structure for view `comment_view`
+--
+
+/*!50001 DROP VIEW IF EXISTS `comment_view`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `comment_view` AS select `comments`.`created_at` AS `created_at`,`custommers`.`full_name` AS `full_name`,`comments`.`comment` AS `comment` from (`custommers` join `comments` on((`custommers`.`custommer_id` = `comments`.`custommer_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -237,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-15 15:42:17
+-- Dump completed on 2023-03-16 20:49:04
