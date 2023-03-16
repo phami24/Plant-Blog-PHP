@@ -36,8 +36,8 @@
   justify-content: space-between;
 }
 
-input[type="text"] {
-  width: 100px;
+.search {
+  width: 300px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -48,10 +48,15 @@ input[type="text"] {
   padding: 5px 16px 5px 16px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  margin: 5px;
 }
 
-input[type="text"]:focus {
+/* .search:focus {
   width: 300px;
+} */
+a{
+  color: white;
+  text-decoration: none;
 }
 #fb:hover {
   color: #6495ed;
