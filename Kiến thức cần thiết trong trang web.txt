@@ -1,0 +1,63 @@
+* Lưu ý :
+	- Ở mỗi bài viết sẽ có hình ảnh một số sản phẩm liên quan đến bài viết đấy )
+	- Cố gắng có video ở mỗi bài để hướng dẫn chi tiết hơn về chủ đề bài viết muốn nói (Nếu quá nhiều thì không nên cho vào)
+
+* Cách thành phần của trang web :
+
+Trang chủ :
+	+ Menu
+	+ Banner
+	+ Tìm kiếm thanh
+	+ Thông tin về trang web
+	+ Giới thiệu nội dung trang web
+	+ Các bài viết mới nhất
+	+ Các bài viết có nhiều lượt xem nhất
+--------------------------------------------------------------------------------------------------------------------------------------
+Mục Kiến thức cơ bản:
+	+ Giới thiệu về làm vườn
+	+ Các loài cây phổ biến
+	+ Thực phẩm hữu cơ
+	+ Kỹ thuật trồng cơ bản
+	+ Các vấn đề phổ biến
+	+ Một số công trình xanh (ảnh ban công , góc vườn đẹp) 
+	+ Chia sẻ kinh nghiệm ( Chém bừa với 20 năm kinh nghiệm làm vườn thì ......)
+
+------------------------------------------------------------------------------------------------------------------------------------
+Mục Kỹ thuật mẹo làm vườn :
+	- Các kỹ thuật/mẹo làm vườn khác nhau để làm vườn tốt hơn
+	
+------------------------------------------------------------------------------------------------------------------------------------
+Mục Thiết kế :
+	- Lựa chọn chậu/đĩa chậu phù hợp, giá treo tường/giá treo tường, móc treo chậu, giá đỡ lan can, v.v.
+	- Lựa chọn phụ kiện cho khu vườn :
+		+ Đồ chơi khu vườn thu nhỏ
+		+ phụ kiện làm vườn
+		+ sỏi trang trí
+
+------------------------------------------------------------------------------------------------------------------------------------
+Mục dụng cụ :
+	- Các thiết bị làm vườn 
+	- Đất và phân bón
+	- Thuốc trừ sâu
+	- Chi tiết hạt giống
+
+------------------------------------------------------------------------------------------------------------------------------------
+Một số cuốn sách hay về làm vườn : ( Chỉ cần hình ảnh và description )
+	Chia ra nhiều mục sách :
+		- Kỹ thuật
+		- Dụng cụ
+		,.....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
