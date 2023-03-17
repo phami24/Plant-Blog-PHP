@@ -54,10 +54,11 @@
 /* .search:focus {
   width: 300px;
 } */
-a{
+/* a{
   color: white;
   text-decoration: none;
-}
+} */
+
 #fb:hover {
   color: #6495ed;
 }
@@ -80,5 +81,14 @@ a{
 }
 
 #link:hover {
+  color: #68ef7e;
+}
+
+#contact:link {
+  color: white;
+  text-decoration: none;
+}
+
+#contact:hover {
   color: #68ef7e;
 }
