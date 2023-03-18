@@ -46,7 +46,6 @@
                             <button class="btn btn-primary mt-2" type="submit">Reg</button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
