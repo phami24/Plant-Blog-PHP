@@ -20,6 +20,7 @@
     <style>
         <?php include '/xampp/htdocs/e-project1/Config/css/style.css' ?>
     </style>
+    
 </head>
 
 <body class="bg-light-subtle">
