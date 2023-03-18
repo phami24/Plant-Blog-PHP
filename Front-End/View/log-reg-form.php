@@ -87,7 +87,7 @@
 
     <script>
         document.getElementById('signup').addEventListener('change', function() {
-            document.getElementById('title').innerText = 'SingUp Form';
+            document.getElementById('title').innerText = 'Signup Form';
             document.getElementById('reg-form').classList.remove('hidden');
             document.getElementById('login-form').classList.add('hidden');
         });

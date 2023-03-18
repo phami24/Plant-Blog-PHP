@@ -20,35 +20,24 @@
 
 
 <body class="container">
-    <div class="row  justify-content-center" style="margin-top:25%; ">
-        <div class="col-sm-4 col-md-6">
-            <img src="https://www.shutterstock.com/image-vector/man-inscription-admin-icon-outline-600w-1730974153.jpg" alt="">
+    <form action="" class="login-form" id="login-form">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username :</label>
+            <input type="email" class="form-control" id="username">
         </div>
-        <div class="col-sm-8 col-md-6">
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="login-tab">
-                    <form action="#">
-                        <div class="form-group">
-                            <label for="login-username">Username :</label>
-                            <input type="text" class="form-control" id="login-username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="login-password">Pass :</label>
-                            <input type="text" class="form-control" id="login-password" required>
-                        </div>
-                        <button class="btn btn-primary mt-2" type="submit">Login</button>
-                    </form>
-                </div>
-
-            </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
         </div>
-    </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu</label>
+        </div>
+        <button type="submit" class="btn  btn-block w-100">Login</button>
+    </form>
 
 
 </body>
 
 </html>
 
-</body>
-
-</html>
