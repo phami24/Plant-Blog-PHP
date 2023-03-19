@@ -86,12 +86,12 @@
     </div>
 
     <script>
-        document.getElementById('signup').addEventListener('change', function() {
+        document.getElementById('signup').addEventListener('change', () => {
             document.getElementById('title').innerText = 'Signup Form';
             document.getElementById('reg-form').classList.remove('hidden');
             document.getElementById('login-form').classList.add('hidden');
         });
-        document.getElementById('login').addEventListener('change', function() {
+        document.getElementById('login').addEventListener('change', () => {
             document.getElementById('title').innerText = 'Login Form';
             document.getElementById('login-form').classList.remove('hidden');
             document.getElementById('reg-form').classList.add('hidden');
