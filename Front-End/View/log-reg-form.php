@@ -41,7 +41,7 @@
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu</label>
+                        <label class="form-check-label" for="exampleCheck1">Remember password</label>
                     </div>
                     <button type="submit" class="btn  btn-block w-100">Login</button>
                 </form>
