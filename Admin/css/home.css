@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  border: none;
+  cursor: pointer;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  text-align: center;
+}
+nav {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: ease-in-out 0.5s;
+}
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  overflow: hidden;
+}
+
+nav ul li a {
+  width: 100%;
+  color: #1e90ff;
+  font-size: 1.2em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 15px;
+  transition: linear 0.5s;
+}
+nav ul li a ion-icon {
+  margin: 0 20px;
+  color: #1e90ff;
+  font-size: 1.2em;
+  transition: linear 0.5s;
+}
+
+nav ul li a:hover {
+  background-color: #1e90ff;
+  color: white;
+}
+nav ul li a:hover ion-icon {
+  color: white;
+}
+
+.menu {
+  position: absolute;
+  top: 20px;
+  right: -46px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: linear 0.2s;
+}
+
+nav .menu ion-icon {
+  color: #1e90ff;
+  font-size: 1.6em;
+  transition: linear 0.2s;
+}
+nav .menu:hover {
+  background-color: #1e90ff;
+}
+
+nav .menu:hover ion-icon {
+  color: white;
+}
+
+.root {
+  position: relative;
+  top: 0;
+  /* left: 250px; */
+  /* width: calc(100%-250px); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in-out 0.5s;
+  display: inline-block;
+  width: 1440px;
+  min-height: 600px;
+  margin: 0 auto;
+  opacity: 0.05;
+}
+
+.header {
+  min-height: 312px;
+  width: 1440px;
+  background: url("img/images/pexels-lukas-1420709.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.header_text {
+  font-size: 40px;
+  font-weight: hold;
+  color: black;
+  text-transform: uppercase;
+  text-shadow: 0 4px 4px rgba(255, 0, 0, 0.25);
+}
+
+.main {
+  display: flex;
+}
+
+.content_left {
+  width: 30%;
+  padding-bottom: 40px;
+}
+
+.hide {
+  width: 0;
+}
+
+.expand {
+  width: 100%;
+  opacity: 1;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.course-item {
+  margin: 12px;
+  padding: 30px;
+  width: 500px;
+  height: 400px;
+}
+img {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: #ccc;
+  width: 460px;
+  height: 259px;
+}
+
+h1 {
+  padding: 50px;
+  opacity: 0.1;
+}
+
+img:hover{
+    opacity: 0.3;
+} 
