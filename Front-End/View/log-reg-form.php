@@ -33,7 +33,7 @@
                 <form action="" class="login-form" id="login-form">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username :</label>
-                        <input type="email" class="form-control" id="username">
+                        <input type="text" class="form-control" id="username">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -43,7 +43,7 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Remember password</label>
                     </div>
-                    <button type="submit" class="btn  btn-block w-100">Login</button>
+                    <button type="submit" class="btn  w-100">Login</button>
                 </form>
 
 
@@ -60,7 +60,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email :</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="text" class="form-control" id="email">
                     </div>
                     <div class="mb-3">
                         <label for="phonenumber" class="form-label">Phone Number :</label>
@@ -79,7 +79,7 @@
                         <input type="password" class="form-control" id="repass">
                     </div>
 
-                    <button type="submit" class="btn  btn-block w-100">Login</button>
+                    <button type="submit" class="btn  btn-block w-100">Signup</button>
                 </form>
             </div>
         </div>
