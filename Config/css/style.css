@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+nav {
+  box-shadow: 1px 1px #dad9d9;
+}
+
 .banner {
   position: absolute;
   animation: banner-text 3s;
@@ -72,15 +76,14 @@
   /* display: none; */
   background-color: #f5f5f5;
   z-index: 1;
-
 }
 
-.dropdown:hover .dropdown-menu{
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.dropdown > .dropdown-menu > li:hover > a{
-  color:rgb(155, 195, 82) ;
+.dropdown > .dropdown-menu > li:hover > a {
+  color: rgb(155, 195, 82);
 }
 
 #fb:hover {
