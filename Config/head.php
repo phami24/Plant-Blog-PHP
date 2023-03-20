@@ -71,13 +71,13 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="nav navbar-nav">
+                <div class="nav navbar-nav  me-auto">
                     <form class="nav-item input-group">
                         <input type="text" aria-describedby="basic-addon1" name="search" id="search" class="search" placeholder="Search">
                         <span type="submit  "  onclick="getfocus()" class="input-group-text me-2" id="basic-addon1"><ion-icon name="search-outline"></ion-icon></span>
                     </form>
                 </div>
-                <div class="nav navbar-nav me-auto ms-1">
+                <!-- <div class="nav navbar-nav me-auto ms-1">
                     <div class="nav-item ms-2 mt-2 dropdown">
                         <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <ion-icon name="people-outline" style="font-size: 30px"></ion-icon>
@@ -88,7 +88,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </nav>
 
