@@ -4,7 +4,7 @@
     <p>hello</p>
     <div class="carousel-inner" style="font-size: 2vw">
         <div class="carousel-item active" style="position: relative; font-weight: bold">
-            <img src="../img/Monstera-slide-1400x525.jpg" class="d-block w-100" alt="Banner" />
+            <img src="../img/Monstera-slide-1400x525.jpg" class="d-block w-100" alt="Banner 1" />
             <div style="color: #115b15">
                 <p class="banner">
                     Tỉnh dậy ở một nơi thật xa, xung quanh chỉ có cây cỏ và chim
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="carousel-item" style="position: relative; font-weight: bold">
-            <img src="../img/Monstera-soil-banner.jpg" class="d-block w-100 img-fluid" alt="Banner" />
+            <img src="../img/Monstera-soil-banner.jpg" class="d-block w-100 img-fluid" alt="Banner 2" />
             <div style="color: #f8fbf8">
                 <p class="banner">
                     Tôi yêu thiên nhiên cảnh sắc này nơi chỉ có thiên nhiên mới giúp

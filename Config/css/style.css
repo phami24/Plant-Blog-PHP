@@ -6,6 +6,7 @@
 
 nav {
   box-shadow: 1px 1px #dad9d9;
+  background-color: white;
 }
 
 .banner {
@@ -63,19 +64,24 @@ nav {
 }
 
 .search:focus {
-  width: 300px;
+  width: 200px;
+}
+
+.menu-tab{
+  line-height: 59px;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+
 }
 
 .dropdown-menu {
-  position: absolute;
-  /* display: none; */
-  background-color: #f5f5f5;
-  z-index: 1;
+  border-radius: 0;
+  border: none;
+  background-color: white;
+  /* z-index: 1; */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -84,6 +90,10 @@ nav {
 
 .dropdown > .dropdown-menu > li:hover > a {
   color: rgb(155, 195, 82);
+}
+
+.dropdown-item{
+  padding: 12px;
 }
 
 #fb:hover {

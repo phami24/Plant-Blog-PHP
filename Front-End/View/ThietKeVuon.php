@@ -1,4 +1,12 @@
-<?php include "/xampp/htdocs/e-project1/Config/head.php" ?>
+<?php
+include "/xampp/htdocs/e-project1/Config/head.php";
+?>
+<?php
+include "/xampp/htdocs/e-project1/Config/conn.php";
+$sql = 'SELECT * FROM post';
+
+$result = mysqli_query($conn, $sql);
+?>
 
 
 <!DOCTYPE html>
@@ -42,66 +50,28 @@
       </div>
 
       <div class="row mb-2 ">
-        <!-- hinh_1 -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text">
-                <h4 class="card-title " style="min-height: 80px; max-height:80px">Ý Tưởng Thiết </h4>
-                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
+        <!-- Start PHP code -->
+        <?php
+        if (mysqli_num_rows($result) > 0) {
+          while ($post = mysqli_fetch_assoc($result)) {
+
+        ?>
+            <div class="col-sm-6 col-md-4 mb-3"  >
+              <a href="" class="card-link nav-link" >
+                <div class="card col">
+                  <img style="min-height: 200px; max-height:200px" src="../../Admin/img/KnowledgeAndTips/<?php echo $post['post_img'] ?>" alt="Design" class="card-img-top">
+                  <div class="card-body text">
+                    <h4 class="card-title " style="min-height: 80px; max-height:80px"><?php echo $post['title'] ?></h4>
+                    <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
+                  </div>
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-        <!-- hinh_2 -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text">
-                <h4 class="card-title " style="min-height: 80px; max-height:80px">Ý Tưởng Thiết Kế</h4>
-                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </a>
-        </div>
-        <!-- hinh_3 -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text">
-                <h4 class="card-title " style="min-height: 80px; max-height:80px"> Cho Sân Vườn Nhà Bạn </h4>
-                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </a>
-        </div>
-        <!-- hinh_4 -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text">
-                <h4 class="card-title " style="min-height: 80px; max-height:80px">Ý Tưởng Thiếdddddddddddt Kế Bằng Sỏi Và Đá Cho Sân Vườn Nhà Bạn vbxgfkjhgfcvbghjhgf</h4>
-                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </a>
-        </div>
+        <?php
+          }
+        }
+        ?>
+        <!-- End PHP code -->
       </div>
     </div>
 
