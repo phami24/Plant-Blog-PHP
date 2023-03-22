@@ -1,7 +1,6 @@
 <?php include "/xampp/htdocs/e-project1/Config/head.php" ?>
 
 <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-    <p>hello</p>
     <div class="carousel-inner" style="font-size: 2vw">
         <div class="carousel-item active" style="position: relative; font-weight: bold">
             <img src="../img/Monstera-slide-1400x525.jpg" class="d-block w-100" alt="Banner 1" />

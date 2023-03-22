@@ -23,20 +23,31 @@
 
 <body class="bg-light-subtle">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-flex" id="navbar">
+    <a class="navbar-brand logo2 bg-body-tertiary me-lg-5" href="test.html" style="color: rgb(155, 195, 82)">
+        <span class="ms-lg-5" style="font-weight:bold;">
+            <ion-icon name="leaf-outline" class="ms-lg-5"></ion-icon>𝔾𝕒𝕣𝕕𝕖𝕟𝕎𝕠𝕣𝕝𝕕
+        </span>
+    </a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary  d-flex" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand  me-lg-5" href="test.html" style="color: rgb(155, 195, 82)">
+            <a class="navbar-brand logo1 me-lg-5" href="test.html" style="color: rgb(155, 195, 82)">
                 <span class="ms-lg-5" style="font-weight:bold;">
                     <ion-icon name="leaf-outline" class="ms-lg-5"></ion-icon>𝔾𝕒𝕣𝕕𝕖𝕟𝕎𝕠𝕣𝕝𝕕
                 </span>
             </a>
+            <div class="nav navbar-nav searchSm">
+                <form class="nav-item input-group">
+                    <input type="text" aria-describedby="basic-addon2" name="search2" id="search2" class="search2" placeholder="Search">
+                    <span type="submit  " onclick="getfocus()" class="input-group-text me-2" id="basic-addon2"><ion-icon name="search-outline"></ion-icon></span>
+                </form>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 flex-wrap ms-auto me-auto ">
                     <li class="nav-item ms-4">
-                        <a class="nav-link active" aria-current="page" href="">
+                        <a class="nav-link active" aria-current="page" href="HomePage.php">
                             Trang chủ</a>
                     </li>
                     <li class="nav-item ms-4 dropdown">
@@ -71,7 +82,7 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="nav navbar-nav  me-auto">
+                <div class="nav navbar-nav  me-auto searchLg">
                     <form class="nav-item input-group">
                         <input type="text" aria-describedby="basic-addon1" name="search" id="search" class="search" placeholder="Search">
                         <span type="submit  " onclick="getfocus()" class="input-group-text me-2" id="basic-addon1"><ion-icon name="search-outline"></ion-icon></span>
@@ -96,5 +107,6 @@
     <script>
         function getfocus() {
             document.getElementById("search").focus();
+            document.getElementById("search2").focus();
         }
     </script>

@@ -1,4 +1,3 @@
-
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
 ?>
@@ -12,7 +11,6 @@ $result = mysqli_query($conn, $sql);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,7 +58,7 @@ $result = mysqli_query($conn, $sql);
                         <div class="col-sm-6 col-md-4 mb-3">
                             <a href="" class="card-link nav-link">
                                 <div class="card col">
-                                    <img style="min-height: 200px; max-height:200px" src="../../Admin/img/KnowledgeAndTips/<?php echo $post['post_img'] ?>" alt="Design" class="card-img-top">
+                                    <img style="min-height: 200px; max-height:250px" src="../../Admin/img/KnowledgeAndTips/<?php echo $post['post_img'] ?>" alt="Design" class="card-img-top">
                                     <div class="card-body text">
                                         <h4 class="card-title " style="min-height: 80px; max-height:80px"><?php echo $post['title'] ?></h4>
                                         <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
@@ -81,8 +79,5 @@ $result = mysqli_query($conn, $sql);
 
 </html>
 
-
-
-<?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
