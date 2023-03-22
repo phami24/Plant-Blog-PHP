@@ -129,3 +129,25 @@ nav {
 #contact:hover {
   color: #68ef7e;
 }
+
+@media screen and (min-width:600px) {
+  .search {
+    width: 0px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 5px 16px 5px 16px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    opacity: 0;
+  }
+  
+  .search:focus {
+    width: 150px;
+    opacity: 1;
+  }
+}
