@@ -34,19 +34,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav  mb-2 mb-lg-0 flex-wrap ms-auto me-auto ">
+                <ul class="navbar-nav mb-2 mb-lg-0 flex-wrap ms-auto me-auto ">
                     <li class="nav-item ms-4">
                         <a class="nav-link active" aria-current="page" href="">
                             Trang chủ</a>
                     </li>
                     <li class="nav-item ms-4 dropdown">
-                        <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="KyThuat.php" class="nav-link active">
+                            Kiến thức
+                        </a>
+                        <!-- <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Kiến thức
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Kiến thức cơ bản</a></li>
                             <li><a class="dropdown-item" href="#">Mẹo và tips</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li class="nav-item ms-4 dropdown">
                         <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,8 +88,9 @@
                         </ul>
                     </div>
                 </div>
-            </div> -->
+            -->
             </div>
+        </div>
     </nav>
 
     <script>
