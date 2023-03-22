@@ -84,3 +84,5 @@ $result = mysqli_query($conn, $sql);
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+
+<?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>

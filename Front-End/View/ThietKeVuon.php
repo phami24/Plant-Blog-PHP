@@ -27,9 +27,8 @@ $result = mysqli_query($conn, $sql);
       /* display:none; */
       /* position: absolute; */
     }
-
     .bg_img {
-      background-image: url("../img/20977137-green-leaf-isolated-background.webp");
+      background-image: url("../img/Monstera-slide-1400x525.jpg");
       height: 50%;
       background-position: center;
       background-repeat: no-repeat;
@@ -37,19 +36,82 @@ $result = mysqli_query($conn, $sql);
       position: sticky;
     }
   </style>
-</head>
 
+</head>
 <body>
-  <div class="bg_img">
+  <div>
     <div class="container mt-5 mb-5">
-      <div class="container-fluid text-bg-dark mb-5 bg_img ">
+      <div class="container-fluid text-bg-dark mb-3 bg_img ">
         <div class="pt-5 pb-4">
-          <p class=" font-monospace text-success h4 text-end">Người trồng cây là những người biết yêu thương người khác.</p>
-          <p class=" font-monospace text-success h4">Những chuyến đi về thiên nhiên là cách tái tạo năng lượng và giúp bạn khám phá những điều tuyệt vời trong tự nhiên.</p>
+          <p class=" font-monospace text-success h4 text-center ">Người trồng cây là những người biết yêu thương người khác.</p>
+          <p class=" font-monospace text-success h4 text-center">Những chuyến đi về thiên nhiên là cách tái tạo năng lượng và giúp bạn khám phá những điều tuyệt vời trong tự nhiên.</p>
         </div>
       </div>
-
+      <div class="text-center mb-3 row">
+        <h3>Thiết kế vườn</h3>
+      </div>
       <div class="row mb-2 ">
+<<<<<<< HEAD
+        <!-- hinh_1 -->
+        <div class="col-sm-6 col-md-4 mb-3">
+          <a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
+              <div class="card-body text ">
+                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
+
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">...</small>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- hinh_2 -->
+        <div class="col-sm-6 col-md-4 mb-3">
+          <a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
+              <div class="card-body text">
+                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
+
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">...</small>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- hinh_3 -->
+        <div class="col-sm-6 col-md-4 mb-3">
+          <a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
+              <div class="card-body text">
+                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
+
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">...</small>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- hinh_4 -->
+        <div class="col-sm-6 col-md-4 mb-3 "><a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
+              <div class="card-body text">
+                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
+
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">...</small>
+              </div>
+            </div>
+          </a>
+        </div>
+=======
         <!-- Start PHP code -->
         <?php
         if (mysqli_num_rows($result) > 0) {
@@ -72,6 +134,47 @@ $result = mysqli_query($conn, $sql);
         }
         ?>
         <!-- End PHP code -->
+>>>>>>> 040e8a111bcc963d01a16c1991651c6798aa310c
+      </div>
+    </div>
+
+    <div class="container  mt-5 mb-5">
+      <h4 class="text-success">Thông tin liên quan:</h4>
+
+      <!-- hinh_1 -->
+      <div class="card mb-3">
+        <a href="" class="card-link nav-link">
+          <div class="row g-0">
+            <div class="col-sm-4">
+              <img src="../img/Monstera-slide-1400x525.jpg" class="w-100" alt="...">
+            </div>
+            <div class="col-sm-8">
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Text....</p>
+                <p class="card-text"><small class="text-muted">...</small></p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- hinh_2 -->
+      <div class="card mb-3">
+        <a href="" class="card-link nav-link">
+          <div class="row g-0">
+            <div class="col-sm-4">
+              <img src="../img/Monstera-slide-1400x525.jpg" class="w-100" alt="...">
+            </div>
+            <div class="col-sm-8">
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Text....</p>
+                <p class="card-text"><small class="text-muted">...</small></p>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -79,7 +182,6 @@ $result = mysqli_query($conn, $sql);
 </body>
 
 </html>
-
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
