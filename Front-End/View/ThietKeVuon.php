@@ -1,4 +1,4 @@
-<?php include"/xampp/htdocs/e-project1/Config/head.php" ?>
+<?php include "/xampp/htdocs/e-project1/Config/head.php" ?>
 
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
       /* text-overflow: ellipsis; */
       -webkit-line-clamp: 6;
       /* -webkit-box-orient: vertical; */
-      overflow:auto;
+      overflow: auto;
       /* display:none; */
       /* position: absolute; */
     }
@@ -28,8 +28,6 @@
       background-size: cover;
       position: sticky;
     }
-
-    
   </style>
 </head>
 
@@ -46,103 +44,64 @@
       <div class="row mb-2 ">
         <!-- hinh_1 -->
         <div class="col-sm-6 col-md-4 mb-3">
-          <div class="card col" >
-            <a href="HomePage.php" class="card-link nav-link">
-              <img src="../img/design_01.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text ">
-                <h4 class="card-title "style="min-height: 70px;">Ý Tưởng Thiết Kế Tuyệt Vời Cho Khu Vườn Nhỏ</h4>
-                <!-- <p class="card-text ">Sử dụng màu sắc và lặp lại để thêm chiều sâu cho khu vườn</p> -->
+          <a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
+              <div class="card-body text">
+                <h4 class="card-title " style="min-height: 80px; max-height:80px">Ý Tưởng Thiết </h4>
+                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
               </div>
-            </a>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <!-- hinh_2 -->
         <div class="col-sm-6 col-md-4 mb-3">
-          <div class="card col" >
-            <a href="" class="card-link nav-link">
-              <img src="../img/thiet-ke-vuon-bang-soi-da-03.jpg" alt="Design" class="card-img-top">
+          <a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
               <div class="card-body text">
-                <h4 class="card-title "style="min-height: 70px;">Ý Tưởng Thiết Kế Bằng Sỏi Và Đá Cho Sân Vườn Nhà Bạn vbxgfkjhgfcvbghjhgf</h4>
+                <h4 class="card-title " style="min-height: 80px; max-height:80px">Ý Tưởng Thiết Kế</h4>
                 <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
               </div>
-            </a>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <!-- hinh_3 -->
         <div class="col-sm-6 col-md-4 mb-3">
-          <div class="card col" >
-            <a href="" class="card-link nav-link">
-              <img src="../img/design_01.jpg" alt="Design" class="card-img-top">
+          <a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
               <div class="card-body text">
-                <h4 class="card-title "style="min-height: 70px;">Ý Tưởng Thiết Kế Tuyệt Vời Cho Khu Vườn Nhỏ</h4>
-                <!-- <p class="card-text ">Sử dụng màu sắc và lặp lại để thêm chiều sâu cho khu vườn</p> -->
+                <h4 class="card-title " style="min-height: 80px; max-height:80px"> Cho Sân Vườn Nhà Bạn </h4>
+                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
               </div>
-            </a>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <!-- hinh_4 -->
-        <div class="col-sm-6 col-md-4 mb-3 ">
-          <div class="card col" >
-            <a href="" class="card-link nav-link">
-              <img src="../img/design_01.jpg" alt="Design" class="card-img-top">
+        <div class="col-sm-6 col-md-4 mb-3">
+          <a href="" class="card-link nav-link">
+            <div class="card col">
+              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
               <div class="card-body text">
-                <h4 class="card-title "style="min-height: 70px;">Ý Tưởng Thiết Kế Tuyệt Vời Cho Khu Vườn Nhỏ</h4>
-                <!-- <p class="card-text ">Sử dụng màu sắc và lặp lại để thêm chiều sâu cho khu vườn</p> -->
+                <h4 class="card-title " style="min-height: 80px; max-height:80px">Ý Tưởng Thiếdddddddddddt Kế Bằng Sỏi Và Đá Cho Sân Vườn Nhà Bạn vbxgfkjhgfcvbghjhgf</h4>
+                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
               </div>
-            </a>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-      </div>
-    </div>
-    <div class="container  mt-5 mb-5">
-      <h4 class="text-success">Thông tin liên quan:</h4>
-
-      <!-- hinh_1 -->
-      <div class="card mb-3">
-        <a href="" class="card-link nav-link">
-          <div class="row g-0">
-            <div class="col-sm-4">
-              <img src="../img/design_01.jpg" class="w-50" alt="...">
-            </div>
-            <div class="col-sm-8">
-              <div class="card-body">
-                <h5 class="card-title">Sen đá đô la trắng</h5>
-                <p class="card-text">Sen đá đô la trắng là một trong những loài sen có khả năng chịu được nắng mưa của môi trường nên cây dễ trồng và dễ chăm sóc; là sự lựa chọn ...</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- hinh_2 -->
-      <div class="card mb-3">
-        <a href="" class="card-link nav-link">
-          <div class="row g-0">
-            <div class="col-sm-4">
-              <img src="../img/thiet-ke-vuon-bang-soi-da-03.jpg" class="w-50" alt="...">
-            </div>
-            <div class="col-sm-8">
-              <div class="card-body">
-                <h5 class="card-title">Sen đá đô la trắng</h5>
-                <p class="card-text">Sen đá đô la trắng là một trong những loài sen có khả năng chịu được nắng mưa của môi trường nên cây dễ trồng và dễ chăm sóc; là sự lựa chọn ...</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </a>
       </div>
     </div>
 
@@ -153,4 +112,4 @@
 
 
 
-<?php include"/xampp/htdocs/e-project1/Config/footer.php" ?>
+<?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
