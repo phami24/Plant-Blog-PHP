@@ -3,7 +3,7 @@ include "/xampp/htdocs/e-project1/Config/head.php";
 ?>
 <?php
 include "/xampp/htdocs/e-project1/Config/conn.php";
-$sql = 'SELECT * FROM post';
+$sql = 'SELECT * FROM post WHERE post_category_id = 2 AND status =1;';
 
 $result = mysqli_query($conn, $sql);
 ?>
@@ -27,6 +27,7 @@ $result = mysqli_query($conn, $sql);
       /* display:none; */
       /* position: absolute; */
     }
+
     .bg_img {
       background-image: url("../img/Monstera-slide-1400x525.jpg");
       height: 50%;
@@ -38,6 +39,7 @@ $result = mysqli_query($conn, $sql);
   </style>
 
 </head>
+
 <body>
   <div>
     <div class="container mt-5 mb-5">
@@ -51,8 +53,8 @@ $result = mysqli_query($conn, $sql);
         <h3>Thiết kế vườn</h3>
       </div>
       <div class="row mb-2 ">
-<<<<<<< HEAD
-        <!-- hinh_1 -->
+        <!-- <<<<<<< HEAD
+        
         <div class="col-sm-6 col-md-4 mb-3">
           <a href="" class="card-link nav-link">
             <div class="card col">
@@ -67,7 +69,7 @@ $result = mysqli_query($conn, $sql);
             </div>
           </a>
         </div>
-        <!-- hinh_2 -->
+       
         <div class="col-sm-6 col-md-4 mb-3">
           <a href="" class="card-link nav-link">
             <div class="card col">
@@ -82,7 +84,7 @@ $result = mysqli_query($conn, $sql);
             </div>
           </a>
         </div>
-        <!-- hinh_3 -->
+
         <div class="col-sm-6 col-md-4 mb-3">
           <a href="" class="card-link nav-link">
             <div class="card col">
@@ -97,7 +99,7 @@ $result = mysqli_query($conn, $sql);
             </div>
           </a>
         </div>
-        <!-- hinh_4 -->
+
         <div class="col-sm-6 col-md-4 mb-3 "><a href="" class="card-link nav-link">
             <div class="card col">
               <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
@@ -111,15 +113,15 @@ $result = mysqli_query($conn, $sql);
             </div>
           </a>
         </div>
-=======
+======= -->
         <!-- Start PHP code -->
         <?php
         if (mysqli_num_rows($result) > 0) {
           while ($post = mysqli_fetch_assoc($result)) {
 
         ?>
-            <div class="col-sm-6 col-md-4 mb-3"  >
-              <a href="" class="card-link nav-link" >
+            <div class="col-sm-6 col-md-4 mb-3">
+              <a href="" class="card-link nav-link">
                 <div class="card col">
                   <img style="min-height: 200px; max-height:200px" src="../../Admin/img/KnowledgeAndTips/<?php echo $post['post_img'] ?>" alt="Design" class="card-img-top">
                   <div class="card-body text">
@@ -134,47 +136,7 @@ $result = mysqli_query($conn, $sql);
         }
         ?>
         <!-- End PHP code -->
->>>>>>> 040e8a111bcc963d01a16c1991651c6798aa310c
-      </div>
-    </div>
 
-    <div class="container  mt-5 mb-5">
-      <h4 class="text-success">Thông tin liên quan:</h4>
-
-      <!-- hinh_1 -->
-      <div class="card mb-3">
-        <a href="" class="card-link nav-link">
-          <div class="row g-0">
-            <div class="col-sm-4">
-              <img src="../img/Monstera-slide-1400x525.jpg" class="w-100" alt="...">
-            </div>
-            <div class="col-sm-8">
-              <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Text....</p>
-                <p class="card-text"><small class="text-muted">...</small></p>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- hinh_2 -->
-      <div class="card mb-3">
-        <a href="" class="card-link nav-link">
-          <div class="row g-0">
-            <div class="col-sm-4">
-              <img src="../img/Monstera-slide-1400x525.jpg" class="w-100" alt="...">
-            </div>
-            <div class="col-sm-8">
-              <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Text....</p>
-                <p class="card-text"><small class="text-muted">...</small></p>
-              </div>
-            </div>
-          </div>
-        </a>
       </div>
     </div>
 
