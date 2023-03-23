@@ -38,7 +38,7 @@
             <span style="color: green;">Lợi ích của việc làm vườn</span>
         </h1>
     </div>
-    <div class="w-100 my-5 px-4 content">
+    <div class="w-100 my-5 px-4 content" style="font-size: 20px;border-left: #C0C0C0 6px solid;">
         <span>
             <p>
                 Làm vườn là việc trồng các loại cây như hoa, cây bụi và cây cối như một sở thích hoặc

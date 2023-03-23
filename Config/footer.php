@@ -1,4 +1,6 @@
+<style>
 
+</style>
 <footer class="text-center text-lg-start bg-success text-white">
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <div class="me-5 d-none d-lg-block">
@@ -31,7 +33,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <h6 class="fw-bold mb-4">
                         <i class="fas fa-gem me-3 text-secondary"></i>
-                        <span class="ms-lg-3 text-left" style="font-size:20px;">
+                        <span class="ms-lg-3 text-left" style="font-size:30px;">
                             <ion-icon name="leaf-outline" class="ms-lg-5"></ion-icon>𝔾𝕒𝕣𝕕𝕖𝕟𝕎𝕠𝕣𝕝𝕕
                         </span>
                     </h6>
@@ -42,34 +44,37 @@
                         menu
                     </h6>
                     <p id="link">
-                        <a href="#" class="text-reset" id="link">Home</a>
+                        <a href="#" class="text-reset" id="link">- Home</a>
                     </p>
                     <p id="link">
-                        <a href="#!" class="text-reset" id="link">React</a>
+                        <a href="#!" class="text-reset" id="link">- Kien thuc</a>
+                    </p>
+                    <p>
+                        - Thiet ke :
+                    <p>
+                    <p id="link">
+                        <a href="#!" class="text-reset px-1" id="link"> > Lua chon san pham</a>
                     </p>
                     <p id="link">
-                        <a href="#!" class="text-reset" id="link">Vue</a>
-                    </p>
-                    <p id="link">
-                        <a href="#!" class="text-reset" id="link">Laravel</a>
+                        <a href="#!" class="text-reset px-1" id="link"> > Lua chon phu kien</a>
                     </p>
                 </div>
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <h6 class="text-uppercase fw-bold mb-4">
-                        Useful links
+                        DUng cu
                     </h6>
                     <p id="link">
-                        <a href="#!" class="text-reset" id="link">Pricing</a>
+                        <a href="#!" class="text-reset" id="link">- Thiet bi</a>
                     </p>
                     <p id="link">
-                        <a href="#!" class="text-reset" id="link">Settings</a>
+                        <a href="#!" class="text-reset" id="link">- Dat va phan bon</a>
                     </p>
                     <p id="link">
-                        <a href="#!" class="text-reset" id="link">Orders</a>
+                        <a href="#!" class="text-reset" id="link">- Thuoc tru sau</a>
                     </p>
                     <p id="link">
-                        <a href="#!" class="text-reset" id="link">Help</a>
+                        <a href="#!" class="text-reset" id="link">- Hat giong</a>
                     </p>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
