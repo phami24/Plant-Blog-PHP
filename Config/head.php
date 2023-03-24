@@ -17,6 +17,9 @@
 
     <style>
         <?php include '/xampp/htdocs/e-project1/Config/css/style.css' ?>
+        nav{
+            background-color: green;
+        }
     </style>
     
 </head>
@@ -28,7 +31,7 @@
             <ion-icon name="leaf-outline" class="ms-lg-5"></ion-icon>𝔾𝕒𝕣𝕕𝕖𝕟𝕎𝕠𝕣𝕝𝕕
         </span>
     </a>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary  d-flex" id="navbar">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand logo1 me-lg-5" href="HomePage.php" style="color: rgb(155, 195, 82)">
                 <span class="ms-lg-5" style="font-weight:bold;">
