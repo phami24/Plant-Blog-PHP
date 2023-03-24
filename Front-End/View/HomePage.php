@@ -1,4 +1,4 @@
-<div autofocus onmousedown="skip()" class="container-fluid loadingPage row " style=" background-size: cover; background-repeat:no-repeat; background-image: url(https://img.freepik.com/premium-photo/self-cultivation-micro-greenery-home-microgreen-radish-seedlings_296733-637.jpg?w=1380);">
+<div autofocus onmousedown="skip()" class="container-fluid loadingPage row " style=" background-size: cover; background-repeat:no-repeat; background-image: url(../img/pexels-scott-webb-305821.jpg);">
     <div style="width: 50%; margin: 0 auto; text-align:center; " class="">
         <div class="progress" role="progressbar" style="height: 10%;">
             <div class="progress-bar bg-success" style="width: 100%;">
