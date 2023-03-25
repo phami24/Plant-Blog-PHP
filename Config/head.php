@@ -14,13 +14,13 @@
     <!-- Icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-    <style>
+    <link rel="stylesheet" href="../../Config/css/style.css">
+    <!-- <style>
         <?php include '/xampp/htdocs/e-project1/Config/css/style.css' ?>
         nav{
             background-color: green;
         }
-    </style>
+    </> -->
     
 </head>
 
