@@ -1,0 +1,86 @@
+img {
+    width: 90%;
+    height: NaN;
+}
+
+body {
+    margin: 0;
+    padding: 0 15px;
+}
+
+.toc:before {
+    content: "Mục lục:";
+    display: block;
+    margin-bottom: 20px;
+    font-size: larger;
+    font-weight: bold;
+    border-bottom: 1px dashed #dadada;
+    padding-bottom: 10px;
+}
+
+.toc {
+    padding: 30px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.toc-link {
+    font-size: 100%;
+    text-decoration: none;
+}
+
+.toc-list .is-collapsible {
+    margin-left: 15px;
+    color: #666;
+}
+
+.inner-content {
+    padding: 0 60px;
+}
+
+.input-right {
+    float: right;
+}
+
+.input-right>p {
+    position: relative;
+    line-height: 1.8em;
+}
+
+*/ input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+button {
+    width: 60px;
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+*/
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
