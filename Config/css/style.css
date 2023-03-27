@@ -271,19 +271,6 @@ nav {
   transform: translate(0, -11px) rotate(45deg);
 }
 
-.scroll-icon {
-  animation: moverY 1s infinite;
-  animation-direction: alternate;
-}
-.scroll-text{
-  text-align: center;
-  color: #2c2c2c;
-  text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
-  animation: moverX 2s 1;
-  animation-direction: alternate;
-  transform: translateY(-25px)
-}
-
 @keyframes moverY {
   0% {
     transform: translateY(0);
@@ -304,34 +291,6 @@ nav {
     transform: translateY(-25px);
     opacity: 1;
   }
-}
-
-.reveal {
-  opacity: 0;
-  transition: all 2s ease-in-out;
-}
-
-.reveal.active {
-  opacity: 1;
-}
-
-.scroll-box.hide{
-  display: none;
-}
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
-
-body {
-    background: #f2f2f5;
-}
-
-.loadingPage {
-    display: flex;
-    /*   border:1px solid red; */
-    height: 100%;
-    width: 100%;
-    align-items: center;
 }
 
 svg {
