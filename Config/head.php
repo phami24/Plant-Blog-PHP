@@ -14,7 +14,9 @@
     <!-- Icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <link rel="stylesheet" href="../../Config/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/title.css">
 
 </head>
 
