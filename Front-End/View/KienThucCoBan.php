@@ -1,39 +1,43 @@
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
-$sql = 'SELECT * FROM topics';
+$post_id = $_GET['id'];
 ?>
 
-
 <div class="container ">
+    <?php
+    $sql1 = "SELECT * FROM post WHERE post_id = '$post_id'";
+    $result1 = mysqli_query($conn, $sql1);
+    $post = mysqli_fetch_assoc($result1);
+    ?>
     <div class="text-center my-4">
-        <h1 style="color: #61c203;">Kiến Thức</h1>
+        <h1 style="color: #61c203;"><?php echo $post['title'] ?></h1>
     </div>
 </div>
 <div class="">
     <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div class="inner-content">
-
-            <h1>Làm Thế Nào Để Làm Vườn Trên Sân Thượng</h1>
             <aside class="toc">
-                <ol class="toc-list">
-                    <ol class="toc-list  is-collapsible">
+                <ul class="toc-list">
+                    <ul class="toc-list  is-collapsible">
                         <?php
+                        $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($topic = mysqli_fetch_assoc($result)) {
                                 $text = $topic['content'];
-
+                                if ($topic['topic_name'] != 'null') {
                         ?>
-                                <li>
-                                    <a href="#"><?php echo $topic['topic_name'] ?></a>
-                                </li>
+                                    <li>
+                                        <a href="#"><?php echo $topic['topic_name']; ?></a>
+                                    </li>
                         <?php
+                                }
                             }
                         }
                         ?>
-                    </ol>
-                </ol>
+                    </ul>
+                </ul>
             </aside>
             <!---------------- nội dung -------------------->
 
@@ -44,31 +48,39 @@ $sql = 'SELECT * FROM topics';
                     $result = mysqli_query($conn, $sql);
                     if (mysqli_num_rows($result) > 0) {
                         while ($topic = mysqli_fetch_assoc($result)) {
+                            $topicId = $topic['topic_id'];
+                            $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topicId'";
+                            $result1 = mysqli_query($conn, $sql1);
+                            $topic_img = mysqli_fetch_assoc($result1);
 
                     ?>
-                            <h3 style="text-align: justify;">
-                                <strong>
-                                    <span class="notranslate"><?php echo $topic['topic_name']?></span>
-                                </strong>
-                            </h3>
+                            <?php if ($topic['topic_name'] != 'null') { ?>
+                                <h3 style="text-align: justify;">
+                                    <strong>
+                                        <span class="notranslate"><?php echo $topic['topic_name'] ?></span>
+                                    </strong>
+                                </h3>
+                            <?php } ?>
                             <p style="text-align: justify;">
                                 <?php echo nl2br($topic['content']) ?>
                             </p>
-                            <p style="text-align: justify;">
-                                <span class="notranslate">
-                                    <img src="https://bigfarm-group.com/wp-content/uploads/2021/08/hat3-768x576.jpg" border="0" width="null" height="NaN" />
-                                </span>
-                            </p>
+                            <?php if ($topic_img['img_url'] != 'null') { ?>
+                                <p style="text-align: justify;">
+                                    <span class="notranslate">
+                                        <img src="../../Admin/img/Tips/<?php echo $topic_img['img_url']; ?>" />
+                                    </span>
+                                </p>
+                            <?php } ?>
                             <p style="text-align: center;">
                                 <span class="notranslate">
                                     Xem thêm: <a href="#" target="_blank">title</a>
                                 </span>
                             </p>
-                </div>
-        <?php
+                    <?php
                         }
                     }
-        ?>
+                    ?>
+                </div>
             </div>
 
             <!---------------------------------------- kết thúc nội dung -------------------------------------->

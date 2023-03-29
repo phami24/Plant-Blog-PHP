@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/style.css">
     <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/title.css">
 
-    
+
 </head>
 
 <body class="bg-light-subtle ">
@@ -54,15 +54,16 @@
                             Trang chủ</a>
                     </li>
                     <li class="nav-item ms-4 dropdown">
-                        <a href="KyThuat.php" class="nav-link active">
+                        <!-- <a href="KyThuat.php" class="nav-link active">
                             Kiến thức
-                        </a>
-                        <!-- <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        </a> -->
+                        <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Kiến thức
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Mẹo và tips</a></li>
-                        </ul> -->
+                            <li><a class="dropdown-item" href="#">Kiến thức cơ bản</a></li>
+                            <li><a class="dropdown-item" href="KyThuat.php">Mẹo và tips</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item ms-4 dropdown">
                         <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,7 +71,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Lựa chọn sản phẩm</a></li>
-                            <li><a class="dropdown-item" href="#">Lựa chọn phụ kiện</a></li>
+                            <li><a class="dropdown-item" href="#">Phụ Kiện</a></li>
                         </ul>
                     </li>
                     <li class="nav-item ms-4 dropdown">
