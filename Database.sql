@@ -1,4 +1,4 @@
-CREATE DATABASE garden_world;
+adCREATE DATABASE garden_world;
 
 
 USE garden_world;
