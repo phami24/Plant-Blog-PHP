@@ -3,10 +3,6 @@ img {
     height: NaN;
 }
 
-body {
-    margin: 0;
-    padding: 0 15px;
-}
 
 .toc:before {
     content: "Mục lục:";

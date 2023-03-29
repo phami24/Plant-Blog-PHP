@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div autofocus onmousedown="skip()" class="container-fluid loadingPage row " style=" background-size: cover; background-repeat:no-repeat; background-image: url(../img/pexels-scott-webb-305821.jpg);">
     <div style="width: 50%; margin: 0 auto; text-align:center; " class="">
         <div class="progress" role="progressbar" style="height: 10%;">
@@ -18,26 +19,33 @@
 <div class="main">
     <?php include "/xampp/htdocs/e-project1/Config/head.php" ?>
 
+=======
+    <?php
+    include "/xampp/htdocs/e-project1/Config/head.php";
+    include "/xampp/htdocs/e-project1/Config/conn.php";
+    $sql = 'SELECT * FROM banner ;';
+    ?>
+>>>>>>> 81ffd2275ad7dc247acc08539fef360d56b7412d
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
         <div class="carousel-inner" style="font-size: 2vw">
-            <div class="carousel-item active" style="position: relative; font-weight: bold">
-                <img src="../img/Monstera-slide-1400x525.jpg" class="d-block w-100" alt="Banner 1" />
-                <div style="color: #115b15">
-                    <p class="banner">
-                        Tỉnh dậy ở một nơi thật xa, xung quanh chỉ có cây cỏ và chim
-                        muông, cảm thấy tinh thần sảng khoái, dễ chịu vô cùng.
-                    </p>
-                </div>
-            </div>
-            <div class="carousel-item" style="position: relative; font-weight: bold">
-                <img src="../img/Monstera-soil-banner.jpg" class="d-block w-100 img-fluid" alt="Banner 2" />
-                <div style="color: #f8fbf8">
-                    <p class="banner">
-                        Tôi yêu thiên nhiên cảnh sắc này nơi chỉ có thiên nhiên mới giúp
-                        con người trở nên thư thái và quên mọi ưu tư, muộn phiền.
-                    </p>
-                </div>
-            </div>
+            <?php
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($banner = mysqli_fetch_assoc($result)) {
+
+            ?>
+                    <div class="carousel-item active" style="position: relative; font-weight: bold">
+                        <img src="../../Front-End/img/<?php echo $banner['banner_img'];  ?>" class="d-block w-100" alt="Banner 1" />
+                        <div style="color: White">
+                            <p class="banner">
+                                <?php echo $banner['banner_text'] ?>
+                            </p>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -49,76 +57,71 @@
         </button>
     </div>
 
-    <div class="container mt-3 scroll-box" style="text-align: center;">
-        <ion-icon name="chevron-down-outline" style="font-size: 100px; " class="scroll-icon"></ion-icon>
-        <p style="font-size: 50px;" class="scroll-text">Scroll</p>
-    </div>
-
-    <div class="container reveal">
+    <div class="container">
         <div class="text-center my-4">
 
-        <h1>
-            <span style="color: green;">Lợi ích của việc làm vườn</span>
-        </h1>
-    </div>
-    <div class="w-100 my-5 px-4 content">
-        <span>
-            <p>
-                Làm vườn là việc trồng các loại cây như hoa, cây bụi và cây cối như một sở thích hoặc
-                giải trí. Một số người cũng trồng rau hoặc trái cây trong vườn của họ. Mọi người làm
-                làm vườn ngoài trời trên đất ở sân sau của họ, hoặc trong chậu hoặc thùng chứa trên
-                ban công. Những khu vườn, ngay cả những khu vườn do con người tạo ra, đều có cây cối
-                có thể giảm mức độ carbon có hại trong không khí, đồng thời giải phóng
-                đưa oxy trở lại bầu khí quyển mà chúng ta cần để tồn tại.
-                Làm vườn đòi hỏi bạn phải thực hiện rất nhiều hoạt động như cắt tỉa, đào đất, tưới cây.
-                thực vật, uốn dẻo, v.v. Vì vậy, đó cũng là một chế độ tập luyện khá tốt.
-                Nghiên cứu cho thấy 3 giờ làm vườn vừa phải tương đương với 1 giờ trong
-                phòng thể dục!
-            </p>
-            <p>
-                Nhiều người cảm thấy hứng thú với việc làm vườn nhưng ngại bắt đầu vì thiếu kiến ​​thức
-                và thông tin chính xác về thực vật, cách chăm sóc, v.v. Do đó, chúng tôi phát
-                triển một trang web sẽ bao gồm tất cả những điều cơ bản về làm vườn.
-            </p>
-            <span>Garden World là một Website được lập ra với Mục đích:</span>
-            <li>Cung cấp cho mọi người những kiến thức về Trồng cây cảnh, trồng hoa hoặc làm vườn.
-                Để mỗi chúng ta có thể tự thiết kế cho mình những không gian xanh, trong lành và cảm
-                thấy sảng khoái hơn, yêu đời hơn.</li>
-            <li>Cung cấp cho mọi người thông tin hữu ích về những thực phẩm tự nhiên có lợi cho sức khỏe.</li>
-            <li>Cung cấp những cách thức tái chế những thứ không dùng trong nhà bạn biến nó thành
-                những vật dụng hữu ích trong cuộc sống. Nâng cao nhận thức của mọi người về việc
-                bảo vệ môi trường, bảo tồn động vật và những thông tin về việc biến đổi khí hậu.</li>
-            <span>Và còn rất nhiều thứ nữa chúng tôi sẽ phát triển trong Dự án Garden World này.
-                Vì thế bạn hãy cùng chúng tôi chung tay để khiến cuộc sống của chúng ta ngày càng tươi đẹp hơn nhé!</span>
-        </span>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6 g-0">
-            <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" style="width: 100%; height:100%">
+            <h1>
+                <span style="color: green;">Lợi ích của việc làm vườn</span>
+            </h1>
         </div>
-        <div class="col-lg-6 text-white" style="background: #3A3A3A;">
-            <div class="content-column">
-                <div class="inner-box">
-                    <br>
-                    <div class="sec-title-two mx-3">
-                        <h1>
-                            <span style="color: #5BFD3B;">Garden World mang đến cho bạn</span>
-                        </h1>
+        <div class="w-100 my-5 px-4 content">
+            <span>
+                <p>
+                    Làm vườn là việc trồng các loại cây như hoa, cây bụi và cây cối như một sở thích hoặc
+                    giải trí. Một số người cũng trồng rau hoặc trái cây trong vườn của họ. Mọi người làm
+                    làm vườn ngoài trời trên đất ở sân sau của họ, hoặc trong chậu hoặc thùng chứa trên
+                    ban công. Những khu vườn, ngay cả những khu vườn do con người tạo ra, đều có cây cối
+                    có thể giảm mức độ carbon có hại trong không khí, đồng thời giải phóng
+                    đưa oxy trở lại bầu khí quyển mà chúng ta cần để tồn tại.
+                    Làm vườn đòi hỏi bạn phải thực hiện rất nhiều hoạt động như cắt tỉa, đào đất, tưới cây.
+                    thực vật, uốn dẻo, v.v. Vì vậy, đó cũng là một chế độ tập luyện khá tốt.
+                    Nghiên cứu cho thấy 3 giờ làm vườn vừa phải tương đương với 1 giờ trong
+                    phòng thể dục!
+                </p>
+                <p>
+                    Nhiều người cảm thấy hứng thú với việc làm vườn nhưng ngại bắt đầu vì thiếu kiến ​​thức
+                    và thông tin chính xác về thực vật, cách chăm sóc, v.v. Do đó, chúng tôi phát
+                    triển một trang web sẽ bao gồm tất cả những điều cơ bản về làm vườn.
+                </p>
+                <span>Garden World là một Website được lập ra với Mục đích:</span>
+                <li>Cung cấp cho mọi người những kiến thức về Trồng cây cảnh, trồng hoa hoặc làm vườn.
+                    Để mỗi chúng ta có thể tự thiết kế cho mình những không gian xanh, trong lành và cảm
+                    thấy sảng khoái hơn, yêu đời hơn.</li>
+                <li>Cung cấp cho mọi người thông tin hữu ích về những thực phẩm tự nhiên có lợi cho sức khỏe.</li>
+                <li>Cung cấp những cách thức tái chế những thứ không dùng trong nhà bạn biến nó thành
+                    những vật dụng hữu ích trong cuộc sống. Nâng cao nhận thức của mọi người về việc
+                    bảo vệ môi trường, bảo tồn động vật và những thông tin về việc biến đổi khí hậu.</li>
+                <span>Và còn rất nhiều thứ nữa chúng tôi sẽ phát triển trong Dự án Garden World này.
+                    Vì thế bạn hãy cùng chúng tôi chung tay để khiến cuộc sống của chúng ta ngày càng tươi đẹp hơn nhé!</span>
+            </span>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 g-0">
+                <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" style="width: 100%; height:100%">
+            </div>
+            <div class="col-lg-6 text-white" style="background: #3A3A3A;">
+                <div class="content-column">
+                    <div class="inner-box">
+                        <br>
+                        <div class="sec-title-two mx-3">
+                            <h1>
+                                <span style="color: #5BFD3B;">Garden World mang đến cho bạn</span>
+                            </h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row clearfix mx-5 my-5">
-                    <div class="col-md-6 col-sm-6 col-xs-12 mb-5 ">
-                        <h4><i>
-                                <span style="color: #5BFD3B;">1.</span>
-                                Ý tưởng mới lạ
-                            </i>
-                        </h4>
-                        <div class="text-white-50">Những ý tưởng sáng tạo mới lạ, dễ thực hiện giúp cho bạn đọc thêm yêu công việc làm vườn.</div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 mb-5">
-                        <h4><i>
+                    <div class="row clearfix mx-5 my-5">
+                        <div class="col-md-6 col-sm-6 col-xs-12 mb-5 ">
+                            <h4><i>
+                                    <span style="color: #5BFD3B;">1.</span>
+                                    Ý tưởng mới lạ
+                                </i>
+                            </h4>
+                            <div class="text-white-50">Những ý tưởng sáng tạo mới lạ, dễ thực hiện giúp cho bạn đọc thêm yêu công việc làm vườn.</div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 mb-5">
+                            <h4><i>
 
                                     <span style="color: #5BFD3B;">2.</span>
                                     Hướng dẫn chi tết
@@ -151,37 +154,5 @@
         </div>
     </div>
 
-    <script>
-        setTimeout(() => {
-            document.querySelector('.loadingPage').classList.add('hide');
-            document.querySelector('.main').classList.add('shows');
-        }, 1000);
-        window.addEventListener('scroll', reveal);
-
-        function skip(){
-            document.querySelector('.loadingPage').classList.add('hide');
-            document.querySelector('.main').classList.add('shows');
-        }
-
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal')
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowheight = window.innerHeight;
-                var revealtop = reveals[i].getBoundingClientRect().top;
-                var reavealpoint = 100;
-
-                if (revealtop < windowheight - reavealpoint) {
-                    reveals[i].classList.add('active');
-                    document.querySelector('.scroll-box').classList.add('hide')
-                } else {
-                    reveals[i].classList.remove('active');
-                }
-
-            }
-        };
-    </script>
-
 
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
-</div>
