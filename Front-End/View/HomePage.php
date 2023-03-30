@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div autofocus onmousedown="skip()" class="container-fluid loadingPage row " style=" background-size: cover; background-repeat:no-repeat; background-image: url(../img/pexels-scott-webb-305821.jpg);">
     <div style="width: 50%; margin: 0 auto; text-align:center; " class="">
         <div class="progress" role="progressbar" style="height: 10%;">
@@ -19,13 +18,6 @@
 <div class="main">
     <?php include "/xampp/htdocs/e-project1/Config/head.php" ?>
 
-=======
-    <?php
-    include "/xampp/htdocs/e-project1/Config/head.php";
-    include "/xampp/htdocs/e-project1/Config/conn.php";
-    $sql = 'SELECT * FROM banner ;';
-    ?>
->>>>>>> 81ffd2275ad7dc247acc08539fef360d56b7412d
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
         <div class="carousel-inner" style="font-size: 2vw">
             <?php
