@@ -66,8 +66,8 @@
                             Thiết kế
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Lựa chọn sản phẩm</a></li>
-                            <li><a class="dropdown-item" href="#">Phụ Kiện</a></li>
+                            <li><a class="dropdown-item" href="LuaChonSanPham.php">Lựa chọn sản phẩm</a></li>
+                            <li><a class="dropdown-item" href="PhuKien.php">Phụ Kiện</a></li>
                         </ul>
                     </li>
                     <li class="nav-item ms-4 dropdown">
@@ -75,10 +75,10 @@
                             Dụng cụ
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Thiết bị</a></li>
-                            <li><a class="dropdown-item" href="#">Đất và phân bón</a></li>
-                            <li><a class="dropdown-item" href="#">Thuốc trừ sâu</a></li>
-                            <li><a class="dropdown-item" href="#">Hạt giống</a></li>
+                            <li><a class="dropdown-item" href="CongCu.php">Thiết bị</a></li>
+                            <li><a class="dropdown-item" href="DatvaPhanBon.php">Đất và phân bón</a></li>
+                            <li><a class="dropdown-item" href="ThuocTruSau.php">Thuốc trừ sâu</a></li>
+                            <li><a class="dropdown-item" href="HatGiong.php">Hạt giống</a></li>
                         </ul>
                     </li>
                 </ul>

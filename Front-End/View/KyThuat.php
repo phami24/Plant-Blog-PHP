@@ -28,7 +28,7 @@ $result = mysqli_query($conn, $sql);
                     <div class="col-sm-6 col-md-4 mb-3" >
                         <a href="../../Front-End/View/ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>" class="card-link nav-link" >
                             <div class="card col">
-                                <img style="min-height: 250px; max-height:250px" src="../../Admin/img/Tips/<?php echo $post['post_img']; ?>" alt="img" class="card-img-top">
+                                <img style="min-height: 250px; max-height:250px" src="../../Admin/img/<?php echo $post['post_img']; ?>" alt="img" class="card-img-top">
                                 <div class="card-body text">
                                     <h4 class="card-title " style="min-height: 100px; max-height:1000px"><?php echo $post['title'] ?></h4>
                                     <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->

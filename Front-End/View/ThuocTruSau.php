@@ -1,12 +1,11 @@
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
-$post_id = $_GET['id'];
 ?>
 
 <div class="container ">
     <?php
-    $sql1 = "SELECT * FROM post WHERE post_id = '$post_id'";
+    $sql1 = "SELECT * FROM post WHERE post_category_id = 7";
     $result1 = mysqli_query($conn, $sql1);
     $post = mysqli_fetch_assoc($result1);
     ?>
@@ -21,6 +20,7 @@ $post_id = $_GET['id'];
                 <ul class="toc-list">
                     <ul class="toc-list  is-collapsible">
                         <?php
+                        $post_id =$post['post_id'];
                         $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
@@ -29,7 +29,7 @@ $post_id = $_GET['id'];
                                 if ($topic['topic_name'] != 'null') {
                         ?>
                                     <li>
-                                        <a href="#"><?php echo $topic['topic_name']; ?></a>
+                                        <a href="#<?php echo $topic['topic_id']?>"><?php echo $topic['topic_name']; ?></a>
                                     </li>
                         <?php
                                 }
@@ -57,7 +57,7 @@ $post_id = $_GET['id'];
                             <?php if ($topic['topic_name'] != 'null') { ?>
                                 <h3 style="text-align: justify;">
                                     <strong>
-                                        <span class="notranslate"><?php echo $topic['topic_name'] ?></span>
+                                        <span class="notranslate" id="<?php echo $topic['topic_id']?>"><?php echo $topic['topic_name'] ?></span>
                                     </strong>
                                 </h3>
                             <?php } ?>
@@ -67,7 +67,7 @@ $post_id = $_GET['id'];
                             <?php if ($topic_img['img_url'] != 'null') { ?>
                                 <p style="text-align: justify;">
                                     <span class="notranslate">
-                                        <img src="../../Admin/img/Tips/<?php echo $topic_img['img_url']; ?>" />
+                                        <img src="../../Admin/img/<?php echo $topic_img['img_url']; ?>" />
                                     </span>
                                 </p>
                             <?php } ?>
