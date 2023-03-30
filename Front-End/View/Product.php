@@ -1,7 +1,6 @@
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
-?>
-<?php
+
 include "/xampp/htdocs/e-project1/Config/conn.php";
 $sql = 'SELECT * FROM product ;';
 
@@ -23,7 +22,7 @@ $result = mysqli_query($conn, $sql);
 
         ?>
                 <div class="col-sm-6 col-md-4 mb-3">
-                    <a href="#" class="card-link nav-link">
+                    <a href="ProductDetail.php?product_id=<?php echo $product['product_id']?>" class="card-link nav-link">
                         <div class="card col">
                             <img style="min-height: 200px; max-height:200px" src="../../Admin/img/<?php  echo $product_img['product_img']; ?>" alt="img" class="card-img-top">
                             <div class="card-body text">

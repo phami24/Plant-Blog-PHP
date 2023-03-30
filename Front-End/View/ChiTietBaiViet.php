@@ -70,7 +70,9 @@ $post_id = $_GET['id'];
                                         <img src="../../Admin/img/<?php echo $topic_img['img_url']; ?>" />
                                     </span>
                                 </p>
-                            <?php } ?>
+                            <?php
+                            }
+                            ?>
                             <p style="text-align: center;">
                                 <span class="notranslate">
                                     Xem thêm: <a href="#" target="_blank">title</a>
@@ -141,20 +143,20 @@ $post_id = $_GET['id'];
                                     $productID = $product['product_id'];
                                     $sql4 = "SELECT * FROM product_img Where product_id = '$productID'";
                                     $result4 = mysqli_query($conn, $sql4);
-                                    $product_img= mysqli_fetch_assoc($result4)
+                                    $product_img = mysqli_fetch_assoc($result4)
                             ?>
-                                <article class="card mb-2">
-                                    <a href="#" class="card-link nav-link ">
-                                        <div class=" row">
-                                            <figure class=" col-sm-4">
-                                                <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
-                                            </figure>
-                                            <div class="col-sm-8" style="min-height: 120;">
-                                                <p class="card-title"><?php echo $product['product_name']; ?></p>
+                                    <article class="card mb-2">
+                                        <a href="#" class="card-link nav-link ">
+                                            <div class=" row">
+                                                <figure class=" col-sm-4">
+                                                    <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
+                                                </figure>
+                                                <div class="col-sm-8" style="min-height: 120;">
+                                                    <p class="card-title"><?php echo $product['product_name']; ?></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </article>
+                                        </a>
+                                    </article>
 
                             <?php
                                 }
