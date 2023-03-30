@@ -36,6 +36,7 @@ nav {
   font-size: large;
   font-weight: 500;
 }
+
 .nav-link:hover {
   color: rgb(155, 195, 82);
   opacity: 1;
@@ -95,6 +96,10 @@ nav {
 
 .dropdown-item {
   padding: 12px;
+}
+
+.dropdown-item:active{
+  background-color: #65ff6d;
 }
 
 #fb:hover {
