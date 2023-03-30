@@ -18,10 +18,6 @@
     <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/style.css">
     <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/title.css">
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ab9346ef73d8be897a2f7d413e1f82a4b8f2ba24
 </head>
 
 <body class="bg-light-subtle">
