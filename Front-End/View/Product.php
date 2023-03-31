@@ -27,8 +27,6 @@ $result = mysqli_query($conn, $sql);
                             <img style="min-height: 200px; max-height:200px" src="../../Admin/img/<?php  echo $product_img['product_img']; ?>" alt="img" class="card-img-top">
                             <div class="card-body text">
                                 <h4 class="card-title " style="min-height: 100px; max-height:100px"><?php echo $product['product_name'] ?></h4>
-                                <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
-                            </div>
                         </div>
                     </a>
                 </div>

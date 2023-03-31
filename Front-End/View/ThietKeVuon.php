@@ -53,67 +53,7 @@ $result = mysqli_query($conn, $sql);
         <h3>Thiết kế vườn</h3>
       </div>
       <div class="row mb-2 ">
-        <!-- <<<<<<< HEAD
-        
-        <div class="col-sm-6 col-md-4 mb-3">
-          <a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text ">
-                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
-
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">...</small>
-              </div>
-            </div>
-          </a>
-        </div>
        
-        <div class="col-sm-6 col-md-4 mb-3">
-          <a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text">
-                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
-
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">...</small>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-sm-6 col-md-4 mb-3">
-          <a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text">
-                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
-
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">...</small>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-sm-6 col-md-4 mb-3 "><a href="" class="card-link nav-link">
-            <div class="card col">
-              <img src="../img/Monstera-slide-1400x525.jpg" alt="Design" class="card-img-top">
-              <div class="card-body text">
-                <h5 class="card-title " style="min-height: 80px; max-height:80px">Title</h5>
-
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">...</small>
-              </div>
-            </div>
-          </a>
-        </div>
-======= -->
         <!-- Start PHP code -->
         <?php
         if (mysqli_num_rows($result) > 0) {
@@ -126,7 +66,6 @@ $result = mysqli_query($conn, $sql);
                   <img style="min-height: 200px; max-height:200px" src="../../Admin/img/KnowledgeAndTips/<?php echo $post['post_img'] ?>" alt="Design" class="card-img-top">
                   <div class="card-body text">
                     <h4 class="card-title " style="min-height: 80px; max-height:80px"><?php echo $post['title'] ?></h4>
-                    <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
                   </div>
                 </div>
               </a>

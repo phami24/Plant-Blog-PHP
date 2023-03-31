@@ -5,7 +5,7 @@ img {
 
 
 .toc:before {
-    content: "Mục lục:";
+    content: " Index: ";
     display: block;
     margin-bottom: 20px;
     font-size: larger;
