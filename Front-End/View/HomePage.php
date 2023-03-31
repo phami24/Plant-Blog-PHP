@@ -83,7 +83,7 @@
         <div class="text-center my-4">
 
             <h1>
-                <span style="color: green;">Lợi ích của việc làm vườn</span>
+                <span style="color: green;">Benefits of gardening</span>
             </h1>
         </div>
         <div class="row content">
@@ -94,32 +94,32 @@
                 <div class="w-100 my-5 px-4">
                     <span>
                         <p>
-                            Làm vườn là việc trồng các loại cây như hoa, cây bụi và cây cối như một sở thích hoặc
-                            giải trí. Một số người cũng trồng rau hoặc trái cây trong vườn của họ. Mọi người làm
-                            làm vườn ngoài trời trên đất ở sân sau của họ, hoặc trong chậu hoặc thùng chứa trên
-                            ban công. Những khu vườn, ngay cả những khu vườn do con người tạo ra, đều có cây cối
-                            có thể giảm mức độ carbon có hại trong không khí, đồng thời giải phóng
-                            đưa oxy trở lại bầu khí quyển mà chúng ta cần để tồn tại.
-                            Làm vườn đòi hỏi bạn phải thực hiện rất nhiều hoạt động như cắt tỉa, đào đất, tưới cây.
-                            thực vật, uốn dẻo, v.v. Vì vậy, đó cũng là một chế độ tập luyện khá tốt.
-                            Nghiên cứu cho thấy 3 giờ làm vườn vừa phải tương đương với 1 giờ trong
-                            phòng thể dục!
+                            Gardening is the cultivation of plants such as flowers, shrubs and trees as a hobby or
+                            entertainment. Some people also grow vegetables or fruits in their gardens. Everyone does
+                            outdoor gardening on land in their backyard, or in pots or containers on
+                            balcony. Gardens, even man-made ones, have trees
+                            can reduce harmful carbon levels in the air, while releasing
+                            put the oxygen back into the atmosphere that we need to survive.
+                            Gardening requires you to perform a lot of activities such as pruning, digging, watering plants.
+                            vegetative, malleable, etc. So that's also a pretty good workout regimen.
+                            Research shows that 3 hours of moderate gardening is equivalent to 1 hour of
+                            gym!
                         </p>
                         <p>
-                            Nhiều người cảm thấy hứng thú với việc làm vườn nhưng ngại bắt đầu vì thiếu kiến ​​thức
-                            và thông tin chính xác về thực vật, cách chăm sóc, v.v. Do đó, chúng tôi phát
-                            triển một trang web sẽ bao gồm tất cả những điều cơ bản về làm vườn.
+                            Many people feel interested in gardening but are afraid to start because of lack of knowledge
+                            and accurate information about plants, how to care, etc. Therefore, we develop
+                            develop a website that will cover all the basics of gardening.
                         </p>
-                        <span>Garden World là một Website được lập ra với Mục đích:</span>
-                        <li>Cung cấp cho mọi người những kiến thức về Trồng cây cảnh, trồng hoa hoặc làm vườn.
-                            Để mỗi chúng ta có thể tự thiết kế cho mình những không gian xanh, trong lành và cảm
-                            thấy sảng khoái hơn, yêu đời hơn.</li>
-                        <li>Cung cấp cho mọi người thông tin hữu ích về những thực phẩm tự nhiên có lợi cho sức khỏe.</li>
-                        <li>Cung cấp những cách thức tái chế những thứ không dùng trong nhà bạn biến nó thành
-                            những vật dụng hữu ích trong cuộc sống. Nâng cao nhận thức của mọi người về việc
-                            bảo vệ môi trường, bảo tồn động vật và những thông tin về việc biến đổi khí hậu.</li>
-                        <span>Và còn rất nhiều thứ nữa chúng tôi sẽ phát triển trong Dự án Garden World này.
-                            Vì thế bạn hãy cùng chúng tôi chung tay để khiến cuộc sống của chúng ta ngày càng tươi đẹp hơn nhé!</span>
+                        <span>Garden World is a Website created with the Purpose:</span>
+                        <li>Provide people with knowledge about Bonsai, flower growing or gardening.
+                            So that each of us can design our own green, fresh and feeling
+                            feel happier, love life more.</li>
+                        <li>Provide people with useful information about healthy natural foods.</li>
+                        <li>Provide ways to recycle unused things in your home and turn it into
+                            useful things in life. Raise people's awareness about
+                            environmental protection, animal conservation and information on climate change.</li>
+                        <span>And there are many more things we will develop in this Garden World Project.
+                            So let's join hands to make our life more and more beautiful!</span>
                     </span>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     </p>
                 </h2>
                 <p style="text-align: center;">
-                    Thong tin moi nhat ve nhung kien thuc lam vuon trong ngoi nha cua ban
+                    The latest information on gardening knowledge
                 </p>
             </div>
         </div>
@@ -148,7 +148,7 @@
             ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="card hover01 mb-5" style="width: 20rem; min-height:300px; max-height:300px">
-                            <a href="ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>">
+                            <a class="nav-link" href="ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>">
                                 <figure>
                                     <img src="../../Admin/img/<?php echo $post['post_img'] ?>" class="card-img-top" style="min-height:200px; max-height:200px" alt="Post<?php echo $post['post_id'] ?>">
                                 </figure>
@@ -176,7 +176,7 @@
                         <br>
                         <div class="sec-title-two mx-3">
                             <h1>
-                                <span style="color: #5BFD3B;">Garden World mang đến cho bạn</span>
+                                <span style="color: #5BFD3B;">Garden World brings you</span>
                             </h1>
                         </div>
                     </div>
@@ -184,36 +184,36 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 mb-5 ">
                             <h4><i>
                                     <span style="color: #5BFD3B;">1.</span>
-                                    Ý tưởng mới lạ
+                                    New ideas
                                 </i>
                             </h4>
-                            <div class="text-white-50">Những ý tưởng sáng tạo mới lạ, dễ thực hiện giúp cho bạn đọc thêm yêu công việc làm vườn.</div>
+                            <div class="text-white-50">New creative, easy -to -make ideas help readers love gardening work.</div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 mb-5">
                             <h4><i>
 
                                     <span style="color: #5BFD3B;">2.</span>
-                                    Hướng dẫn chi tết
+                                    Detailed instructions
                                 </i>
                             </h4>
-                            <div class="text-white-50">Những bài hướng dẫn chi tiết từ các chuyên gia trong sản xuất nông nghiệp được chúng tôi đăng tải thường xuyên.</div>
+                            <div class="text-white-50">Detailed instructions from experts in agricultural production are regularly posted.</div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 mb-">
                             <h4><i>
                                     <span style="color: #5BFD3B;">3.</span>
-                                    Cập nhật xu hướng
+                                    Update trends
                                 </i>
                             </h4>
-                            <div class="text-white-50">Những xu hướng, phát minh mới nhất trong ngành nông nghiệp sẽ được cập nhật tại gardenworld.vn</div>
+                            <div class="text-white-50">The latest trends and inventions in the agricultural sector will be updated at GardenWorld.vn</div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 mb-3">
                             <h4><i>
 
                                     <span style="color: #5BFD3B;">4.</span>
-                                    Thông tin nhanh và chính xác
+                                    Fast and accurate information
                                 </i>
                             </h4>
-                            <div class="text-white-50">Luôn đưa tin tức mới nhất về ngành nông nghiệp Việt Nam và Thế giới.</div>
+                            <div class="text-white-50">Always bring the latest news about Vietnam's agriculture and the world.</div>
                         </div>
                     </div>
                 </div>

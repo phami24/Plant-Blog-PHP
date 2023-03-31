@@ -7,24 +7,31 @@ $sql = 'SELECT * FROM post WHERE post_category_id = 2 AND status =1;';
 
 $result = mysqli_query($conn, $sql);
 ?>
+<style>
+    .ct {
+        background-color: #f8f1ea;
+        
+    }
+</style>
+<div class="ct">
 <!---------- Slide ------------------------->
 <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
     <div class="carousel-inner" style="font-size: 2vw">
         <div class="carousel-item active" style="position: relative; font-weight: bold">
-            <img src="https://monstera.vn/wp-content/uploads/2022/09/Monstera-slide-1400x525.jpg" class="d-block w-100" alt="Banner" />
+            <img src="../img/Banner1.jpg" class="d-block w-100" alt="Banner" />
             <div style="color: #115b15">
                 <p class="banner">
-                    Tỉnh dậy ở một nơi thật xa, xung quanh chỉ có cây cỏ và chim
-                    muông, cảm thấy tinh thần sảng khoái, dễ chịu vô cùng.
+                    Waking up in a place far away, surrounded by only trees and birds
+                    Feel the spirit of refreshment, extremely comfortable.
                 </p>
             </div>
         </div>
         <div class="carousel-item" style="position: relative; font-weight: bold">
-            <img src="https://monstera.vn/wp-content/uploads/2021/12/Monstera-soil-banner.jpg" class="d-block w-100 img-fluid" alt="Banner" />
+            <img src="../img/Banner2.jpg" class="d-block w-100 img-fluid" alt="Banner" />
             <div style="color: #f8fbf8">
                 <p class="banner">
-                    Tôi yêu thiên nhiên cảnh sắc này nơi chỉ có thiên nhiên mới giúp
-                    con người trở nên thư thái và quên mọi ưu tư, muộn phiền.
+                    I love nature this scenery where only nature can help
+                    people become relaxed and forget all worries and troubles.
                 </p>
             </div>
         </div>
@@ -39,8 +46,9 @@ $result = mysqli_query($conn, $sql);
     </button>
 </div>
 
+
 <!-------------------------------->
-<div class="bg_img">
+
     <div class="container mt-5 mb-5">
         <!-- <div class="container-fluid text-bg-dark mb-5 bg_img ">
             <div class="pt-5 pb-4">
@@ -49,12 +57,7 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div> -->
         <div class="sec-title centered">
-            <h1>Knowledge<h1>
-            <h2>
-                <a>
-                    <span>Tips and tricks</span>
-                </a>
-            <h2>
+            <h1>Tips and tricks<h1>
         </div>
         <div class="row mb-2 ">
             <!-- Start PHP code -->
@@ -63,13 +66,12 @@ $result = mysqli_query($conn, $sql);
                 while ($post = mysqli_fetch_assoc($result)) {
 
             ?>
-                    <div class="col-sm-6 col-md-4 mb-3" >
-                        <a href="../../Front-End/View/ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>" class="card-link nav-link" >
+                    <div class="col-sm-6 col-md-4 mb-3">
+                        <a href="../../Front-End/View/ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>" class="card-link nav-link">
                             <div class="card col">
                                 <img style="min-height: 250px; max-height:250px" src="../../Admin/img/<?php echo $post['post_img']; ?>" alt="img" class="card-img-top">
                                 <div class="card-body text">
                                     <h4 class="card-title " style="min-height: 100px; max-height:1000px"><?php echo $post['title'] ?></h4>
-                                    <!-- <p class="card-text ">Hãy tìm hiểu thêm những thông tin thú vị và bổ ích cho bạn về cây trồng nhé @@</p> -->
                                 </div>
                             </div>
                         </a>

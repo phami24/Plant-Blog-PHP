@@ -17,11 +17,7 @@ img {
 }
 
 .toc:before {
-<<<<<<< HEAD
-    content: " Index: ";
-=======
-    /* content: "Index:"; */
->>>>>>> 37a401b364b3ec99485106ed9e12652f8eef6e24
+    /* content: " Index: "; */
     display: block;
     margin-bottom: 20px;
     font-size: larger;

@@ -8,81 +8,85 @@ $sql = 'SELECT * FROM post WHERE post_category_id = 2 AND status =1;';
 $result = mysqli_query($conn, $sql);
 ?>
 
+<style>
+  .ct {
+    background-color: #f8f1ea;
 
-<!DOCTYPE html>
-<html lang="en">
+  }
+</style>
+<div class="ct">
+  <!---------- Slide ------------------------->
+  <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-inner" style="font-size: 2vw">
+            <?php
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($banner = mysqli_fetch_assoc($result)) {
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/Lib/css/bootstrap.min.css">
-  <title>Design</title>
-  <style>
-    div.text {
-      /* text-overflow: ellipsis; */
-      -webkit-line-clamp: 6;
-      /* -webkit-box-orient: vertical; */
-      overflow: auto;
-      /* display:none; */
-      /* position: absolute; */
-    }
+            ?>
+                    <div class="carousel-item active" style="position: relative; font-weight: bold">
+                        <img src="../../Front-End/img/<?php echo $banner['banner_img'];  ?>" class="d-block w-100" alt="Banner 1" />
+                        <div style="color: White">
+                            <p class="banner">
+                                <?php echo $banner['banner_text'] ?>
+                            </p>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
-    .bg_img {
-      background-image: url("../img/Monstera-slide-1400x525.jpg");
-      height: 50%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: sticky;
-    }
-  </style>
+  <!-------------------------------->
 
-</head>
-
-<body>
-  <div>
-    <div class="container mt-5 mb-5">
-      <div class="container-fluid text-bg-dark mb-3 bg_img ">
+  <div class="container mt-5 mb-5">
+    <!-- <div class="container-fluid text-bg-dark mb-3 bg_img ">
         <div class="pt-5 pb-4">
           <p class=" font-monospace text-success h4 text-center ">Người trồng cây là những người biết yêu thương người khác.</p>
           <p class=" font-monospace text-success h4 text-center">Những chuyến đi về thiên nhiên là cách tái tạo năng lượng và giúp bạn khám phá những điều tuyệt vời trong tự nhiên.</p>
         </div>
-      </div>
-      <div class="text-center mb-3 row">
-        <h3>Thiết kế vườn</h3>
-      </div>
-      <div class="row mb-2 ">
-       
-        <!-- Start PHP code -->
-        <?php
-        if (mysqli_num_rows($result) > 0) {
-          while ($post = mysqli_fetch_assoc($result)) {
-
-        ?>
-            <div class="col-sm-6 col-md-4 mb-3">
-              <a href="" class="card-link nav-link">
-                <div class="card col">
-                  <img style="min-height: 200px; max-height:200px" src="../../Admin/img/KnowledgeAndTips/<?php echo $post['post_img'] ?>" alt="Design" class="card-img-top">
-                  <div class="card-body text">
-                    <h4 class="card-title " style="min-height: 80px; max-height:80px"><?php echo $post['title'] ?></h4>
-                  </div>
-                </div>
-              </a>
-            </div>
-        <?php
-          }
-        }
-        ?>
-        <!-- End PHP code -->
-
-      </div>
+      </div> -->
+    <div class="sec-title centered ">
+      <h1 class="text-success">Garden design<h1>
     </div>
+    <div class="row mb-2 ">
 
+      <!-- Start PHP code -->
+      <?php
+      if (mysqli_num_rows($result) > 0) {
+        while ($post = mysqli_fetch_assoc($result)) {
+
+      ?>
+          <div class="col-sm-6 col-md-4 mb-3">
+            <a href="" class="card-link nav-link">
+              <div class="card col">
+                <img style="min-height: 200px; max-height:200px" src="../../Admin/img/KnowledgeAndTips/<?php echo $post['post_img'] ?>" alt="Design" class="card-img-top">
+                <div class="card-body text">
+                  <h4 class="card-title " style="min-height: 80px; max-height:80px"><?php echo $post['title'] ?></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+      <?php
+        }
+      }
+      ?>
+      <!-- End PHP code -->
+
+    </div>
   </div>
-</body>
 
-</html>
+</div>
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
