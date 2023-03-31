@@ -21,18 +21,21 @@
             padding: 0;
             overflow: hidden;
         }
-        .content{
+
+        .content {
             margin: 10px;
             background: #8ADE88;
             font-size: 15px;
             border-radius: 50px;
             color: brown;
         }
-        .garden_balcony{
+
+        .garden_balcony {
             width: 100%;
             border-radius: 50px;
         }
-        .loi_ich{
+
+        .loi_ich {
             background: #B95E5E;
             padding-bottom: 10px;
             margin-bottom: 10px;
@@ -40,7 +43,8 @@
             border: solid #8ADE88 3px;
             border-radius: 50px;
         }
-        .new_text{
+
+        .new_text {
             color: #8ADE88;
         }
     </style>
@@ -126,7 +130,7 @@
             <div class="col-12 new_text">
                 <h2>
                     <p style="text-align: center;">
-                        Tin moi nhat
+                        News Post
                     </p>
                 </h2>
                 <p style="text-align: center;">
@@ -135,86 +139,32 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card hover01 mb-5" style="width: 20rem;">
-                    <a href="#">
-                        <figure>
-                            <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" class="card-img-top" alt="...">
-                        </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">Loi ich cua lam vuon</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <?php
+            $sql1 = "SELECT * FROM post LIMIT 6";
+            $result1 = mysqli_query($conn, $sql1);
+            if (mysqli_num_rows($result) > 0) {
+                while ($post = mysqli_fetch_assoc($result1)) {
+
+            ?>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card hover01 mb-5" style="width: 20rem; min-height:300px; max-height:300px">
+                            <a href="ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>">
+                                <figure>
+                                    <img src="../../Admin/img/<?php echo $post['post_img'] ?>" class="card-img-top" style="min-height:200px; max-height:200px" alt="Post<?php echo $post['post_id'] ?>">
+                                </figure>
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $post['title'] ?></h5>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card hover01 mb-5" style="width: 20rem;">
-                    <a href="#">
-                        <figure>
-                            <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" class="card-img-top" alt="...">
-                        </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">Loi ich cua lam vuon</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card hover01 mb-5" style="width: 20rem;">
-                    <a href="#">
-                        <figure>
-                            <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" class="card-img-top" alt="...">
-                        </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">Loi ich cua lam vuon</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card hover01 mb-5" style="width: 20rem;">
-                    <a href="#">
-                        <figure>
-                            <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" class="card-img-top" alt="...">
-                        </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">Loi ich cua lam vuon</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card hover01 mb-5" style="width: 20rem;">
-                    <a href="#">
-                        <figure>
-                            <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" class="card-img-top" alt="...">
-                        </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">Loi ich cua lam vuon</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card hover01 mb-5" style="width: 20rem;">
-                    <a href="#">
-                        <figure>
-                            <img src="https://www.yeutrongcay.com/skins/user/finance/images/image-3.jpg" class="card-img-top" alt="...">
-                        </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">Loi ich cua lam vuon</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
         </div>
     </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 g-0">
