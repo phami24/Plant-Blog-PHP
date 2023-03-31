@@ -51,7 +51,9 @@ $post_id = $_GET['id'];
     <div class="row">
         <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <div class="inner-content">
+                
                 <aside class="toc">
+                    <h4>Index:</h4><hr>
                     <ul class="toc-list">
                         <ul class="toc-list  is-collapsible">
                             <?php

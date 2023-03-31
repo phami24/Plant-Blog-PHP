@@ -3,15 +3,27 @@ img {
     height: NaN;
 }
 
+.sec-title h2 {
+    position: relative;
+    color: #87c00c;
+    font-size: 32px;
+    font-weight: 700;
+    padding-bottom: 5px;
+    font-family: Arial, serif;
+}
+
+.centered{
+    text-align: center;
+}
 
 .toc:before {
-    content: "Mục lục:";
+    /* content: "Index:"; */
     display: block;
     margin-bottom: 20px;
     font-size: larger;
     font-weight: bold;
     border-bottom: 1px dashed #dadada;
-    padding-bottom: 10px;
+    padding-bottom: 10px;   
 }
 
 .toc {
