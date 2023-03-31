@@ -53,7 +53,7 @@ $post_id = $_GET['id'];
             <div class="inner-content">
                 
                 <aside class="toc">
-                    
+                    <h4>Index:</h4><hr>
                     <ul class="toc-list">
                         <ul class="toc-list  is-collapsible">
                             <?php
@@ -77,6 +77,8 @@ $post_id = $_GET['id'];
                 </aside>
             </div>
             <!---------------- nội dung -------------------->
+
+
 
             <div class="container">
                 <?php
@@ -134,11 +136,11 @@ $post_id = $_GET['id'];
                 <div class="widget search-box" style="height: auto !important;">
 
                     <!-- thanh Search -->
-                    <div class="input-right mb-5" style="width: 100%">
-                        <p style="font-size:25px; color:#87c00c; font-weight:bold"></p>
+                    <div class="input-right">
+                        <p style="font-size:25px; color:#87c00c; font-weight:bold">Tìm kiếm thêm thông tin trên Yêu Trồng Cây</p>
                         <form id="frmSearch" method="post" action="">
                             <div class="input-group search-form" style="line-height: 60px;">
-                                <input class="form-control" id="txtSearch" style="margin-top: 18.5px;" name="keyword" value="" type="text" placeholder='Search...'>
+                                <input class="form-control" id="txtSearch" style="margin-top: 18.5px;" name="keyword" value="" type="text" placeholder='Tìm kiếm...'>
                                 <span type="submit" onclick="getfocus()" class="input-group-text me-3" id="basic-addon1" style="margin-top: 18px; background-color: #61c203;">
                                     <ion-icon name="search-outline"></ion-icon>
                                 </span>
@@ -147,22 +149,53 @@ $post_id = $_GET['id'];
                     </div>
 
                     <!-- bài viết -->
-                    <div class="mt-2">
+                    <?php
+                    $postCategoryId = $post['post_category_id'];
+                    $sql2 = "SELECT * FROM post WHERE post_img != 'null'  ORDER BY RAND()  LIMIT 3  ";
+                    $result2 = mysqli_query($conn, $sql2);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($postlienquan = mysqli_fetch_assoc($result2)) {
+                    ?>
+                            <article class="card mb-2">
+                                <a href="CHiTietBaiViet.php?id=<?php echo $postlienquan['post_id']; ?>" class="card-link nav-link ">
+                                    <div class=" row">
+                                        <figure class=" col-sm-4">
+                                            <img alt="" src="../../Admin/img/<?php echo $postlienquan['post_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
+                                        </figure>
+                                        <div class="col-sm-8">
+                                            <p class="card-title"><?php echo $postlienquan['title']; ?></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </article>
+
+                    <?php
+                        }
+                    }
+
+                    ?>
+
+
+                    <div class="overlay-box ">
+                        <p style="font-size:30px">Sản phẩm liên quan</p>
                         <?php
-                        $postCategoryId = $post['post_category_id'];
-                        $sql2 = "SELECT * FROM post WHERE post_img != 'null'  ORDER BY RAND()  LIMIT 3  ";
-                        $result2 = mysqli_query($conn, $sql2);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($postlienquan = mysqli_fetch_assoc($result2)) {
+                        $sql3 = "SELECT * FROM product ORDER BY RAND()  LIMIT 5  ";
+                        $result3 = mysqli_query($conn, $sql3);
+                        if (mysqli_num_rows($result3) > 0) {
+                            while ($product = mysqli_fetch_assoc($result3)) {
+                                $productID = $product['product_id'];
+                                $sql4 = "SELECT * FROM product_img Where product_id = '$productID'";
+                                $result4 = mysqli_query($conn, $sql4);
+                                $product_img = mysqli_fetch_assoc($result4)
                         ?>
                                 <article class="card mb-2">
-                                    <a href="CHiTietBaiViet.php?id=<?php echo $postlienquan['post_id']; ?>" class="card-link nav-link ">
+                                    <a href="#" class="card-link nav-link ">
                                         <div class=" row">
                                             <figure class=" col-sm-4">
-                                                <img alt="" src="../../Admin/img/<?php echo $postlienquan['post_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
+                                                <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
                                             </figure>
-                                            <div class="col-sm-8">
-                                                <p class="card-title"><?php echo $postlienquan['title']; ?></p>
+                                            <div class="col-sm-8" style="min-height: 120;">
+                                                <p class="card-title"><?php echo $product['product_name']; ?></p>
                                             </div>
                                         </div>
                                     </a>
@@ -173,76 +206,53 @@ $post_id = $_GET['id'];
                         }
 
                         ?>
-                    </div>
-                </div>
-            </aside>
-            <div class="overlay-box ">
-                <p style="font-size:30px">Related products</p>
-                <?php
-                $sql3 = "SELECT * FROM product ORDER BY RAND()  LIMIT 5  ";
-                $result3 = mysqli_query($conn, $sql3);
-                if (mysqli_num_rows($result3) > 0) {
-                    while ($product = mysqli_fetch_assoc($result3)) {
-                        $productID = $product['product_id'];
-                        $sql4 = "SELECT * FROM product_img Where product_id = '$productID'";
-                        $result4 = mysqli_query($conn, $sql4);
-                        $product_img = mysqli_fetch_assoc($result4)
-                ?>
+
+
+                        <!---- Bài viết mới--------------->
+                        <p style="font-size:30px">Bài viết mới</p>
+                        <!-- bài viết 1 -->
                         <article class="card mb-2">
                             <a href="#" class="card-link nav-link ">
                                 <div class=" row">
                                     <figure class=" col-sm-4">
-                                        <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
+                                        <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
                                     </figure>
-                                    <div class="col-sm-8" style="min-height: 120;">
-                                        <p class="card-title"><?php echo $product['product_name']; ?></p>
+                                    <div class="col-sm-8">
+                                        <div class="card-body">
+                                            <p class="card-title">Title</p>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
                         </article>
-
-                <?php
-                    }
-                }
-
-                ?>
-
-                <!---- Bài viết mới--------------->
-                <p style="font-size:30px">Bài viết mới</p>
-                <!-- bài viết 1 -->
-                <article class="card mb-2">
-                    <a href="#" class="card-link nav-link ">
-                        <div class=" row">
-                            <figure class=" col-sm-4">
-                                <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
-                            </figure>
-                            <div class="col-sm-8">
-                                <div class="card-body">
-                                    <p class="card-title">Title</p>
+                        <!-- bài viết 2 -->
+                        <article class="card mb-2">
+                            <a href="#" class="card-link nav-link ">
+                                <div class=" row">
+                                    <figure class=" col-sm-4">
+                                        <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
+                                    </figure>
+                                    <div class="col-sm-8">
+                                        <div class="card-body">
+                                            <p class="card-title">Title</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <!-- bài viết 2 -->
-                <article class="card mb-2">
-                    <a href="#" class="card-link nav-link ">
-                        <div class=" row">
-                            <figure class=" col-sm-4">
-                                <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
-                            </figure>
-                            <div class="col-sm-8">
-                                <div class="card-body">
-                                    <p class="card-title">Title</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
+                            </a>
+                        </article>
+                    </div>
+
+                </div>
+        </div>
+        </aside>
+        <div>
+            <p> .</p>
+            <p> .</p>
+            <p> .</p>
         </div>
 
-    </div>
-</div>
 
-<?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+
+    </div>
+
+    <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
