@@ -146,15 +146,14 @@
                 while ($post = mysqli_fetch_assoc($result1)) {
 
             ?>
-                    <div class="col-12 col-md-6 col-lg-4" style="min-height:400px; max-height:400px">
-                        <div class="card hover01 mb-5" style="width: 20rem;">
-                            <a href="ChiTietBaiViet.php?id=<?php echo $post['post_id']?>">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card hover01 mb-5" style="width: 20rem; min-height:300px; max-height:300px">
+                            <a href="ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>">
                                 <figure>
-                                    <img src="../../Admin/img/<?php echo $post['post_img']?>" class="card-img-top"  style="min-height:200px; max-height:200px" alt="Post<?php echo $post['post_id']?>">
+                                    <img src="../../Admin/img/<?php echo $post['post_img'] ?>" class="card-img-top" style="min-height:200px; max-height:200px" alt="Post<?php echo $post['post_id'] ?>">
                                 </figure>
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $post['title']?></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <h5 class="card-title"><?php echo $post['title'] ?></h5>
                                 </div>
                             </a>
                         </div>
