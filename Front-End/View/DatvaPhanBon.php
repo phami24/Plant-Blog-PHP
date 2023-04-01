@@ -1,5 +1,6 @@
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
+// include "/xampp/htdocs/e-project1/Config/Slide.php";
 ?>
 <?php
 include "/xampp/htdocs/e-project1/Config/conn.php";
@@ -8,43 +9,87 @@ $sql = 'SELECT * FROM post WHERE post_category_id = 6 AND status =1;';
 $result = mysqli_query($conn, $sql);
 ?>
 
+<style>
+    .index-intro .jumbotron {
+        border-radius: 5px;
+        height: 150px;
+        font-family: 'Times New Roman', Times, serif;
+        width: 100%;
+    }
 
-<div class="bg_img">
-    <div class="container mt-5 mb-5">
-        <div class="container-fluid text-bg-dark mb-5 bg_img ">
-            <div class="pt-5 pb-4">
-                <p class=" font-monospace text-success h4 text-end">Người trồng cây là những người biết yêu thương người khác.</p>
-                <p class=" font-monospace text-success h4">Những chuyến đi về thiên nhiên là cách tái tạo năng lượng và giúp bạn khám phá những điều tuyệt vời trong tự nhiên.</p>
+    .index-intro {
+        background-image: url(../img/Banner1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        max-width: 100%;
+
+    }
+
+
+    .h5 {
+        padding-top: 70px;
+        color: #585c58;
+        font-size: 23px;
+        padding: 50px auto 50px 50px;
+    }
+
+    .h5:hover {
+        font-size: 25px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .ct {
+        background-color: #f8f1ea;
+        
+    }
+</style>
+
+<div class="container-fluid mt-2 mb-2 ct ">
+
+    <article class="index-intro">
+        <div >
+            <div class="jumbotron">
+                <p class="h5">Nature trips are a way to re-energize and help you discover the wonderful things in nature.</p>
             </div>
         </div>
+    </article>
 
-        <div class="row mb-2 ">
-            <!-- Start PHP code -->
-            <?php
-            if (mysqli_num_rows($result) > 0) {
-                while ($post = mysqli_fetch_assoc($result)) {
+    <div class="container mt-5 mb-5">
 
-            ?>
-                    <div class="col-sm-6 col-md-4 mb-3" >
-                        <a href="../../Front-End/View/ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>" class="card-link nav-link" >
-                            <div class="card col">
-                                <img style="min-height: 250px; max-height:250px" src="../../Admin/img/<?php echo $post['post_img']; ?>" alt="img" class="card-img-top">
-                                <div class="card-body text">
-                                    <h4 class="card-title " style="min-height: 100px; max-height:100px"><?php echo $post['title'] ?></h4>
-                                    <!-- <p class="card-text ">Bạn đang tìm hiểu về cách thiết kế vườn có sử dụng sỏi? Sỏi là</p> -->
+        <div class="sec-title centered">
+            <h1 class="text-success">Soil and fertilizer<h1>
+        </div>
+
+        </article>
+        <div class="container mt-3 mb-3">
+
+            <div class="row mb-2 ">
+                <!-- Start PHP code -->
+                <?php
+                if (mysqli_num_rows($result) > 0) {
+                    while ($post = mysqli_fetch_assoc($result)) {
+
+                ?>
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <a href="../../Front-End/View/ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>" class="card-link nav-link">
+                                <div class="card col">
+                                    <img style="min-height: 250px; max-height:250px" src="../../Admin/img/<?php echo $post['post_img']; ?>" alt="img" class="card-img-top">
+                                    <div class="card-body text">
+                                        <h4 class="card-title " style="min-height: 100px; max-height:100px"><?php echo $post['title'] ?></h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-            <?php
+                            </a>
+                        </div>
+                <?php
+                    }
                 }
-            }
-            ?>
-            <!-- End PHP code -->
+                ?>
+                <!-- End PHP code -->
+            </div>
         </div>
     </div>
-
 </div>
+
+
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>

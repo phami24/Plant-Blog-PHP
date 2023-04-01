@@ -7,7 +7,7 @@ $sql1 = "SELECT * FROM product_img WHERE product_id = '$product_id'";
 $result = mysqli_query($conn, $sql);
 ?>
 <div class="container bg-secondary-subtle">
-    <div class="row m-5  p-5 ">
+    <div class="row m-5 p-5 " style="max-height: 500px">
         <div class="img col-6">
             <?php
             if (mysqli_num_rows($result) > 0) {
@@ -18,7 +18,7 @@ $result = mysqli_query($conn, $sql);
             ?>
                 <img src="../../Admin/img/<?php echo $product_img['product_img']; ?>" alt="Ảnh sản phẩm">
         </div>
-        <div class="desc col-6 bg-white p-5">
+        <div class="desc col-6 bg-white p-5" style="max-height: 500px">
             <div>
                 <h4><?php echo $product_detail['product_name'] ?></h4>
             </div>
@@ -52,8 +52,8 @@ $result = mysqli_query($conn, $sql);
             $product_img = mysqli_fetch_assoc($result4)
     ?>
             <article class="card mb-2">
-                <a href="#" class="card-link nav-link ">
-                    <div class=" row">
+                <a href="ProductDetail.php?product_id=<?php echo $product['product_id']?>" class="card-link nav-link ">
+                    <div class="row">
                         <figure class=" col-sm-4">
                             <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
                         </figure>
