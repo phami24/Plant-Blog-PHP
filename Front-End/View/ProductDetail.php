@@ -6,6 +6,31 @@ $sql = "SELECT * FROM product_detail WHERE product_id = '$product_id'";
 $sql1 = "SELECT * FROM product_img WHERE product_id = '$product_id'";
 $result = mysqli_query($conn, $sql);
 ?>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .main_p{
+        background-color: burlywood;
+    }
+    img{
+        border-radius: 10px;
+    }
+    h4{
+        font-size: 40px;
+        color: green;
+        text-shadow: 1px 1px 0 black;
+        margin-bottom: 20px;
+    }
+    img:hover{
+        width: 95%;
+        height: 75%;
+        box-shadow: 0px 0px 10px 3px green;
+    }
+    
+</style>
 <div class="container bg-secondary-subtle">
     <div class="row m-5 p-5 ">
         <div class="img col-6 ">

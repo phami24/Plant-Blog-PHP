@@ -15,7 +15,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
     .card {
         background-color: #fffae5;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(111, 30, 200, 0.3);
+        /* box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(111, 30, 200, 0.3); */
         -webkit-transform: scale(1);
         transform: scale(1);
         -webkit-transition: .2s ease-in-out;
@@ -44,10 +44,11 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
     }
 
     img:hover {
-        border-radius: 15px;
-        border: 1px solid #165915;
-        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
     }
+    img{
+        border-radius: 8px;
+   }
     .left_1 div article {
         position: sticky;
         top: 15px;
