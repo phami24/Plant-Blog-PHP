@@ -135,11 +135,13 @@ INSERT INTO banner (banner_img , banner_text)
 VALUES 
 (
 'Banner1.jpg',
-'Tỉnh dậy ở một nơi thật xa, xung quanh chỉ có cây cỏ và chim muông, cảm thấy tinh thần sảng khoái, dễ chịu vô cùng.'
+'Waking up in a place far away, surrounded by only trees and birds
+            Feel the spirit of refreshment, extremely comfortable.'
 ),
 (
 'Banner2.jpg',
-'Tỉnh dậy ở một nơi thật xa, xung quanh chỉ có cây cỏ và chim muông, cảm thấy tinh thần sảng khoái, dễ chịu vô cùng.'
+'I love nature this scenery where only nature can help
+            people become relaxed and forget all worries and troubles.'
 );
 
 
