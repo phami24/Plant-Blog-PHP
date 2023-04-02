@@ -15,6 +15,11 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
     .card {
         background-color: #fffae5;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(111, 30, 200, 0.3);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .2s ease-in-out;
+        transition: .2s ease-in-out;
     }
 
     .toc {
@@ -38,9 +43,10 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
     }
 
-    img {
+    img:hover {
         border-radius: 15px;
         border: 1px solid #165915;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
     }
     .left_1 div article {
         position: sticky;
@@ -51,6 +57,23 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         position: sticky;
         top: 20px;
     }
+    .card:hover {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+    }
+    h1{
+        color:#429757;
+        text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
+        font-size: 30px;
+    }
+    h1:hover{
+        font-size: 35px;
+    }
+    .h3{
+        color:#429757;
+        text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
+        font-size: 20px;
+    }
 </style>
 
 <div class="container-fluid ct ">
@@ -60,7 +83,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
     $post = mysqli_fetch_assoc($result1);
     ?>
     <div class="text-center p-3">
-        <h1 style="color: #165915;"><?php echo $post['title'] ?></h1>
+        <h1><?php echo $post['title'] ?></h1>
     </div>
     <div class="container">
         <div class="row">
@@ -105,11 +128,11 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
                     ?>
                             <?php if ($topic['topic_name'] != 'null') { ?>
-                                <h3 style="text-align: justify;">
+                                <h4 style="text-align: justify;">
                                     <strong style="color: #4b0808;">
                                         <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
                                     </strong>
-                                </h3>
+                                </h4>
                             <?php } ?>
                             <p style="text-align: justify;">
                                 <?php echo nl2br($topic['content']) ?>
@@ -157,7 +180,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                 </aside>
                 <!-- bài viết cùng danh mục -->
 
-                <p style="font-size:30px"> bài viết cùng danh mục</p>
+                <p class="h3 text-success">Posts in the same category</p>
                 <!-- bài viết 1 -->
                 <article class="card mb-2">
                     <a href="#" class="card-link nav-link ">
@@ -191,7 +214,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
                 <!-- Sản phẩm liên quan -->
                 <div class="overlay-box ">
-                    <p style="font-size:30px">Sản phẩm liên quan</p>
+                <p class="h3 text-success">Related products</p>
                     <figure class="image-box">
                         <a href="#">
                             <img alt="" src="https://www.yeutrongcay.com/uploads/pages/Bac-ha-socola-Chocolate mint-01_1627225885.jpg" width=60 height=NaN />

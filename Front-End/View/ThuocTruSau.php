@@ -8,13 +8,18 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
     }
 
     .ct {
-        background-color: #fffffa;
+        background-color: #f8f1ea;
 
 
     }
 
     .card {
         background-color: #fffae5;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(111, 30, 200, 0.3);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .2s ease-in-out;
+        transition: .2s ease-in-out;
     }
 
     .toc {
@@ -34,8 +39,11 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
     }
 
-    img {
+    img:hover {
         border-radius: 15px;
+        border: 1px solid #165915;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+
     }
 
     .left_1 div article {
@@ -47,6 +55,23 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         position: sticky;
         top: 20px;
     }
+    .card:hover {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+    }
+    h1{
+        color:#429757;
+        text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
+        font-size: 30px;
+    }
+    h1:hover{
+        font-size: 35px;
+    }
+    .h3{
+        color:#429757;
+        text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
+        font-size: 20px;
+    }
 </style>
 <div class="container-fluid ct">
     <?php
@@ -54,8 +79,8 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
     $result1 = mysqli_query($conn, $sql1);
     $post = mysqli_fetch_assoc($result1);
     ?>
-    <div class="text-center my-4">
-        <h1 style="color: #165915;"><?php echo $post['title'] ?></h1>
+    <div class="text-center p-3">
+        <h1><?php echo $post['title'] ?></h1>
     </div>
     <div class="container">
         <div class="row">
@@ -102,11 +127,11 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
                     ?>
                             <?php if ($topic['topic_name'] != 'null') { ?>
-                                <h3 style="text-align: left;text-decoration:double;">
+                                <h4 style="text-align: left;text-decoration:double;">
                                     <strong style="color: #4b0808;">
                                         <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
                                     </strong>
-                                </h3>
+                                </h4>
                             <?php } ?>
                             <p style="text-align: left;">
                                 <?php echo nl2br($topic['content']) ?>
@@ -152,8 +177,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
                         <!-- bài viết cùng danh mục -->
                         <div class="mt-2">
-                            <p style="font-size:30px">Posts in the same category</p>
-
+                        <p class="h3 text-success">Posts in the same category</p>
                             <?php
                             $postCategoryId = $post['post_category_id'];
                             $sql2 = "SELECT * FROM post WHERE post_img != 'null'  ORDER BY RAND()  LIMIT 3  ";
@@ -185,9 +209,9 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                 </aside>
                 <!-- Sản phẩm liên quan -->
                 <div class="overlay-box ">
-                    <p style="font-size:30px">Related products</p>
+                <p class="h3 text-success">Related products</p>
                     <?php
-                    $sql3 = "SELECT * FROM product ORDER BY RAND()  LIMIT 5  ";
+                    $sql3 = "SELECT * FROM product ORDER BY RAND()  LIMIT 4 ";
                     $result3 = mysqli_query($conn, $sql3);
                     if (mysqli_num_rows($result3) > 0) {
                         while ($product = mysqli_fetch_assoc($result3)) {
@@ -197,7 +221,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                             $product_img = mysqli_fetch_assoc($result4)
                     ?>
                             <article class="card mb-2">
-                                <a href="#" class="card-link nav-link ">
+                                <a href="ProductDetail.php?product_id=<?php echo $product['product_id']?>" class="card-link nav-link ">
                                     <div class=" row">
                                         <figure class=" col-sm-4">
                                             <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">

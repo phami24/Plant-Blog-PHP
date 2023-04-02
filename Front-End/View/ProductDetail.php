@@ -7,8 +7,8 @@ $sql1 = "SELECT * FROM product_img WHERE product_id = '$product_id'";
 $result = mysqli_query($conn, $sql);
 ?>
 <div class="container bg-secondary-subtle">
-    <div class="row m-5 p-5 " style="max-height: 500px">
-        <div class="img col-6">
+    <div class="row m-5 p-5 ">
+        <div class="img col-6 ">
             <?php
             if (mysqli_num_rows($result) > 0) {
                 $product_detail = mysqli_fetch_assoc($result);
@@ -16,9 +16,9 @@ $result = mysqli_query($conn, $sql);
                 $result1 = mysqli_query($conn, $sql1);
                 $product_img = mysqli_fetch_assoc($result1);
             ?>
-                <img src="../../Admin/img/<?php echo $product_img['product_img']; ?>" alt="Ảnh sản phẩm">
+                <img style="margin: 100px 100px 0 0;" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" alt="Ảnh sản phẩm">
         </div>
-        <div class="desc col-6 bg-white p-5" style="max-height: 500px">
+        <div class="desc col-6 bg-white p-5">
             <div>
                 <h4><?php echo $product_detail['product_name'] ?></h4>
             </div>
@@ -26,9 +26,9 @@ $result = mysqli_query($conn, $sql);
                 <h3>$<?php echo $product_detail['price'] ?></h3>
             </div>
             <div>
-                <p>
+                <small>
                     <?php echo $product_detail['descriptions'] ?>
-                </p>
+                </small>
             </div>
 
         </div>
@@ -39,10 +39,10 @@ $result = mysqli_query($conn, $sql);
     </div>
 </div>
 
-<div class="overlay-box ">
-    <p style="font-size:30px">Một số sản phẩm khác</p>
+<div class= " container mx-5 px-5">
+    <p style="font-size:30px">Some other products: </p>
     <?php
-    $sql3 = "SELECT * FROM product";
+    $sql3 = "SELECT * FROM product ORDER BY RAND() LIMIT 5";
     $result3 = mysqli_query($conn, $sql3);
     if (mysqli_num_rows($result3) > 0) {
         while ($product = mysqli_fetch_assoc($result3)) {
@@ -51,13 +51,13 @@ $result = mysqli_query($conn, $sql);
             $result4 = mysqli_query($conn, $sql4);
             $product_img = mysqli_fetch_assoc($result4)
     ?>
-            <article class="card mb-2">
+            <article class="card mb-3 px-2 mx-5" style="max-height:200px">
                 <a href="ProductDetail.php?product_id=<?php echo $product['product_id']?>" class="card-link nav-link ">
-                    <div class="row">
+                    <div class="row px-5 mx-3">
                         <figure class=" col-sm-4">
-                            <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">
+                            <img style="max-width: 150px; max-height:150px" alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2 mt-3 px-2">
                         </figure>
-                        <div class="col-sm-8" style="min-height: 120;">
+                        <div class="col-sm-8">
                             <p class="card-title"><?php echo $product['product_name']; ?></p>
                         </div>
                     </div>
