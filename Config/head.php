@@ -29,7 +29,7 @@
     </a>
     <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand logo1 me-lg-5" href="test.html" style="color: rgb(155, 195, 82)">
+            <a class="navbar-brand logo1 me-lg-5" href="HomePage.php" style="color: rgb(155, 195, 82)">
                 <span class="ms-lg-5" style="font-weight:bold;">
                     <ion-icon name="leaf-outline" class="ms-lg-5"></ion-icon>𝔾𝕒𝕣𝕕𝕖𝕟𝕎𝕠𝕣𝕝𝕕
                 </span>
@@ -37,7 +37,7 @@
             <div class="nav navbar-nav searchSm">
                 <form class="nav-item input-group">
                     <input type="text" aria-describedby="basic-addon2" name="search2" id="search2" class="search2" placeholder="Search">
-                    <span type="submit  " onclick="getfocus()" class="input-group-text me-2" id="basic-addon2"><ion-icon name="search-outline"></ion-icon></span>
+                    <span type="submit" onclick="getfocus()" class="input-group-text me-2" id="basic-addon2"><ion-icon name="search-outline"></ion-icon></span>
                 </form>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,7 +106,11 @@
 
     <script>
         function getfocus() {
-            document.getElementById("search").focus();  
+            document.getElementById("search").focus();
             document.getElementById("search2").focus();
         }
     </script>
+    <form method="post" action="search.php">
+        <input type="text" name="noidung">
+        <input type="submit" name="timkiem" value="tim kiem">
+    </form>
