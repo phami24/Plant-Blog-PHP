@@ -3,7 +3,6 @@ include "/xampp/htdocs/e-project1/Config/head.php";
 
 include "/xampp/htdocs/e-project1/Config/conn.php";
 $sql = 'SELECT * FROM product ;';
-
 $result = mysqli_query($conn, $sql);
 ?>
 
