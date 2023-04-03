@@ -1,6 +1,5 @@
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
-// include "/xampp/htdocs/e-project1/Config/Slide.php";
 ?>
 <?php
 include "/xampp/htdocs/e-project1/Config/conn.php";
@@ -33,54 +32,19 @@ $result1 = mysqli_query($conn, $sql1);
 ?>
 
 <style>
-    .index-intro .jumbotron {
-        border-radius: 5px;
-        height: 150px;
-        font-family: 'Times New Roman', Times, serif;
-        width: 100%;
-    }
 
-    .index-intro {
-        background-image: url(../img/Banner1.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        max-width: 100%;
-
-    }
-
-
-    .h5 {
-        padding-top: 70px;
-        color: #585c58;
-        font-size: 23px;
-        padding: 50px auto 50px 50px;
-    }
-
-    .h5:hover {
-        font-size: 25px;
-        font-family: 'Courier New', Courier, monospace;
-    }
-
-    .ct {
-        background-color: #f8f1ea;
-
-    }
     h1{
         text-shadow: 1px 1px 2px black, 0 0 35px green, 0 0 15px darkseagreen;
         font-size:50px;
     }
 </style>
 
-<div class="container-fluid mt-2 mb-2 ct ">
+<div class="container-fluid mt-2 mb-2">
 
-    <article class="index-intro">
-        <div>
-            <div class="jumbotron">
-                <p class="h5">Nature trips are a way to re-energize and help you discover the wonderful things in nature.</p>
-            </div>
-        </div>
-    </article>
+<?php 
+include "/xampp/htdocs/e-project1/Config/Slide.php";
 
+?>
     <div class="container mt-4 mb-3">
 
         <div class="sec-title centered">

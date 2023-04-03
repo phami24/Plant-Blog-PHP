@@ -2,10 +2,7 @@
 include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
 $post_id = $_GET['id'];
-
-
 ?>
-
 
 <style>
     .input-right {
@@ -14,15 +11,14 @@ $post_id = $_GET['id'];
         animation-iteration-count: infinite;
     }
 
-
-    .ct {
-        background-color: #f8f1ea;
-
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     .card {
-        background-color: #fffae5;
-        /* box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(111, 30, 200, 0.3); */
+        background-color: #c9ffc8;
         -webkit-transform: scale(1);
         transform: scale(1);
         -webkit-transition: .2s ease-in-out;
@@ -33,10 +29,6 @@ $post_id = $_GET['id'];
         background-color: #c9ffc8;
         margin-bottom: 10px;
 
-    }
-
-    .toc ul li {
-        list-style-type: none;
     }
 
     .toc li a {
@@ -75,13 +67,12 @@ $post_id = $_GET['id'];
 
     h1 {
         color: #429757;
-        text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
         font-size: 30px;
-
     }
 
     h1:hover {
         font-size: 35px;
+        text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
     }
 
     .h3 {
@@ -91,7 +82,7 @@ $post_id = $_GET['id'];
     }
 </style>
 
-<div class="container-fluid ct">
+<div class="container-fluid">
     <?php
     $sql1 = "SELECT * FROM post WHERE post_id = '$post_id'";
     $result1 = mysqli_query($conn, $sql1);
@@ -105,7 +96,7 @@ $post_id = $_GET['id'];
             <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="inner-content">
                     <aside class="toc">
-                        <h4>Index: </h4>
+                        <h4 style="color:#4b0808;">Index: </h4>
                         <hr>
                         <ul class="toc-list">
                             <ul class="toc-list  is-collapsible">
@@ -131,7 +122,7 @@ $post_id = $_GET['id'];
                 </div>
                 <!---------------- nội dung -------------------->
 
-                <div class="container">
+                <div class="row">
                     <?php
                     $result = mysqli_query($conn, $sql);
                     if (mysqli_num_rows($result) > 0) {
@@ -171,11 +162,6 @@ $post_id = $_GET['id'];
                     }
 
                     ?>
-                    <p style="text-align: center;">
-                        <span class="notranslate text-success">
-                            See more: <a href="#" target="_blank">title</a>
-                        </span>
-                    </p>
                 </div>
             </div>
             <!---------------------------------------- kết thúc nội dung -------------------------------------->
@@ -186,7 +172,7 @@ $post_id = $_GET['id'];
                     <div class="widget search-box" style="height: auto !important;">
 
                         <!-- thanh Search -->
-                        <div class="input-right my-3" style="width:100%;">
+                        <!-- <div class="input-right my-3" style="width:100%;">
                             <form id="frmSearch" method="post" action="">
                                 <div class="input-group search-form" style="line-height: 60px;">
                                     <input class="form-control" id="txtSearch" style="margin-top: 18.5px;" name="keyword" value="" type="text" placeholder='Search...'>
@@ -195,9 +181,7 @@ $post_id = $_GET['id'];
                                     </span>
                                 </div>
                             </form>
-                        </div>
-
-
+                        </div> -->
 
                         <!-- bài viết cùng danh mục -->
                         <div class="mt-2">
@@ -260,39 +244,6 @@ $post_id = $_GET['id'];
 
                     ?>
 
-
-                    <!---- Bài viết mới--------------->
-                    <p class="h3 text-success">Bài viết mới</p>
-                    <!-- bài viết 1 -->
-                    <article class="card mb-2">
-                        <a href="#" class="card-link nav-link ">
-                            <div class=" row">
-                                <figure class=" col-sm-4">
-                                    <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
-                                </figure>
-                                <div class="col-sm-8">
-                                    <div class="card-body">
-                                        <p class="card-title">Title</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-                    <!-- bài viết 2 -->
-                    <article class="card mb-2">
-                        <a href="#" class="card-link nav-link ">
-                            <div class=" row">
-                                <figure class=" col-sm-4">
-                                    <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
-                                </figure>
-                                <div class="col-sm-8">
-                                    <div class="card-body">
-                                        <p class="card-title">Title</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
                 </div>
             </div>
         </div>

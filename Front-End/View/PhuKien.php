@@ -31,62 +31,21 @@ $result1 = mysqli_query($conn, $sql1);
 
 ?>
 <style>
-    .ct {
-        background-color: #f8f1ea;
-
-    }
-
     h1 {
         text-shadow: 1px 1px 2px black, 0 0 35px green, 0 0 15px darkseagreen;
         font-size: 50px;
     }
 
-    h3 {
-        color: chocolate;
-    }
 </style>
-<div class="ct">
+<div>
     <!---------- Slide ------------------------->
-    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-inner" style="font-size: 2vw">
-            <div class="carousel-item active" style="position: relative; font-weight: bold">
-                <img src="../img/Banner1.jpg" class="d-block w-100" alt="Banner" />
-                <div style="color: #115b15">
-                    <p class="banner">
-                        Waking up in a place far away, surrounded by only trees and birds
-                        Feel the spirit of refreshment, extremely comfortable.
-                    </p>
-                </div>
-            </div>
-            <div class="carousel-item" style="position: relative; font-weight: bold">
-                <img src="../img/Banner2.jpg" class="d-block w-100 img-fluid" alt="Banner" />
-                <div style="color: #f8fbf8">
-                    <p class="banner">
-                        I love nature this scenery where only nature can help
-                        people become relaxed and forget all worries and troubles.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
+    <?php
+    include "/xampp/htdocs/e-project1/Config/Slide.php";
+    ?>
     <!-------------------------------->
 
     <div class="container mt-4 mb-3">
-        <!-- <div class="container-fluid text-bg-dark mb-5 bg_img ">
-            <div class="pt-5 pb-4">
-                <p class=" font-monospace text-success h4 text-end">Người trồng cây là những người biết yêu thương người khác.</p>
-                <p class=" font-monospace text-success h4">Những chuyến đi về thiên nhiên là cách tái tạo năng lượng và giúp bạn khám phá những điều tuyệt vời trong tự nhiên.</p>
-            </div>
-        </div> -->
+        
         <div class="sec-title centered">
             <h1 class="text-success mb-4">Accessory<h1>
         </div>

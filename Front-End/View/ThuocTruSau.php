@@ -3,19 +3,14 @@ include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
 ?>
 <style>
-    div.input-group.search-form {
-        width: 100%;
-    }
-
-    .ct {
-        background-color: #f8f1ea;
-
-
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     .card {
-        background-color: #fffae5;
-        /* box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(111, 30, 200, 0.3); */
+        background-color: #c9ffc8;
         -webkit-transform: scale(1);
         transform: scale(1);
         -webkit-transition: .2s ease-in-out;
@@ -40,9 +35,10 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
     }
 
     img:hover {
-       box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
     }
-    img{
+
+    img {
         border-radius: 8px;
     }
 
@@ -55,25 +51,29 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         position: sticky;
         top: 20px;
     }
+
     .card:hover {
         -webkit-transform: scale(1.15);
         transform: scale(1.15);
     }
-    h1{
-        color:#429757;
-        text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
+
+    h1 {
+        color: #429757;
         font-size: 30px;
     }
-    h1:hover{
+
+    h1:hover {
         font-size: 35px;
+        text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
     }
-    .h3{
-        color:#429757;
+
+    .h3 {
+        color: #429757;
         text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
         font-size: 20px;
     }
 </style>
-<div class="container-fluid ct">
+<div class="container-fluid">
     <?php
     $sql1 = "SELECT * FROM post WHERE post_category_id = 7";
     $result1 = mysqli_query($conn, $sql1);
@@ -87,7 +87,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
             <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="inner-content">
                     <aside class="toc">
-                        <h4>Index: </h4>
+                        <h4 style="color:#4b0808;">Index: </h4>
                         <hr>
                         <ul class="toc-list">
                             <ul class="toc-list  is-collapsible">
@@ -148,11 +148,6 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                         }
                     }
                     ?>
-                    <p style="text-align: center;">
-                        <span class="notranslate text-success">
-                            See more: <a href="#" target="_blank">title</a>
-                        </span>
-                    </p>
                 </div>
             </div>
 
@@ -164,7 +159,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                     <div class="widget search-box row" style="height: auto !important;">
 
                         <!-- thanh Search -->
-                        <div class="input-right my-3" style="width:100%;">
+                        <!-- <div class="input-right my-3" style="width:100%;">
                             <form id="frmSearch" method="post" action="">
                                 <div class="input-group search-form" style="line-height: 60px;">
                                     <input class="form-control" id="txtSearch" style="margin-top: 18.5px;" name="keyword" value="" type="text" placeholder='Search...'>
@@ -173,11 +168,11 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                                     </span>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
 
                         <!-- bài viết cùng danh mục -->
                         <div class="mt-2">
-                        <p class="h3 text-success">Posts in the same category</p>
+                            <p class="h3 text-success">Posts in the same category</p>
                             <?php
                             $postCategoryId = $post['post_category_id'];
                             $sql2 = "SELECT * FROM post WHERE post_img != 'null'  ORDER BY RAND()  LIMIT 3  ";
@@ -209,7 +204,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                 </aside>
                 <!-- Sản phẩm liên quan -->
                 <div class="overlay-box ">
-                <p class="h3 text-success">Related products</p>
+                    <p class="h3 text-success">Related products</p>
                     <?php
                     $sql3 = "SELECT * FROM product ORDER BY RAND()  LIMIT 4 ";
                     $result3 = mysqli_query($conn, $sql3);
@@ -221,7 +216,7 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                             $product_img = mysqli_fetch_assoc($result4)
                     ?>
                             <article class="card mb-2">
-                                <a href="ProductDetail.php?product_id=<?php echo $product['product_id']?>" class="card-link nav-link ">
+                                <a href="ProductDetail.php?product_id=<?php echo $product['product_id'] ?>" class="card-link nav-link ">
                                     <div class=" row">
                                         <figure class=" col-sm-4">
                                             <img alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2" style="border-radius: 5px; max-height:70px">

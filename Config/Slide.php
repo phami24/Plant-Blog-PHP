@@ -1,9 +1,14 @@
+<?php 
+$sql_b = 'SELECT * FROM banner ;';
+$result_b = mysqli_query($conn, $sql_b);
+?>
+
 <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
         <div class="carousel-inner" style="font-size: 2vw">
             <?php
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while ($banner = mysqli_fetch_assoc($result)) {
+           
+            if (mysqli_num_rows($result_b) > 0) {
+                while ($banner = mysqli_fetch_assoc($result_b)) {
 
             ?>
                     <div class="carousel-item active" style="position: relative; font-weight: bold">

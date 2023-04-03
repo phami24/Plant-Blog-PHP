@@ -57,20 +57,24 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         position: sticky;
         top: 20px;
     }
+
     .card:hover {
         -webkit-transform: scale(1.15);
         transform: scale(1.15);
     }
-    h1{
-        color:#429757;
+
+    h1 {
+        color: #429757;
         text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
         font-size: 30px;
     }
-    h1:hover{
+
+    h1:hover {
         font-size: 35px;
     }
-    .h3{
-        color:#429757;
+
+    .h3 {
+        color: #429757;
         text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
         font-size: 20px;
     }
@@ -153,11 +157,6 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
                         }
                     }
                     ?>
-                    <p style="text-align: center;">
-                        <span class="notranslate text-success">
-                            See more: <a href="#" target="_blank">title</a>
-                        </span>
-                    </p>
                 </div>
             </div>
 
@@ -244,39 +243,6 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
                     ?>
 
-
-                    <!---- Bài viết mới--------------->
-                    <p style="font-size:30px">Bài viết mới</p>
-                    <!-- bài viết 1 -->
-                    <article class="card mb-2">
-                        <a href="#" class="card-link nav-link ">
-                            <div class=" row">
-                                <figure class=" col-sm-4">
-                                    <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
-                                </figure>
-                                <div class="col-sm-8">
-                                    <div class="card-body">
-                                        <p class="card-title">Title</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-                    <!-- bài viết 2 -->
-                    <article class="card mb-2">
-                        <a href="#" class="card-link nav-link ">
-                            <div class=" row">
-                                <figure class=" col-sm-4">
-                                    <img alt="" src="https://www.yeutrongcay.com/uploads/pages/la-bac-ha-va-rau-hung-lui_1640388750.jpg" class="w-1 mt-2 mx-2">
-                                </figure>
-                                <div class="col-sm-8">
-                                    <div class="card-body">
-                                        <p class="card-title">Title</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
                 </div>
             </div>
         </div>
