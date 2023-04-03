@@ -4,6 +4,27 @@ include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
 $sql = 'SELECT * FROM product ;';
 $result = mysqli_query($conn, $sql);
+
+
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+$limit = 5;
+
+$result_row = mysqli_query($conn, 'select count(post_id) as total from post where post_category_id = 2 And status = 1');
+$row = mysqli_fetch_assoc($result_row);
+$total_records = $row['total'];
+
+$total_page = ceil($total_records / $limit);
+if ($current_page > $total_page) {
+    $current_page = $total_page;
+} else if ($current_page < 1) {
+    $current_page = 1;
+}
+$start = ($current_page - 1) * $limit;
+
+$sql = "SELECT * FROM post WHERE post_category_id = 2 AND status =1 LIMIT $start, $limit";
+$result = mysqli_query($conn, $sql);
+$sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
+$result1 = mysqli_query($conn, $sql1);
 ?>
 
 
@@ -21,12 +42,12 @@ $result = mysqli_query($conn, $sql);
 
         ?>
                 <div class="col-sm-6 col-md-4 mb-3">
-                    <a href="ProductDetail.php?product_id=<?php echo $product['product_id']?>" class="card-link nav-link">
+                    <a href="ProductDetail.php?product_id=<?php echo $product['product_id'] ?>" class="card-link nav-link">
                         <div class="card col">
-                            <img style="min-height: 200px; max-height:200px" src="../../Admin/img/<?php  echo $product_img['product_img']; ?>" alt="img" class="card-img-top">
+                            <img style="min-height: 200px; max-height:200px" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" alt="img" class="card-img-top">
                             <div class="card-body text">
                                 <h4 class="card-title " style="min-height: 100px; max-height:100px"><?php echo $product['product_name'] ?></h4>
-                        </div>
+                            </div>
                     </a>
                 </div>
         <?php
@@ -36,11 +57,33 @@ $result = mysqli_query($conn, $sql);
         <!-- End PHP code -->
 
     </div>
+    <!-- Phaan trang -->
+
+    <?php
+    if ($current_page > 1 && $total_page > 1) {
+        echo '<a href="index.php?page=' . ($current_page - 1) . '">Prev</a> | ';
+    }
+
+    // Lặp khoảng giữa
+    for ($i = 1; $i <= $total_page; $i++) {
+        // Nếu là trang hiện tại thì hiển thị thẻ span
+        // ngược lại hiển thị thẻ a
+        if ($i == $current_page) {
+            echo '<span>' . $i . '</span> | ';
+        } else {
+            echo '<a href="KyThuat.php?page=' . $i . '">' . $i . '</a> | ';
+        }
+    }
+
+    // echo $current_page + 1;
+    // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+    if ($current_page < $total_page && $total_page > 1) {
+        echo '<a href="KyThuat.php?page=' . ($current_page + 1) . '">Next</a> | ';
+    }
+    ?>
 </div>
 
-</div>
+
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
-
-

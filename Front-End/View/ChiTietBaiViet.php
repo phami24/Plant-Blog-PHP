@@ -2,7 +2,10 @@
 include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
 $post_id = $_GET['id'];
+
+
 ?>
+
 
 <style>
     .input-right {
@@ -47,10 +50,11 @@ $post_id = $_GET['id'];
 
     }
 
-    img:hover {      
+    img:hover {
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
     }
-    img{
+
+    img {
         border-radius: 8px;
     }
 
@@ -174,7 +178,6 @@ $post_id = $_GET['id'];
                     </p>
                 </div>
             </div>
-
             <!---------------------------------------- kết thúc nội dung -------------------------------------->
 
             <!-- phần bên phải -->

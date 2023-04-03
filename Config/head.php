@@ -35,9 +35,9 @@
                 </span>
             </a>
             <div class="nav navbar-nav searchSm">
-                <form class="nav-item input-group">
+                <form class="nav-item input-group" action="search.php" method="post">
                     <input type="text" aria-describedby="basic-addon2" name="search2" id="search2" class="search2" placeholder="Search">
-                    <span type="submit" onclick="getfocus()" class="input-group-text me-2" id="basic-addon2"><ion-icon name="search-outline"></ion-icon></span>
+                    <span type="submit" onclick="getfocus()" class="input-group-text me-2" id="basic-addon2" style="background-color: rgb(155, 195, 82);><ion-icon name=" search-outline"></ion-icon></span>
                 </form>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,9 +83,9 @@
                     </li>
                 </ul>
                 <div class="nav navbar-nav  me-auto searchLg">
-                    <form class="nav-item input-group">
+                    <form class="nav-item input-group" action="search.php" method="post">
                         <input type="text" aria-describedby="basic-addon1" name="search" id="search" class="search" placeholder="Search">
-                        <span type="submit  " onclick="getfocus()" class="input-group-text me-2" id="basic-addon1"><ion-icon name="search-outline"></ion-icon></span>
+                        <span type="submit  " onclick="getfocus()" class="input-group-text me-2" id="basic-addon1" style="background-color: rgb(155, 195, 82);"><ion-icon name="search-outline"></ion-icon></span>
                     </form>
                 </div>
                 <!-- <div class="nav navbar-nav me-auto ms-1">
@@ -110,7 +110,3 @@
             document.getElementById("search2").focus();
         }
     </script>
-    <form method="post" action="search.php">
-        <input type="text" name="noidung">
-        <input type="submit" name="timkiem" value="tim kiem">
-    </form>
