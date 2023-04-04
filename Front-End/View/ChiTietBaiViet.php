@@ -1,3 +1,6 @@
+<body>
+    
+
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
@@ -16,6 +19,9 @@ $post_id = $_GET['id'];
         padding: 0;
         box-sizing: border-box;
     }
+    body {
+            overflow-x: hidden;
+        }
 
     .card {
         background-color: #c9ffc8;
@@ -252,3 +258,4 @@ $post_id = $_GET['id'];
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+</body>

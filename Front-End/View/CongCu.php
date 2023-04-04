@@ -1,3 +1,5 @@
+<body>
+  
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
@@ -8,7 +10,9 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         padding: 0;
         box-sizing: border-box;
     }
-
+    body {
+            overflow-x: hidden;
+        }
     .card {
         background-color: #c9ffc8;
         -webkit-transform: scale(1);
@@ -243,3 +247,5 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+  
+</body>

@@ -1,3 +1,5 @@
+<body>
+
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
 ?>
@@ -37,9 +39,14 @@ $result1 = mysqli_query($conn, $sql1);
         font-size: 50px;
     }
 
-    h3 {
-        color: chocolate;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
+    body {
+            overflow-x: hidden;
+        }
 </style>
 
 <div>
@@ -143,3 +150,5 @@ $result1 = mysqli_query($conn, $sql1);
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+    
+</body>
