@@ -37,7 +37,7 @@
             <div class="nav navbar-nav searchSm">
                 <form class="nav-item input-group" action="search.php" method="post">
                     <input type="text" aria-describedby="basic-addon2" name="search2" id="search2" class="search2" placeholder="Search">
-                    <span type="submit" onclick="getfocus()" class="input-group-text me-2" id="basic-addon2" style="background-color: rgb(155, 195, 82);><ion-icon name=" search-outline"></ion-icon></span>
+                    <span type="submit" onclick="getfocus()" class="input-group-text me-2" id="basic-addon2" style="background-color: rgb(155, 195, 82);"><ion-icon name=" search-outline"></ion-icon></span>
                 </form>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

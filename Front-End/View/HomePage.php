@@ -116,7 +116,7 @@
             <?php
             $sql1 = "SELECT * FROM post LIMIT 6";
             $result1 = mysqli_query($conn, $sql1);
-            if (mysqli_num_rows($result) > 0) {
+            if (mysqli_num_rows($result1) > 0) {
                 while ($post = mysqli_fetch_assoc($result1)) {
 
             ?>
