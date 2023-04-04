@@ -34,7 +34,7 @@ $post_id = $_GET['id'];
     .toc {
         background-color: #c9ffc8;
         margin-bottom: 10px;
-
+        
     }
 
     .toc li a {
@@ -85,6 +85,9 @@ $post_id = $_GET['id'];
         color: #429757;
         text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
         font-size: 20px;
+    }
+    div .inner-content{
+        padding: 0;
     }
 </style>
 
@@ -177,17 +180,6 @@ $post_id = $_GET['id'];
                 <aside class="sidebar shop-sidebar padd-left-20" style="height: auto !important;">
                     <div class="widget search-box" style="height: auto !important;">
 
-                        <!-- thanh Search -->
-                        <!-- <div class="input-right my-3" style="width:100%;">
-                            <form id="frmSearch" method="post" action="">
-                                <div class="input-group search-form" style="line-height: 60px;">
-                                    <input class="form-control" id="txtSearch" style="margin-top: 18.5px;" name="keyword" value="" type="text" placeholder='Search...'>
-                                    <span type="submit" onclick="getfocus()" class="input-group-text me-3" id="basic-addon1" style="margin-top: 18px; background-color: #61c203;">
-                                        <ion-icon name="search-outline"></ion-icon>
-                                    </span>
-                                </div>
-                            </form>
-                        </div> -->
 
                         <!-- bài viết cùng danh mục -->
                         <div class="mt-2">

@@ -57,7 +57,7 @@
                     <h4><?php echo $product_detail['product_name'] ?></h4>
                 </div>
                 <div>
-                    <h3>$<?php echo $product_detail['price'] ?></h3>
+                    <h3 class="bg-secondary-subtle text-center">$<?php echo $product_detail['price'] ?></h3>
                 </div>
                 <div>
                     <small>

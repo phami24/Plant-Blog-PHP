@@ -78,6 +78,10 @@
             text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
             font-size: 20px;
         }
+
+        div .inner-content {
+            padding: 0;
+        }
     </style>
     <div class="container-fluid">
         <?php
@@ -121,7 +125,7 @@
                     <!---------------- nội dung -------------------->
 
 
-                    <div class="container">
+                    <div class="row">
                         <?php
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
@@ -139,7 +143,7 @@
                                         </strong>
                                     </h4>
                                 <?php } ?>
-                                <p style="text-align: left;">
+                                <p style="text-align: left;max-width:80%">
                                     <?php echo nl2br($topic['content']) ?>
                                 </p>
                                 <?php if ($topic_img['img_url'] != 'null') { ?>
@@ -161,7 +165,7 @@
 
                 <!-- phần bên phải -->
                 <div class="col-4 left_1" style="height: auto !important; min-height: 0px !important;">
-                    <aside class="sidebar shop-sidebar padd-left-20 row" style="height: auto !important;">
+                    <aside class="sidebar shop-sidebar padd-left-20 " style="height: auto !important;">
                         <div class="widget search-box row" style="height: auto !important;">
 
 
@@ -176,7 +180,7 @@
                                     while ($postlienquan = mysqli_fetch_assoc($result2)) {
                                 ?>
 
-                                        <div class="card mb-2 row">
+                                        <article class="card mb-2">
                                             <a href="CHiTietBaiViet.php?id=<?php echo $postlienquan['post_id']; ?>" class="card-link nav-link ">
                                                 <div class="row">
                                                     <figure class=" col-4">
@@ -187,7 +191,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </div>
+                                        </article>
 
                                 <?php
                                     }

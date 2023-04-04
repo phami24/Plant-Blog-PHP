@@ -26,7 +26,7 @@
     }
     $start = ($current_page - 1) * $limit;
 
-    $sql = "SELECT * FROM post WHERE post_category_id = 2 AND status =1 LIMIT $start, $limit";
+    $sql = "SELECT * FROM post WHERE post_category_id = 4 AND status =1 LIMIT $start, $limit";
     $result = mysqli_query($conn, $sql);
     $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
     $result1 = mysqli_query($conn, $sql1);
@@ -90,7 +90,7 @@
 
         <?php
         if ($current_page > 1 && $total_page > 1) {
-            echo '<a href="index.php?page=' . ($current_page - 1) . '">Prev</a> | ';
+            echo '<a href="PhuKien.php?page=' . ($current_page - 1) . '">Prev</a> | ';
         }
 
         // Lặp khoảng giữa
@@ -100,14 +100,14 @@
             if ($i == $current_page) {
                 echo '<span>' . $i . '</span> | ';
             } else {
-                echo '<a href="KyThuat.php?page=' . $i . '">' . $i . '</a> | ';
+                echo '<a href="PhuKien.php?page=' . $i . '">' . $i . '</a> | ';
             }
         }
 
         // echo $current_page + 1;
         // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
         if ($current_page < $total_page && $total_page > 1) {
-            echo '<a href="KyThuat.php?page=' . ($current_page + 1) . '">Next</a> | ';
+            echo '<a href="PhuKien.php?page=' . ($current_page + 1) . '">Next</a> | ';
         }
         ?>
 

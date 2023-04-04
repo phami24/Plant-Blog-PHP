@@ -76,6 +76,9 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
         font-size: 20px;
     }
+    div .inner-content{
+        padding: 0;
+    }
 </style>
 
 <div class="container-fluid">
