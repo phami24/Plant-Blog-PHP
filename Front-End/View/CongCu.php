@@ -1,3 +1,5 @@
+<body>
+  
 <?php
 include "/xampp/htdocs/e-project1/Config/head.php";
 include "/xampp/htdocs/e-project1/Config/conn.php";
@@ -8,7 +10,9 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         padding: 0;
         box-sizing: border-box;
     }
-
+    body {
+            overflow-x: hidden;
+        }
     .card {
         background-color: #c9ffc8;
         -webkit-transform: scale(1);
@@ -71,6 +75,9 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
         color: #429757;
         text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
         font-size: 20px;
+    }
+    div .inner-content{
+        padding: 0;
     }
 </style>
 
@@ -243,3 +250,5 @@ include "/xampp/htdocs/e-project1/Config/conn.php";
 
 
 <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+  
+</body>
