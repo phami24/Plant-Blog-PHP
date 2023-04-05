@@ -100,7 +100,7 @@ echo "<p class='text-search'>" . "Results for search : " . "<strong>" . $noidung
                 <div class="card hover01 mb-5" style="width: 20rem; min-height:300px; max-height:300px">
                     <a class="nav-link" href="ChiTietBaiViet.php?id=<?php echo $row['post_id'] ?>">
                         <figure>
-                            <img src="/Admin/img/<?php echo $row['post_img'] ?>" class="card-img-top" style="min-height:200px; max-height:200px">
+                            <img src="../../Admin/img/<?php echo $row['post_img'] ?>" class="card-img-top" style="min-height:200px; max-height:200px">
                         </figure>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['title'] ?></h5>
