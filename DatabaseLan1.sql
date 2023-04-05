@@ -135,11 +135,13 @@ INSERT INTO banner (banner_img , banner_text)
 VALUES 
 (
 'Banner1.jpg',
-'Tỉnh dậy ở một nơi thật xa, xung quanh chỉ có cây cỏ và chim muông, cảm thấy tinh thần sảng khoái, dễ chịu vô cùng.'
+'Waking up in a place far away, surrounded by only trees and birds
+            Feel the spirit of refreshment, extremely comfortable.'
 ),
 (
 'Banner2.jpg',
-'Tỉnh dậy ở một nơi thật xa, xung quanh chỉ có cây cỏ và chim muông, cảm thấy tinh thần sảng khoái, dễ chịu vô cùng.'
+'I love nature this scenery where only nature can help
+            people become relaxed and forget all worries and troubles.'
 );
 
 
@@ -598,7 +600,7 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
 	('8. Unused wooden door slots', 'Lean shutters (old or new) against an outer wall and fill the slot with succulents or moss', '20 '),
 	('9. Using pallets', 'Attach ceramic or earthen pots on pallets and you will make the most of the space to grow plants', '20 '),
 	('10. Mini garden', 'Mini garden will create a sense of diversity for your garden.', '20 '),
-	('11. Visual trick', 'By obscuring part of the yard with a curved fence it is possible to visually enlarge it. "You can\'t see the whole garden from any angle which is a plus,"', '20 '),
+	('11. Visual trick', 'By obscuring part of the yard with a curved fence it is possible to visually enlarge it. "You can\'t see the whole garden from any angle which is a plus"', '20 '),
 	('12. Bed Garden', 'For gardens with bad soil, use bed gardens. They add layers to the space and help you solve soil problems.', '20 '),
 	('13. Plant tall trees', 'Growing tall plants will make your garden feel bigger.', '20 '),
 	('14. Planted in troughs', 'null', '20 '),
@@ -1071,3 +1073,24 @@ INSERT INTO topics_img (img_url, topic_id ) VALUES
 	('dc_19.jpg', '19 ');
     INSERT INTO product_img (product_img, product_id ) VALUES
 	('dc_20.jpg', '20 ');
+
+
+	-- BOOK
+    create table book
+    (
+    book_id int auto_increment primary key,
+    book_name varchar(255),
+    book_img varchar(255),
+    book_content text,
+    post_category_id int,
+    FOREIGN KEY (post_category_id) REFERENCES post_category(post_category_id)
+    );
+    
+    insert into book (book_name,book_img,book_content,post_category_id) values
+    ('FAQs about flower and bonsai cultivation techniques (volume 1) - Prof. Dr. Tran Van Mao','sach_01.png','Answering the questions to make a beautiful small garden, bringing the fresh, bustling inspiration for us ...','9'),
+	('FAQs about flower and bonsai cultivation techniques (episode 2)','sach_02.png','Answering the questions to make a beautiful small garden, bringing a fresh, bustling inspiration for us, mental and motivation for new things.','9'),
+	('FAQs about flower and bonsai cultivation techniques (episode 3) - Prof. Dr. Tran Van Mao','sach_03.png','Answering the questions to make a beautiful small garden, bringing a fresh, bustling inspiration for us, mental and motivation for new things.','9'),
+	('Wormen','sach_04.png','These products can be very toxic and therefore harmful, so if you want to use them, take\nThis book will teach you how to prepare natural measures with the most popular herbs: Ghost trees, dandelion trees, bell flowers, and many others.','9'),
+	('Outdoor space: Garden, simple ideas, color, texture, materials','sach_06.jpg','In this book you will find the best ideas to design a garden in any space\nWhich balcony, terrace, solar energy ... no matter how many meters you have, you can have a place\nPerfect design thanks to Ula Maria, a designer, who was awarded the prize of the Hoang Garden Association Gia in 2018.','9'),
+    ('Beautiful garden on small balconies','sach_05.png','In the beautiful garden book on a small balcony, you will learn about:\n+ The world of flowers and plants\n+ Overview knowledge about balcony flower garden art\n+ The secrets of decoration and care for balcony flower garden\n+ Typical balcony flower gardens\n"If humans can vote with flowers and flowers, watch the clouds early in the afternoon"','9');
+                    

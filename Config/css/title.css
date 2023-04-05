@@ -27,10 +27,10 @@ img {
 }
 
 .toc {
-    padding: 30px;
+    /* padding: 30px; */
     border: 1px solid #dadada;
     border-radius: 5px;
-    background-color: #fafafa;
+    background-color: #d73131;
 }
 
 .toc-link {
@@ -43,8 +43,8 @@ img {
     color: #666;
 }
 
-.inner-content {
-    padding: 0 60px;
+div .inner-content {
+    padding: 0;
 }
 
 .input-right {
