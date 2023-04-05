@@ -165,10 +165,10 @@
                                 <?php } ?>
 
                                 <?php if ($topic['content'] != 'null') { ?>
-                                    <p style="text-align: left;max-width:80%">
-
+                                    <p style="text-align: justify;max-width:90%">
+            
                                         <?php echo nl2br($topic['content']) ?>
-                                    </p>
+                                    </span>
                                 <?php } ?>
                                 <?php if ($topic_img['img_url'] != 'null') { ?>
                                     <p style="text-align: left;" class="hover">
