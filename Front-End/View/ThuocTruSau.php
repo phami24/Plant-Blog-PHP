@@ -82,6 +82,13 @@
         div .inner-content {
             padding: 0;
         }
+        h4 {
+            color: #4b0808;
+        }
+
+        .index {
+            margin: 15px auto auto 30px;
+        }
     </style>
     <div class="container-fluid">
         <?php
@@ -97,7 +104,7 @@
                 <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="inner-content">
                         <aside class="toc">
-                            <h4 style="color:#4b0808;">Index: </h4>
+                            <h4 class="index">Index: </h4>
                             <hr>
                             <ul class="toc-list">
                                 <ul class="toc-list  is-collapsible">
@@ -138,7 +145,7 @@
                         ?>
                                 <?php if ($topic['topic_name'] != 'null') { ?>
                                     <h4 style="text-align: left;text-decoration:double;">
-                                        <strong style="color: #4b0808;">
+                                        <strong>
                                             <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
                                         </strong>
                                     </h4>
