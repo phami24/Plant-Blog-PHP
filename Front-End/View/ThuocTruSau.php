@@ -82,6 +82,30 @@
         div .inner-content {
             padding: 0;
         }
+
+        h4 {
+            color: #4b0808;
+        }
+
+        .index {
+            margin: 15px auto auto 30px;
+        }
+
+        .cmt {
+            background-color: whitesmoke;
+            border: 2px solid whitesmoke;
+            margin: 20px auto;
+            box-shadow: 1px 1px 7px gray;
+        }
+
+        .userComment {
+            background-color: white;
+            border: 0px solid white;
+            margin-left: 30px;
+            height: 50px;
+            box-shadow: 0.5px 0.3px 1px gray;
+            border-radius: 7px;
+        }
     </style>
     <div class="container-fluid">
         <?php
@@ -97,7 +121,7 @@
                 <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="inner-content">
                         <aside class="toc">
-                            <h4 style="color:#4b0808;">Index: </h4>
+                            <h4 class="index">Index: </h4>
                             <hr>
                             <ul class="toc-list">
                                 <ul class="toc-list  is-collapsible">
@@ -123,9 +147,7 @@
                         </aside>
                     </div>
                     <!---------------- nội dung -------------------->
-
-
-                    <div class="row">
+                    <div>
                         <?php
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
@@ -138,12 +160,12 @@
                         ?>
                                 <?php if ($topic['topic_name'] != 'null') { ?>
                                     <h4 style="text-align: left;text-decoration:double;">
-                                        <strong style="color: #4b0808;">
+                                        <strong>
                                             <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
                                         </strong>
                                     </h4>
                                 <?php } ?>
-                                <p style="text-align: left;max-width:80%">
+                                <p style="text-align: justify;max-width:90%">
                                     <?php echo nl2br($topic['content']) ?>
                                 </p>
                                 <?php if ($topic_img['img_url'] != 'null') { ?>
@@ -164,7 +186,7 @@
                 <!---------------------------------------- kết thúc nội dung -------------------------------------->
 
                 <!-- phần bên phải -->
-                <div class="col-4 left_1" style="height: auto !important; min-height: 0px !important;">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 left_1" style="height: auto !important; min-height: 0px !important;">
                     <aside class="sidebar shop-sidebar padd-left-20 " style="height: auto !important;">
                         <div class="widget search-box row" style="height: auto !important;">
 
@@ -235,6 +257,24 @@
 
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Comment -->
+        <div class="cmt bg-secondary-subtle">
+            <div class="row mt-3 mx-3">
+                <div class="col-md-12 ">
+                    <textarea class="form-control" id="mainComment" placeholder="Comment..." cols="30" rows="2"></textarea>
+                    <br>
+                    <button style="float:right;" class="btn btn-success" id="addComment">Add Comment</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="userComments my-3 mx-2">
+                        <b class=""><ion-icon name="person-circle-outline" style="font-size: 30px;"></ion-icon> Name</b>
+                        <div class="userComment">this is my comment</div>
                     </div>
                 </div>
             </div>

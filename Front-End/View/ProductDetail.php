@@ -85,7 +85,7 @@
                 $result4 = mysqli_query($conn, $sql4);
                 $product_img = mysqli_fetch_assoc($result4)
         ?>
-                <article class="card mb-3 " style="max-height:200px">
+                <article class="card mb-3 " style="max-height:200px; background-color: #c9ffc8;">
                     <a href="ProductDetail.php?product_id=<?php echo $product['product_id'] ?>" class="card-link nav-link ">
                         <div class="row px-5 mx-3">
                             <figure class=" col-sm-4">

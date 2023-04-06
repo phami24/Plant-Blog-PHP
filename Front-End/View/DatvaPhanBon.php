@@ -50,7 +50,7 @@
         }
     </style>
 
-    <div class="container-fluid mt-2 mb-2">
+    <div>
 
         <?php
         include "/xampp/htdocs/e-project1/Config/Slide.php";

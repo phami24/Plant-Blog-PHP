@@ -50,38 +50,38 @@
                 <ul class="navbar-nav mb-2 mb-lg-0 flex-wrap ms-auto me-auto ">
                     <li class="nav-item ms-4">
                         <a class="nav-link active" aria-current="page" href="HomePage.php">
-                            Trang chủ</a>
+                            Home</a>
                     </li>
                     <li class="nav-item ms-4 dropdown">
                         <!-- <a href="KyThuat.php" class="nav-link active">
                             Kiến thức
                         </a> -->
                         <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kiến thức
+                            Knowledge
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Kiến thức cơ bản</a></li>
-                            <li><a class="dropdown-item" href="KyThuat.php">Mẹo và tips</a></li>
+                            <li><a class="dropdown-item" href="#">Basic Knowledge</a></li>
+                            <li><a class="dropdown-item" href="KyThuat.php">Tips and Tricks</a></li>
                         </ul>
                     </li>
                     <li class="nav-item ms-4 dropdown">
                         <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Thiết kế
+                            Garden Design
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="LuaChonSanPham.php">Lựa chọn sản phẩm</a></li>
-                            <li><a class="dropdown-item" href="PhuKien.php">Phụ Kiện</a></li>
+                            <li><a class="dropdown-item" href="LuaChonSanPham.php">Product Selection</a></li>
+                            <li><a class="dropdown-item" href="PhuKien.php">Accessory</a></li>
                         </ul>
                     </li>
                     <li class="nav-item ms-4 dropdown">
                         <a class="nav-link active " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dụng cụ
+                            Tool
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="CongCu.php">Thiết bị</a></li>
-                            <li><a class="dropdown-item" href="DatvaPhanBon.php">Đất và phân bón</a></li>
-                            <li><a class="dropdown-item" href="ThuocTruSau.php">Thuốc trừ sâu</a></li>
-                            <li><a class="dropdown-item" href="HatGiong.php">Hạt giống</a></li>
+                            <li><a class="dropdown-item" href="CongCu.php">Device</a></li>
+                            <li><a class="dropdown-item" href="DatvaPhanBon.php">Soil and Fertilizer</a></li>
+                            <li><a class="dropdown-item" href="ThuocTruSau.php">Pesticides</a></li>
+                            <li><a class="dropdown-item" href="HatGiong.php">Seeds</a></li>
                         </ul>
                     </li>
                 </ul>
