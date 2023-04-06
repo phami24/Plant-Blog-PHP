@@ -571,7 +571,7 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
 	('Design Your Garden To Look Like It\'s Professionally Designed ', 'thiet-ke-vuon-chuyen-nghiep-04.jpg', '3', '1 '),
 	('Vertical Garden Design ', 'vuon_dung_01.jpg', '3', '1 '),
 	('Modern Garden Design', 'thiet-ke-vuon-duong-dai-01.jpg', '3', '1 '),
-	('Garden Design For Health ', 'thiet-ke-vuon-hop-suc-khoe-1_01.jpg', '3', '1 '),
+	('Garden Design For Health ', 'thiet-ke-vuon-hop-suc-khoe_01.jpg', '3', '1 '),
 	('Great Design For Small Garden ', 'thiet-ke-vuon-nho-02.jpg', '3', '1 '),
 	('Impressive Garden Design For Your Terrace Area ', 'thiet-ke-vuon-dep-tren-san-thuong-03.jpg', '3', '1 '),
 	('Herb Garden Design For City Housing ', 'cay_thao_moc_04.jpg', '3', '1 '),

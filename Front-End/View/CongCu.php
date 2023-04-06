@@ -95,6 +95,21 @@
         .index {
             margin: 15px auto auto 30px;
         }
+        .cmt {
+            background-color: whitesmoke;
+            border: 2px solid whitesmoke;
+            margin: 20px auto;
+            box-shadow: 1px 1px 7px gray;
+        }
+
+        .userComment {
+            background-color: white;
+            border: 0px solid white;
+            margin-left: 30px;
+            height: 50px;
+            box-shadow: 0.5px 0.3px 1px gray;
+            border-radius: 7px;
+        }
     </style>
 
     <div class="container-fluid">
@@ -137,7 +152,7 @@
                         </aside>
                     </div>
                     <!---------------- nội dung -------------------->
-                    <div class="container">
+                    <div >
                         <?php
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
@@ -155,7 +170,7 @@
                                         </strong>
                                     </h4>
                                 <?php } ?>
-                                <p style="text-align: justify;">
+                                <p style="text-align: justify;max-width:90%">
                                     <?php echo nl2br($topic['content']) ?>
                                 </p>
                                 <?php if ($topic_img['img_url'] != 'null') { ?>
@@ -177,7 +192,7 @@
                 <!---------------------------------------- kết thúc nội dung -------------------------------------->
 
                 <!-- phần bên phải -->
-                <div class="col-4 left_1" style="height: auto !important; min-height: 0px !important;">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 left_1" style="height: auto !important; min-height: 0px !important;">
                     <aside class="sidebar shop-sidebar padd-left-20" style="height: auto !important;z-index: 100;">
                         <div class="widget search-box" style="height: auto !important;">
 
@@ -193,7 +208,7 @@
                                     while ($postlienquan = mysqli_fetch_assoc($result2)) {
                                 ?>
                                         <article class="card mb-2">
-                                            <a href="Congcu.php?id=<?php echo $postlienquan['post_id']; ?>" class="card-link nav-link ">
+                                            <a href="CHiTietBaiViet.php?id=<?php echo $postlienquan['post_id']; ?>" class="card-link nav-link ">
                                                 <div class=" row">
                                                     <figure class=" col-sm-4">
                                                         <img alt="" src="../../Admin/img/<?php echo $postlienquan['post_img']; ?>" class="w-1 mt-2 mx-2" style=" max-height:70px;">
@@ -247,10 +262,25 @@
                 </div>
             </div>
         </div>
+        <!-- Comment -->
+        <div class="cmt bg-secondary-subtle">
+            <div class="row mt-3 mx-3">
+                <div class="col-md-12 ">
+                    <textarea class="form-control" id="mainComment" placeholder="Comment..." cols="30" rows="2"></textarea>
+                    <br>
+                    <button style="float:right;" class="btn btn-success" id="addComment">Add Comment</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="userComments my-3 mx-2">
+                        <b class=""><ion-icon name="person-circle-outline" style="font-size: 30px;"></ion-icon> Name</b>
+                        <div class="userComment">this is my comment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
 
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
 
