@@ -14,7 +14,7 @@
     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
     $limit = 5;
 
-    $result_row = mysqli_query($conn, 'select count(post_id) as total from post where post_category_id = 2 And status = 1');
+    $result_row = mysqli_query($conn, 'select count(post_id) as total from post where post_category_id = 6 And status = 1');
     $row = mysqli_fetch_assoc($result_row);
     $total_records = $row['total'];
 
@@ -110,25 +110,26 @@
         <!-- Phaan trang -->
         <div class="pagination">
             <?php
-            if ($current_page > 1 && $total_page > 1) {
-                echo '<a href="DatvaPhanBon.php?page=' . ($current_page - 1) . '">Prev</a>  ';
-            }
-
-            // Lặp khoảng giữa
-            for ($i = 1; $i <= $total_page; $i++) {
-                // Nếu là trang hiện tại thì hiển thị thẻ span
-                // ngược lại hiển thị thẻ a
-                if ($i == $current_page) {
-                    echo '<a class="active">' . $i . '</a>';
-                } else {
-                    echo '<a href="DatvaPhanBon.php?page=' . $i . '">' . $i . '</a>';
+            if ($total_page > 1) {
+                if ($current_page > 1 && $total_page > 1) {
+                    echo '<a href="DatvaPhanBon.php?page=' . ($current_page - 1) . '">Prev</a>';
                 }
-            }
+                // Lặp khoảng giữa
+                for ($i = 1; $i <= $total_page; $i++) {
+                    // Nếu là trang hiện tại thì hiển thị thẻ span
+                    // ngược lại hiển thị thẻ a
+                    if ($i == $current_page) {
+                        echo '<a class="active">' . $i . '</a>';
+                    } else {
+                        echo '<a href="DatvaPhanBon.php?page=' . $i . '">' . $i . '</a>';
+                    }
+                }
 
-            // echo $current_page + 1;
-            // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-            if ($current_page < $total_page && $total_page > 1) {
-                echo '<a href="DatvaPhanBon.php?page=' . ($current_page + 1) . '">Next</a>';
+                // echo $current_page + 1;
+                // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                if ($current_page < $total_page && $total_page > 1) {
+                    echo '<a href="DatvaPhanBon.php?page=' . ($current_page + 1) . '">Next</a>';
+                }
             }
             ?>
         </div>
@@ -172,4 +173,10 @@
 
 
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+    <script>
+        function Scrolldown() {
+            window.location.hash = '#post_category_name';
+        }
+        window.onload = Scrolldown();
+    </script>
 </body>

@@ -78,7 +78,7 @@
         <!-------------------------------->
 
         <div class="container mt-4 mb-3">
-            <div class="sec-title centered">
+            <div class="sec-title centered" id="post_category_name">
                 <h1 class="text-success mb-4">Garden design<h1>
             </div>
             <div class="row mb-2 ">
@@ -109,25 +109,28 @@
         <!-- Phaan trang -->
         <div class="pagination">
             <?php
-            if ($current_page > 1 && $total_page > 1) {
-                echo '<a href="LuaChonSanPham.php?page=' . ($current_page - 1) . '">Prev</a>';
-            }
+            if ($total_page > 1) {
 
-            // Lặp khoảng giữa
-            for ($i = 1; $i <= $total_page; $i++) {
-                // Nếu là trang hiện tại thì hiển thị thẻ span
-                // ngược lại hiển thị thẻ a
-                if ($i == $current_page) {
-                    echo '<a class="active">' . $i . '</a>';
-                } else {
-                    echo '<a href="LuaChonSanPham.php?page=' . $i . '">' . $i . '</a>';
+                if ($current_page > 1 && $total_page > 1) {
+                    echo '<a href="LuaChonSanPham.php?page=' . ($current_page - 1) . '">Prev</a>';
                 }
-            }
 
-            // echo $current_page + 1;
-            // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-            if ($current_page < $total_page && $total_page > 1) {
-                echo '<a href="LuaChonSanPham.php?page=' . ($current_page + 1) . '">Next</a>';
+                // Lặp khoảng giữa
+                for ($i = 1; $i <= $total_page; $i++) {
+                    // Nếu là trang hiện tại thì hiển thị thẻ span
+                    // ngược lại hiển thị thẻ a
+                    if ($i == $current_page) {
+                        echo '<a class="active">' . $i . '</a>';
+                    } else {
+                        echo '<a href="LuaChonSanPham.php?page=' . $i . '">' . $i . '</a>';
+                    }
+                }
+
+                // echo $current_page + 1;
+                // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                if ($current_page < $total_page && $total_page > 1) {
+                    echo '<a href="LuaChonSanPham.php?page=' . ($current_page + 1) . '">Next</a>';
+                }
             }
             ?>
         </div>
@@ -167,4 +170,10 @@
     </div>
 
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+    <script>
+        function Scrolldown() {
+            window.location.hash = '#post_category_name';
+        }
+        window.onload = Scrolldown();
+    </script>
 </body>
