@@ -78,18 +78,14 @@
         }
 
         h1 {
-            color: #429757;
-            font-size: 30px;
+            color: green;
+            font-size: 35px;
+            text-shadow:1px 1px 3px #429757;
         }
 
-        h1:hover {
-            font-size: 35px;
-            text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
-        }
 
         .h3 {
             color: #429757;
-            text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
             font-size: 20px;
         }
 
