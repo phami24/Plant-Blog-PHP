@@ -101,15 +101,14 @@ CREATE TABLE banner
     banner_text text
 );
 
-CREATE TABLE comments
-(
-	comment_id int auto_increment primary key ,
-	name varchar(100),
-    comment text ,
-	post_id int,
-    created_at DATETIME default CURRENT_TIMESTAMP,
-    FOREIGN KEY (post_id) REFERENCES post(post_id)
-
+CREATE TABLE comments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  post_id int ,
+  foreign key(post_id) references post(post_id)
 );
 
 
@@ -1093,4 +1092,12 @@ INSERT INTO topics_img (img_url, topic_id ) VALUES
 	('Wormen','sach_04.png','These products can be very toxic and therefore harmful, so if you want to use them, take\nThis book will teach you how to prepare natural measures with the most popular herbs: Ghost trees, dandelion trees, bell flowers, and many others.','9'),
 	('Outdoor space: Garden, simple ideas, color, texture, materials','sach_06.jpg','In this book you will find the best ideas to design a garden in any space\nWhich balcony, terrace, solar energy ... no matter how many meters you have, you can have a place\nPerfect design thanks to Ula Maria, a designer, who was awarded the prize of the Hoang Garden Association Gia in 2018.','9'),
     ('Beautiful garden on small balconies','sach_05.png','In the beautiful garden book on a small balcony, you will learn about:\n+ The world of flowers and plants\n+ Overview knowledge about balcony flower garden art\n+ The secrets of decoration and care for balcony flower garden\n+ Typical balcony flower gardens\n"If humans can vote with flowers and flowers, watch the clouds early in the afternoon"','9');
-                    
+         
+         
+         
+         
+         
+         
+         select * from comments
+         
+         
