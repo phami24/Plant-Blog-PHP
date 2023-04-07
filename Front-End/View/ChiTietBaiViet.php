@@ -7,6 +7,7 @@
     $post_id = $_GET['id'];
     ?>
 
+
     <style>
         .input-right {
             animation-name: example;
@@ -118,6 +119,46 @@
             height: 50px;
             box-shadow: 0.5px 0.3px 1px gray;
             border-radius: 7px;
+        }
+
+        .comment-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .comment-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .comment-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .comment-input,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .comment-add-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
         }
     </style>
 
@@ -275,27 +316,39 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Comment -->
-        <div class="cmt bg-secondary-subtle">
-            <div class="row mt-3 mx-3">
-                <div class="col-md-12 ">
-                    <textarea class="form-control" id="mainComment" placeholder="Comment..." cols="30" rows="2"></textarea>
-                    <br>
-                    <button style="float:right;" class="btn btn-success" id="addComment">Add Comment</button>
-                </div>
+
+            <h2>Comments</h2>
+            <div id="comment-section">
+                <!-- Hiển thị các comment đã tồn tại -->
+                <?php
+                $sql = "SELECT * FROM comments  Where post_id = '$post_id' ORDER BY created_at ASC";
+                $result = mysqli_query($conn, $sql);
+
+                // Hiển thị các comment
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="comment">';
+                    echo '<strong>' . $row['name'] . ' (' . $row['email'] . ') ' . $row['created_at'] . '</strong><br>';
+                    echo $row['message'];
+                    echo '</div>';
+                }
+                ?>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="userComments my-3 mx-2">
-                        <b class=""><ion-icon name="person-circle-outline" style="font-size: 30px;"></ion-icon> Name</b>
-                        <div class="userComment">this is my comment</div>
-                    </div>
-                </div>
-            </div>
+            <h2>Add Comment</h2>
+            <form method="post" id="comment-form" action="#">
+                <label>Name:</label>
+                <input type="text" name="name" required>
+                <br>
+                <label>Email:</label>
+                <input type="email" name="email" required>
+                <br>
+                <label>Comment:</label>
+                <textarea name="comment" required></textarea>
+                <br>
+                <label for="id">Post ID</label>
+                <input name="post_id" type="number" placeholder="<?php echo $post_id?>" value="<?php echo $post_id?>">
+                <button type="submit">Submit Comment</button>
+            </form>
+            <script src="../../Front-End/js/comment.js"></script>
         </div>
     </div>
-
-
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
-</body>
