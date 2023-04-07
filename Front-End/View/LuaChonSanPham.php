@@ -47,6 +47,27 @@
             text-shadow: 1px 1px 2px black, 0 0 35px green, 0 0 15px darkseagreen;
             font-size: 50px;
         }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+
+        }
+
+        .pagination a.active {
+            background-color: green;
+            color: white;
+        }
+
+        div.pagination {
+            margin-left: 500px;
+        }
+
+        .pagination a:hover {
+            background-color: green;
+        }
     </style>
     <div>
         <!---------- Slide ------------------------->
@@ -85,30 +106,31 @@
             </div>
         </div>
 
-
-        <?php
-        if ($current_page > 1 && $total_page > 1) {
-            echo '<a href="LuaChonSanPham.php?page=' . ($current_page - 1) . '">Prev</a> | ';
-        }
-
-        // Lặp khoảng giữa
-        for ($i = 1; $i <= $total_page; $i++) {
-            // Nếu là trang hiện tại thì hiển thị thẻ span
-            // ngược lại hiển thị thẻ a
-            if ($i == $current_page) {
-                echo '<span>' . $i . '</span> | ';
-            } else {
-                echo '<a href="LuaChonSanPham.php?page=' . $i . '">' . $i . '</a> | ';
+        <!-- Phaan trang -->
+        <div class="pagination">
+            <?php
+            if ($current_page > 1 && $total_page > 1) {
+                echo '<a href="LuaChonSanPham.php?page=' . ($current_page - 1) . '">Prev</a>';
             }
-        }
 
-        // echo $current_page + 1;
-        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-        if ($current_page < $total_page && $total_page > 1) {
-            echo '<a href="LuaChonSanPham.php?page=' . ($current_page + 1) . '">Next</a> | ';
-        }
-        ?>
+            // Lặp khoảng giữa
+            for ($i = 1; $i <= $total_page; $i++) {
+                // Nếu là trang hiện tại thì hiển thị thẻ span
+                // ngược lại hiển thị thẻ a
+                if ($i == $current_page) {
+                    echo '<a class="active">' . $i . '</a>';
+                } else {
+                    echo '<a href="LuaChonSanPham.php?page=' . $i . '">' . $i . '</a>';
+                }
+            }
 
+            // echo $current_page + 1;
+            // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+            if ($current_page < $total_page && $total_page > 1) {
+                echo '<a href="LuaChonSanPham.php?page=' . ($current_page + 1) . '">Next</a>';
+            }
+            ?>
+        </div>
         <!-- Sách liên quan: -->
         <div class="container mt-3 mb-5">
             <h3 class="text-success mb-5">You can read the books below to be more sure about gardening!</h3>
