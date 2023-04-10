@@ -2,28 +2,20 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard 3</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Panel</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome --> 
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+  <!-- jsGrid -->
+  <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css" />
+  <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css" />
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css" />
 </head>
-<!--
-`body` tag options:
-
-  Apply one or more of the following classes to to the body tag
-  to get the desired effect
-
-  * sidebar-collapse
-  * sidebar-mini
--->
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -68,7 +60,7 @@
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search post" aria-label="Search" />
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" />
             <div class="input-group-append">
               <button class="btn btn-sidebar">
                 <i class="fas fa-search fa-fw"></i>
@@ -84,7 +76,7 @@
              with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-table"></i>
                 <p>
                   Post Category
                   <i class="right fas fa-angle-left"></i>
@@ -104,7 +96,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index3.html" class="nav-link">
+                  <a href="./index3.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Trang 3</p>
                   </a>
@@ -121,103 +113,72 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <div class="content-header">
+      <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Admin Home Page</h1>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-
-      <!-- Main content -->
-      <div class="content mt-5">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Online Store Visitors</h3>
-                    <a href="javascript:void(0);">View Report</a>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">820</span>
-                      <span>Visitors Over Time</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 12.5%
-                      </span>
-                      <span class="text-muted">Since last week</span>
-                    </p>
-                  </div>
-                  <!-- /.d-flex -->
-
-                  <div class="position-relative mb-4">
-                    <canvas id="visitors-chart" height="200"></canvas>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This Week
-                    </span>
-
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Last Week
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card -->
+              <h1>jsGrid</h1>
             </div>
-            <!-- /.col-md-6 -->
-
-            <!-- /.col-md-6 -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">jsGrid</li>
+              </ol>
+            </div>
           </div>
-          <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-      </div>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">jsGrid</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div id="jsGrid1">
+
+
+
+
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021
+        <a href="AdminHome.php">AdminPanel</a>.</strong>
+      All rights reserved.
+    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <strong>Copyright &copy; 2014-2021
-        <a href="AdminHome.php">AdminPanel</a>.</strong>
-      All rights reserved.
-    </footer>
   </div>
   <!-- ./wrapper -->
 
-  <!-- REQUIRED SCRIPTS -->
-
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap -->
+  <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE -->
-  <script src="dist/js/adminlte.js"></script>
-
-  <!-- OPTIONAL SCRIPTS -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
+  <!-- jsGrid -->
+  <script src="plugins/jsgrid/demos/db.js"></script>
+  <script src="plugins/jsgrid/jsgrid.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="dist/js/pages/dashboard3.js"></script>
+  <!-- Page specific script -->
+
 </body>
 
 </html>
