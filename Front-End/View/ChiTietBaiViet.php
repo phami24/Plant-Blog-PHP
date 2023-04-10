@@ -346,5 +346,5 @@
             </form>
             <script src="../../Front-End/js/comment.js"></script>
         </div>
-    </div>
+    </div><br>
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>

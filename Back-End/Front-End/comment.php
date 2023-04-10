@@ -18,7 +18,8 @@ if ($result) {
     $comment = array(
       'name' => $name,
       'email' => $email,
-      'comment' => $comment
+      'comment' => $comment,
+      'post_id' => $post_id
     );
     echo json_encode($comment);
   } else {
