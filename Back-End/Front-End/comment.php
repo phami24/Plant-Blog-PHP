@@ -1,7 +1,7 @@
 <?php
 
 
-$conn = new mysqli('localhost', 'root', 'minhbinh8877', 'garden_world');
+$conn = new mysqli('localhost', 'root', '12345678', 'garden_world');
 
 // Lấy dữ liệu từ form
 $name = isset($_POST['name']) ? $_POST['name'] :"";
