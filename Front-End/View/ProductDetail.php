@@ -39,6 +39,18 @@
             height: 75%;
             box-shadow: 0px 0px 10px 3px green;
         }
+        .totop {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #f3f5ee;
+            padding: 5px;
+            border-radius: 50px;
+        }
+
+        .totop img {
+            width: 30px;
+        }
     </style>
     <div class="container bg-secondary-subtle">
         <div class="row m-5 p-5 ">
@@ -105,7 +117,11 @@
         ?>
 
     </div>
-
+        <!-- to top of content -->
+        <a href="#" class="totop">
+            <ion-icon name="arrow-up-outline" style="font-size:30px; color: #0ece0e"></ion-icon>
+            <!-- <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg"> -->
+        </a>
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
 
 </body>
