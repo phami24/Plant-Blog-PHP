@@ -13,7 +13,7 @@ $result_b = mysqli_query($conn, $sql_b);
         ?>
                 <div class="carousel-item active" style="position: relative; font-weight: bold">
                     <img src="../../Front-End/img/<?php echo $banner['banner_img'];  ?>" class="d-block w-100" alt="<?php echo $banner['banner_img']    ?>" />
-                    <div style="color: White">
+                    <div style="color: #57FC78">
                         <p class="banner">
                             <?php echo $banner['banner_text'] ?>
                         </p>

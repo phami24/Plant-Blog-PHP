@@ -34,10 +34,37 @@
             margin-bottom: 20px;
         }
 
-        img:hover {
-            width: 95%;
-            height: 75%;
-            box-shadow: 0px 0px 10px 3px green;
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 50%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 28px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            object-fit: cover;
         }
     </style>
     <div class="container bg-secondary-subtle">
@@ -75,34 +102,48 @@
 
     <div class=" container mx-5 px-5">
         <p style="font-size:30px">Some other products: </p>
-        <?php
-        $sql3 = "SELECT * FROM product ORDER BY RAND() LIMIT 5";
-        $result3 = mysqli_query($conn, $sql3);
-        if (mysqli_num_rows($result3) > 0) {
-            while ($product = mysqli_fetch_assoc($result3)) {
-                $productID = $product['product_id'];
-                $sql4 = "SELECT * FROM product_img Where product_id = '$productID'";
-                $result4 = mysqli_query($conn, $sql4);
-                $product_img = mysqli_fetch_assoc($result4)
-        ?>
-                <article class="card mb-3 " style="max-height:200px; background-color: #c9ffc8;">
-                    <a href="ProductDetail.php?product_id=<?php echo $product['product_id'] ?>" class="card-link nav-link ">
-                        <div class="row px-5 mx-3">
-                            <figure class=" col-sm-4">
-                                <img style="max-width: 150px; max-height:150px" alt="" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" class="w-1 mt-2 mx-2 mt-3 px-2">
-                            </figure>
-                            <div class="col-sm-8">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <?php
+                $sql3 = "SELECT * FROM product ORDER BY 'product_img'";
+                $result3 = mysqli_query($conn, $sql3);
+                if (mysqli_num_rows($result3) > 0) {
+                    while ($product = mysqli_fetch_assoc($result3)) {
+                        $productID = $product['product_id'];
+                        $sql4 = "SELECT * FROM product_img Where product_id = '$productID'";
+                        $result4 = mysqli_query($conn, $sql4);
+                        $product_img = mysqli_fetch_assoc($result4)
+                ?>
+                        <div class="swiper-slide">
+                            <a href="ProductDetail.php?product_id=<?php echo $product['product_id'] ?>" class="card-link nav-link ">
+                                <img style="max-width: 18rem;max-height: 18rem; " src="../../Admin/img/<?php echo $product_img['product_img']; ?>">
                                 <p class="card-title"><?php echo $product['product_name']; ?></p>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </article>
 
-        <?php
-            }
-        }
+                <?php
+                    }
+                }
+                ?>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
 
-        ?>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                freeMode: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
 
     </div>
 
