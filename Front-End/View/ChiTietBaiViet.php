@@ -78,14 +78,18 @@
         }
 
         h1 {
-            color: green;
-            font-size: 35px;
-            text-shadow:1px 1px 3px #429757;
+            color: #429757;
+            font-size: 30px;
         }
 
+        h1:hover {
+            font-size: 35px;
+            text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
+        }
 
         .h3 {
             color: #429757;
+            text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
             font-size: 20px;
         }
 
@@ -155,6 +159,18 @@
             border: none;
             border-radius: 3px;
             cursor: pointer;
+        }
+        .totop {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            /* background-color: #0ece0e ;
+            padding: 10px; */
+            border-radius: 20px;
+        }
+
+        .totop img {
+            width: 45px;
         }
     </style>
 
@@ -312,7 +328,10 @@
                     </div>
                 </div>
             </div>
-
+            <!-- to top of content -->
+            <a href="#" class="totop">
+                <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg">
+            </a>
             <h2>Comments</h2>
             <div id="comment-section">
                 <!-- Hiển thị các comment đã tồn tại -->
@@ -346,5 +365,5 @@
             </form>
             <script src="../../Front-End/js/comment.js"></script>
         </div>
-    </div><br>
+    </div>
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
