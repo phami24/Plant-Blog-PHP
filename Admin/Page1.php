@@ -8,13 +8,49 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
-  <!-- Font Awesome --> 
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
   <!-- jsGrid -->
   <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css" />
   <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css" />
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css" />
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th,
+    td {
+      text-align: center;
+      padding: 5px;
+    }
+
+    form,
+    div {
+      text-align: center;
+    }
+
+    input {
+      margin: 10px;
+      font-size: 30px;
+      border-radius: 10px;
+      padding: 5px;
+      border-color: blue;
+    }
+
+    body {
+      background-color: lightgoldenrodyellow;
+    }
+
+    #background {
+      background-color: lightgoldenrodyellow;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -76,7 +112,7 @@
              with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-table"></i>
+                <i class="nav-icon fas fa-table"></i>
                 <p>
                   Post Category
                   <i class="right fas fa-angle-left"></i>
@@ -139,9 +175,42 @@
           <!-- /.card-header -->
           <div class="card-body">
             <div id="jsGrid1">
+              <?php
+              include "/xampp/htdocs/e-project1/Config/conn.php";
+              ?>
+              <?php
+              $sql = "SELECT post.post_id, post.title, post_category.post_category_name, post.status FROM post INNER JOIN post_category ON post.post_category_id = post_category.post_category_id ORDER BY post_id";
+              if ($result = mysqli_query($conn, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                  echo "<table border=1>";
+                  echo "<th>post_id</th>";
+                  echo "<th>title</th>";
+                  echo "<th>post_category_name</th>";
+                  echo "<th>status</th>";
+                  echo "<th><button type=button class='btn btn-info' data-toggle='modal' data-target='#myModal'>Add</button></th>";
+                  echo "</tr>";
+                  while ($row = mysqli_fetch_array($result)) {
+                    echo " ";
+                    echo "<td>" . $row['post_id'] . "</td>";
+                    echo "<td>" . $row['title'] . "</td>";
+                    echo "<td>" . $row['post_category_name'] . "</td>";
+                    echo "<td>" . $row['status'] . "</td>";
+                    echo "<td><a href=''>
+                    <button type=button class='btn btn-success btn-xs'>Update</button></a>
+                <a href=''>
+                <button type=button class='btn btn-danger btn-xs'>Delete</button>
+                </a></td>";
+                    echo "</tr>";
+                  }
+                  echo "</table>" . "<br>";
+                } else {
+                  echo "Không có bản ghi nào được tìm thấy.";
+                }
+              } else {
+                echo "ERROR: Không thể thực thi câu lệnh $sql. " . mysqli_error($conn);
+              }
 
-
-
+              ?>
 
             </div>
           </div>
