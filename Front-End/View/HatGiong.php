@@ -115,7 +115,7 @@
                         <article class="card mb-3" style="max-height:200px">
                             <a href="../../Front-End/View/Book.php?id=<?php echo $book['book_id'] ?>" class="card-link nav-link">
                                 <div class="row g-0">
-                                    <div class="col-md-4 mb-3">
+                                    <div class="col-sm-4 mb-3">
                                         <img class="mt-3 px-2" style="max-width: 150px; max-height:150px" src="../../Admin/img/<?php echo $book['book_img']; ?>" alt="img">
                                     </div>
                                     <div class="col-sm-8">

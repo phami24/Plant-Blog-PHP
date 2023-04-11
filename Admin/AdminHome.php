@@ -239,7 +239,7 @@ $data = mysqli_fetch_assoc($result);
                       echo "<td>" . $row['status'] . "</td>";
                       if ($row['status'] == 1) {
                         echo "<td>
-                        <a href='../Back-End/Admin/edit.php?id=$row[post_id]'>
+                        <a href='../Admin/edit.php?id=$row[post_id]'>
                         <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Edit</button>
                         </a>
                         <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
@@ -248,7 +248,7 @@ $data = mysqli_fetch_assoc($result);
                         </td>";
                       } else {
                         echo "<td>
-                        <a href='../Back-End/Admin/edit.php?id=$row[post_id]'>
+                        <a href='../Admin/edit.php?id=$row[post_id]'>
                         <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Edit</button>
                         </a>
                         <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
