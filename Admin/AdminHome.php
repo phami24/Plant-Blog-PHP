@@ -260,7 +260,7 @@ $data = mysqli_fetch_assoc($result);
                         echo "<td>
                         <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
 
-                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id] '>
+                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
                         <button type=button class='btn btn-danger btn-xs'>Hide</button>
                         </a>
                         </td>";
@@ -286,7 +286,7 @@ $data = mysqli_fetch_assoc($result);
                       } else {
                         echo "<td>
                         <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
-                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id] '>
+                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
                         <button type=button class='btn btn-primary btn-xs'>Show</button>
                         </a>
                         </td>";

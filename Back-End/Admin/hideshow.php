@@ -2,7 +2,9 @@
 include "/xampp/htdocs/e-project1/Config/conn.php";
 
 $id = $_GET['id'];
+$page = $_GET['page'];
 echo $id . "</br>";
+echo $page . "</br>";
 
 $sql = "SELECT status from post where post_id = $id";
 $result = mysqli_query($conn, $sql);
@@ -25,6 +27,6 @@ if ($post_status['status'] == 0)
 }
 
 if (mysqli_query($conn, $sql1)) {
-    header("location:../../Admin/AdminHome.php");
+    header("location:../../Admin/AdminHome.php?page=$page");
     exit();
 }
