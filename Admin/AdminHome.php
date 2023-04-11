@@ -23,6 +23,9 @@ $data = mysqli_fetch_assoc($result);
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../Lib/css/bootstrap-grid.min.css">
+  <script src="../Lib/js/bootstrap.min.js"></script>
   <style>
     h1 {
       text-align: center;
@@ -36,6 +39,27 @@ $data = mysqli_fetch_assoc($result);
     td {
       text-align: center;
       padding: 5px;
+    }
+
+    .pagination a {
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: background-color .3s;
+
+    }
+
+    .pagination a.active {
+      background-color: green;
+      color: white;
+    }
+
+    div.pagination {
+      float: right;
+    }
+
+    .pagination a:hover {
+      background-color: lightgreen;
     }
   </style>
 </head>
@@ -206,19 +230,28 @@ $data = mysqli_fetch_assoc($result);
                     echo "<th>Title</th>";
                     echo "<th>Post Type</th>";
                     echo "<th>Status</th>";
-                    echo "<th><button type=button class='btn btn-info' data-toggle='modal' data-target='#myModal'>Add</button></th>";
+                    echo "<th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>";
                     echo "</tr>";
                     while ($row = mysqli_fetch_array($result)) {
-                      echo " ";
                       echo "<td>" . $row['post_id'] . "</td>";
                       echo "<td>" . $row['title'] . "</td>";
                       echo "<td>" . $row['post_category_name'] . "</td>";
                       echo "<td>" . $row['status'] . "</td>";
-                      echo "<td><a href=''>
-                    <button type=button class='btn btn-success btn-xs'>Update</button></a>
-                <a href=''>
-                <button type=button class='btn btn-danger btn-xs'>Delete</button>
-                </a></td>";
+                      if ($row['status'] == 1) {
+                        echo "<td>
+                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
+                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id] '>
+                        <button type=button class='btn btn-danger btn-xs'>Hide</button>
+                        </a>
+                        </td>";
+                      } else {
+                        echo "<td>
+                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
+                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id] '>
+                        <button type=button class='btn btn-primary btn-xs'>Show</button>
+                        </a>
+                        </td>";
+                      }
                       echo "</tr>";
                     }
                     echo "</table>" . "<br>";
@@ -262,7 +295,41 @@ $data = mysqli_fetch_assoc($result);
           </div>
           <!-- /.card -->
         </section>
+        <div class="modal fade" id="addPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!-- Form add Post -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Create</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="modal fade" id="updatePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!-- Form Update -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Create</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- /.content -->
     </div>
