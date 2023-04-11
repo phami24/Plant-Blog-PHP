@@ -232,6 +232,25 @@ $data = mysqli_fetch_assoc($result);
                     echo "<th>Status</th>";
                     echo "<th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>";
                     echo "</tr>";
+                    echo "
+                    <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                      <div class='modal-dialog'>
+                        <div class='modal-content'>
+                          <div class='modal-header'>
+                            <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
+                              <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                          </div>
+                          <div class='modal-body'>
+                            <!-- Form add Post -->
+                          </div>
+                          <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                            <button type='button' class='btn btn-primary'>Create</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    ";
                     while ($row = mysqli_fetch_array($result)) {
                       echo "<td>" . $row['post_id'] . "</td>";
                       echo "<td>" . $row['title'] . "</td>";
@@ -240,10 +259,30 @@ $data = mysqli_fetch_assoc($result);
                       if ($row['status'] == 1) {
                         echo "<td>
                         <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
+
                         <a href='../Back-End/Admin/hideshow.php?id=$row[post_id] '>
                         <button type=button class='btn btn-danger btn-xs'>Hide</button>
                         </a>
                         </td>";
+                        echo "
+                        <div class='modal fade' id='updatePost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                          <div class='modal-dialog'>
+                            <div class='modal-content'>
+                              <div class='modal-header'>
+                                <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
+                                  <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                              </div>
+                              <div class='modal-body'>
+                                <!-- Form add Post -->
+                              </div>
+                              <div class='modal-footer'>
+                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                <button type='button' class='btn btn-primary'>Create</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        ";
                       } else {
                         echo "<td>
                         <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
@@ -253,6 +292,25 @@ $data = mysqli_fetch_assoc($result);
                         </td>";
                       }
                       echo "</tr>";
+                      echo "
+                      <div class='modal fade' id='updatePost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                        <div class='modal-dialog'>
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>
+                            <div class='modal-body'>
+                              <!-- Form add Post -->
+                            </div>
+                            <div class='modal-footer'>
+                              <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                              <button type='button' class='btn btn-primary'>Create</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      ";
                     }
                     echo "</table>" . "<br>";
                   } else {
@@ -295,76 +353,40 @@ $data = mysqli_fetch_assoc($result);
           </div>
           <!-- /.card -->
         </section>
-        <div class="modal fade" id="addPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <!-- Form add Post -->
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Create</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal fade" id="updatePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Post</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <!-- Form Update -->
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Create</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- /.content -->
       </div>
-      <!-- /.content -->
+      <!-- /.content-wrapper -->
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <strong>Copyright &copy; 2014-2021
+          <a href="AdminHome.php">AdminPanel</a>.</strong>
+        All rights reserved.
+      </footer>
     </div>
-    <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <!-- REQUIRED SCRIPTS -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <strong>Copyright &copy; 2014-2021
-        <a href="AdminHome.php">AdminPanel</a>.</strong>
-      All rights reserved.
-    </footer>
-  </div>
-  <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
 
-  <!-- REQUIRED SCRIPTS -->
-
-  <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE -->
-  <script src="dist/js/adminlte.js"></script>
-
-  <!-- OPTIONAL SCRIPTS -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="dist/js/pages/dashboard3.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard3.js"></script>
 </body>
 
 </html>
