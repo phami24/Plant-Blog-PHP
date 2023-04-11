@@ -45,10 +45,6 @@
 
         }
 
-        img:hover {
-            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
-        }
-
         img {
             border-radius: 8px;
         }

@@ -54,10 +54,6 @@
 
         }
 
-        img:hover {
-            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.3);
-        }
-
         img {
             border-radius: 8px;
         }
@@ -78,18 +74,14 @@
         }
 
         h1 {
-            color: #429757;
-            font-size: 30px;
+            color: green;
+            font-size: 35px;
+            text-shadow: 1px 1px 3px #429757;
         }
 
-        h1:hover {
-            font-size: 35px;
-            text-shadow: 0px 0 chocolate, 0 0.5px chocolate, 0.5px 0 chocolate, 0 -1px chocolate;
-        }
 
         .h3 {
             color: #429757;
-            text-shadow: -1px 0 green, 0 0.5px green, 0.5px 0 green, 0 -1px green;
             font-size: 20px;
         }
 
@@ -115,51 +107,26 @@
         .userComment {
             background-color: white;
             border: 0px solid white;
-            margin-left: 30px;
-            height: 50px;
+            margin-left: 40px;
+            margin-bottom: 20px;
             box-shadow: 0.5px 0.3px 1px gray;
             border-radius: 7px;
+            height: max-content;
         }
 
-        .comment-container {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+        .form_label {
+            margin-right: 30px;
+            
         }
 
-        .comment-container {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 400px;
-            margin: 0 auto;
+        .form_input {
+            width: 45%;
         }
 
-        .comment-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+        .form_container {
+            margin: 20px 40px;
         }
 
-        .comment-input,
-        textarea {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-
-        .comment-add-btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
         .totop {
             position: fixed;
             bottom: 10px;
@@ -333,38 +300,45 @@
                 <ion-icon name="arrow-up-outline" style="font-size:30px; color: #0ece0e"></ion-icon>
                 <!-- <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg"> -->
             </a>
-            <h2>Comments</h2>
-            <div id="comment-section">
-                <!-- Hiển thị các comment đã tồn tại -->
-                <?php
-                $sql = "SELECT * FROM comments  Where post_id = '$post_id' ORDER BY created_at ASC";
-                $result = mysqli_query($conn, $sql);
+            <div class="cmt">
+                <h3 style="color: #4b0808;margin:20px;">Comments:</h3>
+                <div id="comment-section">
+                    <!-- Hiển thị các comment đã tồn tại -->
+                    <?php
+                    $sql = "SELECT * FROM comments  Where post_id = '$post_id' ORDER BY created_at ASC";
+                    $result = mysqli_query($conn, $sql);
 
-                // Hiển thị các comment
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="comment">';
-                    echo '<strong>' . $row['name'] . ' (' . $row['email'] . ') ' . $row['created_at'] . '</strong><br>';
-                    echo $row['message'];
-                    echo '</div>';
-                }
-                ?>
+                    // Hiển thị các comment
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div class="userComment">';
+                        echo '<ion-icon name="person-circle-outline" style="font-size: 30px; color:green;"></ion-icon>';
+                        echo '<strong>' . $row['name'] . ' (' . $row['email'] . ') ' . '</strong>' . '<i style="float:right; font-size:13px;">' . $row['created_at'] . '</i>' . '<br>';
+                        echo '<u class="mx-5">' . $row['message'] . '</u>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+                <h3 style="color: #4b0808;margin:20px;">Add Comment</h3>
+                <form method="post" id="comment-form" action="#">
+                    <div class="form_container">
+                        <label class="form_label">Name: </label>
+                        <input class="form_input" type="text" name="name" required>
+                    </div>
+                    <div class="form_container">
+                        <label class="form_label">Email: </label>
+                        <input class="form_input" type="email" name="email" required>
+                    </div>
+                    <div class="form_container">
+                        <label>Comment:</label>
+                        <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
+                    </div>
+                    <label for="id">Post ID</label>
+                    <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>">
+                    <button type="submit" style="float:right" class="btn btn-success">Submit Comment</button>
+                </form>
             </div>
-            <h2>Add Comment</h2>
-            <form method="post" id="comment-form" action="#">
-                <label>Name:</label>
-                <input type="text" name="name" required>
-                <br>
-                <label>Email:</label>
-                <input type="email" name="email" required>
-                <br>
-                <label>Comment:</label>
-                <textarea name="comment" required></textarea>
-                <br>
-                <label for="id">Post ID</label>
-                <input name="post_id" type="number" placeholder="<?php echo $post_id?>" value="<?php echo $post_id?>">
-                <button type="submit">Submit Comment</button>
-            </form>
             <script src="../../Front-End/js/comment.js"></script>
+
         </div>
     </div>
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
