@@ -1,6 +1,4 @@
 <body>
-
-
     <?php
     include "/xampp/htdocs/e-project1/Config/head.php";
     include "/xampp/htdocs/e-project1/Config/conn.php";
@@ -160,6 +158,7 @@
             border-radius: 3px;
             cursor: pointer;
         }
+
         .totop {
             position: fixed;
             bottom: 10px;
@@ -176,7 +175,7 @@
 
     <div class="container-fluid">
         <?php
-        $sql1 = "SELECT * FROM post WHERE post_id = '$post_id'";
+        $sql1 = "SELECT * FROM post WHERE post_id = '$post_id' and status = 1";
         $result1 = mysqli_query($conn, $sql1);
         $post = mysqli_fetch_assoc($result1);
         ?>
@@ -187,30 +186,42 @@
             <div class="row">
                 <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="inner-content">
-                        <aside class="toc">
-                            <h4 class="index">Index: </h4>
-                            <hr>
-                            <ul class="toc-list">
-                                <ul class="toc-list  is-collapsible">
-                                    <?php
-                                    $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
-                                    $result = mysqli_query($conn, $sql);
-                                    if (mysqli_num_rows($result) > 0) {
-                                        while ($topic = mysqli_fetch_assoc($result)) {
-                                            $text = $topic['content'];
-                                            if ($topic['topic_name'] != 'null') {
-                                    ?>
-                                                <li>
-                                                    <a href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
-                                                </li>
-                                    <?php
-                                            }
-                                        }
-                                    }
-                                    ?>
-                                </ul>
-                            </ul>
-                        </aside>
+                        <?php
+                        $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($topic = mysqli_fetch_assoc($result)) {
+                                if ($topic['topic_name'] != 'null') {
+                        ?>
+                                    <aside class="toc">
+                                        <h4 class="index">Index: </h4>
+                                        <hr>
+                                        <ul class="toc-list">
+                                            <ul class="toc-list  is-collapsible">
+                                                <?php
+                                                $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
+                                                $result = mysqli_query($conn, $sql);
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    while ($topic = mysqli_fetch_assoc($result)) {
+                                                        $text = $topic['content'];
+                                                        if ($topic['topic_name'] != 'null') {
+                                                ?>
+                                                            <li>
+                                                                <a href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
+                                                            </li>
+                                                <?php
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                            </ul>
+                                        </ul>
+                                    </aside>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                     <!---------------- nội dung -------------------->
 
@@ -219,11 +230,6 @@
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($topic = mysqli_fetch_assoc($result)) {
-                                $topicId = $topic['topic_id'];
-                                $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topicId'";
-                                $result1 = mysqli_query($conn, $sql1);
-                                $topic_img = mysqli_fetch_assoc($result1);
-
                         ?>
                                 <?php if ($topic['topic_name'] != 'null') { ?>
                                     <h4 style="text-align: left;text-decoration:double;">
@@ -239,21 +245,35 @@
                                         <?php echo nl2br($topic['content']) ?>
                                         </span>
                                     <?php } ?>
-                                    <?php if ($topic_img['img_url'] != 'null') { ?>
+
+                                    <?php
+                                    $topicId = $topic['topic_id'];
+                                    $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topicId'";
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    if (mysqli_num_rows($result1) > 0) {
+                                        while ($topic_img = mysqli_fetch_assoc($result1)) {
+                                            if ($topic_img['img_url'] != 'null') {
+                                    ?>
                                     <p style="text-align: left;" class="hover">
                                         <span class="notranslate">
                                             <img src="../../Admin/img/<?php echo $topic_img['img_url']; ?>" />
                                         </span>
                                     </p>
                                 <?php
-                                    }
+                                            }
                                 ?>
                             <?php } ?>
 
                         <?php
-                        }
+                                    }
 
                         ?>
+                    <?php } ?>
+
+                <?php
+                        }
+
+                ?>
                     </div>
                 </div>
                 <!---------------------------------------- kết thúc nội dung -------------------------------------->
@@ -361,7 +381,7 @@
                 <textarea name="comment" required></textarea>
                 <br>
                 <label for="id">Post ID</label>
-                <input name="post_id" type="number" placeholder="<?php echo $post_id?>" value="<?php echo $post_id?>">
+                <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>">
                 <button type="submit">Submit Comment</button>
             </form>
             <script src="../../Front-End/js/comment.js"></script>

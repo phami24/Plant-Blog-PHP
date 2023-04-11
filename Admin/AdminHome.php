@@ -232,25 +232,25 @@ $data = mysqli_fetch_assoc($result);
                     echo "<th>Status</th>";
                     echo "<th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>";
                     echo "</tr>";
-                    echo "
-                    <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                      <div class='modal-dialog'>
-                        <div class='modal-content'>
-                          <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
-                              <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                          </div>
-                          <div class='modal-body'>
-                            <!-- Form add Post -->
-                          </div>
-                          <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                            <button type='button' class='btn btn-primary'>Create</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    ";
+                    // echo "
+                    // <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    //   <div class='modal-dialog'>
+                    //     <div class='modal-content'>
+                    //       <div class='modal-header'>
+                    //         <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
+                    //           <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                    //       </div>
+                    //       <div class='modal-body'>
+                    //         <!-- Form add Post -->
+                    //       </div>
+                    //       <div class='modal-footer'>
+                    //         <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                    //         <button type='button' class='btn btn-primary'>Create</button>
+                    //       </div>
+                    //     </div>
+                    //   </div>
+                    // </div>
+                    // ";
                     while ($row = mysqli_fetch_array($result)) {
                       echo "<td>" . $row['post_id'] . "</td>";
                       echo "<td>" . $row['title'] . "</td>";
@@ -258,59 +258,24 @@ $data = mysqli_fetch_assoc($result);
                       echo "<td>" . $row['status'] . "</td>";
                       if ($row['status'] == 1) {
                         echo "<td>
-                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
-
+                        <a href='../Back-End/Admin/edit.php?id=$row[post_id]'>
+                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Edit</button>
+                        </a>
                         <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
                         <button type=button class='btn btn-danger btn-xs'>Hide</button>
                         </a>
                         </td>";
-                        echo "
-                        <div class='modal fade' id='updatePost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                          <div class='modal-dialog'>
-                            <div class='modal-content'>
-                              <div class='modal-header'>
-                                <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
-                                  <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                              </div>
-                              <div class='modal-body'>
-                                <!-- Form add Post -->
-                              </div>
-                              <div class='modal-footer'>
-                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                                <button type='button' class='btn btn-primary'>Create</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        ";
                       } else {
                         echo "<td>
-                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Update</button>
+                        <a href='../Back-End/Admin/edit.php?id=$row[post_id]'>
+                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Edit</button>
+                        </a>
                         <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
                         <button type=button class='btn btn-primary btn-xs'>Show</button>
                         </a>
                         </td>";
                       }
                       echo "</tr>";
-                      echo "
-                      <div class='modal fade' id='updatePost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                        <div class='modal-dialog'>
-                          <div class='modal-content'>
-                            <div class='modal-header'>
-                              <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
-                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                            </div>
-                            <div class='modal-body'>
-                              <!-- Form add Post -->
-                            </div>
-                            <div class='modal-footer'>
-                              <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                              <button type='button' class='btn btn-primary'>Create</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      ";
                     }
                     echo "</table>" . "<br>";
                   } else {
@@ -363,12 +328,7 @@ $data = mysqli_fetch_assoc($result);
       </aside>
       <!-- /.control-sidebar -->
 
-      <!-- Main Footer -->
-      <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021
-          <a href="AdminHome.php">AdminPanel</a>.</strong>
-        All rights reserved.
-      </footer>
+
     </div>
     <!-- ./wrapper -->
 
@@ -387,6 +347,54 @@ $data = mysqli_fetch_assoc($result);
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard3.js"></script>
+
+    <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
+            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+          </div>
+          <div class='modal-body'>
+            <form action="create.php" method="post">
+              <table>
+                <tr>
+                  <td><label for="">Title</label></td>
+                  <td><input type="text" style="width:300px ; float:left;" name="title"></td>
+                </tr>
+                <tr>
+                  <td><label for="">Post Image</label></td>
+                  <td><input type="file" style="float: left;" name="post_img"></td>
+                </tr>
+                <tr>
+                  <td><label for="">Post Type</label></td>
+                  <td>
+                    <select name="cars" id="cars" style="float: left;" name="post_type">
+                      <?php
+                      $sql3 = "SELECT * FROM post_category";
+                      $result3 = mysqli_query($conn, $sql3);
+                      if (mysqli_num_rows($result3) > 0) {
+                        while ($post_category = mysqli_fetch_assoc($result3)) {
+                      ?>
+                          <option value="<?php echo $post_category['post_category_id']?>"><?php echo $post_category['post_category_name']?></option>
+                      <?php
+
+                        }
+                      }
+                      ?>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+          <div class='modal-footer'>
+            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+            <button type='button' class='btn btn-primary'>Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>
