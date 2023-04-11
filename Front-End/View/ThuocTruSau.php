@@ -4,114 +4,7 @@
     include "/xampp/htdocs/e-project1/Config/head.php";
     include "/xampp/htdocs/e-project1/Config/conn.php";
     ?>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            overflow-x: hidden;
-        }
-
-        .card {
-            background-color: #c9ffc8;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-transition: .2s ease-in-out;
-            transition: .2s ease-in-out;
-        }
-
-        .toc {
-            background-color: #c9ffc8;
-            margin-bottom: 10px;
-
-        }
-
-        .toc li a {
-            color: #429757;
-            text-decoration: none;
-
-        }
-
-        .toc li a:hover {
-            color: #072f11;
-
-        }
-
-
-        img {
-            border-radius: 8px;
-        }
-
-        .left_1 div article {
-            position: sticky;
-            top: 15px;
-        }
-
-        .left_1 div {
-            position: sticky;
-            top: 20px;
-        }
-
-        .card:hover {
-            -webkit-transform: scale(1.15);
-            transform: scale(1.15);
-        }
-
-        h1 {
-            color: green;
-            font-size: 35px;
-            text-shadow:1px 1px 3px #429757;
-        }
-
-
-        .h3 {
-            color: #429757;
-            font-size: 20px;
-        }
-
-        div .inner-content {
-            padding: 0;
-        }
-
-        h4 {
-            color: #4b0808;
-        }
-
-        .index {
-            margin: 15px auto auto 30px;
-        }
-
-        .cmt {
-            background-color: whitesmoke;
-            border: 2px solid whitesmoke;
-            margin: 20px auto;
-            box-shadow: 1px 1px 7px gray;
-        }
-
-        .userComment {
-            background-color: white;
-            border: 0px solid white;
-            margin-left: 30px;
-            height: 50px;
-            box-shadow: 0.5px 0.3px 1px gray;
-            border-radius: 7px;
-        }
-        .totop {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background-color: #f3f5ee;
-            padding: 5px;
-            border-radius: 50px;
-        }
-
-        .totop img {
-            width: 30px;
-        }
-    </style>
     <div class="container-fluid">
         <?php
         $sql1 = "SELECT * FROM post WHERE post_category_id = 7";
@@ -119,7 +12,7 @@
         $post = mysqli_fetch_assoc($result1);
         ?>
         <div class="text-center p-3">
-            <h1><?php echo $post['title'] ?></h1>
+            <h2 class="h1"><?php echo $post['title'] ?></h2>
         </div>
         <div class="container">
             <div class="row">
@@ -272,23 +165,45 @@
             <!-- <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg"> -->
         </a>
         <!-- Comment -->
-        <div class="cmt bg-secondary-subtle">
-            <div class="row mt-3 mx-3">
-                <div class="col-md-12 ">
-                    <textarea class="form-control" id="mainComment" placeholder="Comment..." cols="30" rows="2"></textarea>
-                    <br>
-                    <button style="float:right;" class="btn btn-success" id="addComment">Add Comment</button>
-                </div>
+        <div class="cmt">
+            <h3 style="color: #4b0808;margin:20px;">Comments:</h3>
+            <div id="comment-section">
+                <!-- Hiển thị các comment đã tồn tại -->
+                <?php
+                $sql = "SELECT * FROM comments  Where post_id = '$post_id' ORDER BY created_at ASC";
+                $result = mysqli_query($conn, $sql);
+
+                // Hiển thị các comment
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="userComment">';
+                    echo '<ion-icon name="person-circle-outline" style="font-size: 30px; color:green;"></ion-icon>';
+                    echo '<strong>' . $row['name'] . ' (' . $row['email'] . ') ' . '</strong>' . '<i style="float:right; font-size:13px;">' . $row['created_at'] . '</i>' . '<br>';
+                    echo '<p class="mx-5">' . $row['message'] . '</p>';
+                    echo '</div>';
+                }
+                ?>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="userComments my-3 mx-2">
-                        <b class=""><ion-icon name="person-circle-outline" style="font-size: 30px;"></ion-icon> Name</b>
-                        <div class="userComment">this is my comment</div>
-                    </div>
+            <h3 style="color: #4b0808;margin:20px;">Add Comment</h3>
+            <form method="post" id="comment-form" action="#">
+                <div class="form_container">
+                    <label class="form_label">Name: </label>
+                    <input class="form_input" type="text" name="name" required>
                 </div>
-            </div>
+                <div class="form_container">
+                    <label class="form_label">Email: </label>
+                    <input class="form_input" type="email" name="email" required>
+                </div>
+                <div class="form_container">
+                    <label>Comment:</label>
+                    <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
+                </div>
+
+                <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
+                <button type="submit" style="float:right" class="btn btn-success">Submit Comment</button>
+            </form>
         </div>
+
+        <script src="../../Front-End/js/comment.js"></script>
     </div>
 
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>

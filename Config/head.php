@@ -20,13 +20,15 @@
     <link rel="stylesheet" href="../../Config/css/style.css">
     <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/style.css">
     <link rel="stylesheet" type="text/css" href="../../Config/css/title.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../../Config/css/css/chitietbaiviet.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="../../Config/css/trangtonghop.css"> -->
+    <link rel="stylesheet" type="text/css" href="../../Config/css/chitietbaiviet.css">
+    <link rel="stylesheet" type="text/css" href="../../Config/css/trangtonghop.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 
+
 <body class="bg-light-subtle">
     <!-- Navbar -->
+    <div >
     <a class="navbar-brand logo2 bg-body-tertiary me-lg-5" href="test.html" style="color: rgb(155, 195, 82)">
         <span class="ms-lg-5" style="font-weight:bold;">
             <ion-icon name="leaf-outline" class="ms-lg-5"></ion-icon>𝔾𝕒𝕣𝕕𝕖𝕟𝕎𝕠𝕣𝕝𝕕
@@ -71,7 +73,7 @@
                             Garden Design
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="LuaChonSanPham.php">Product Selection</a></li>
+                            <li><a class="dropdown-item" href="LuaChonSanPham.php">Garden design</a></li>
                             <li><a class="dropdown-item" href="PhuKien.php">Accessory</a></li>
                         </ul>
                     </li>
@@ -108,6 +110,7 @@
             </div>
         </div>
     </nav>
+    </div>
 
     <script>
         function getfocus() {

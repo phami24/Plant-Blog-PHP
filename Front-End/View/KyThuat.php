@@ -26,59 +26,6 @@
     $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
     $result1 = mysqli_query($conn, $sql1);
     ?>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-        h1 {
-            text-shadow: 1px 1px 2px black, 0 0 35px green, 0 0 15px darkseagreen;
-            font-size: 50px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-        h1 {
-            text-shadow: 1px 1px 2px black, 0 0 35px green, 0 0 15px darkseagreen;
-            font-size: 50px;
-        }
-
-        .pagination a {
-            color: black;
-            padding: 8px 16px;
-            text-decoration: none;
-            transition: background-color .3s;
-
-        }
-
-        .pagination a.active {
-            background-color: green;
-            color: white;
-        }
-
-        div.pagination {
-            margin-left: 500px;
-        }
-
-        .pagination a:hover {
-            background-color: green;
-        }
-    </style>
-
 
     <div>
         <!---------- Slide ------------------------->

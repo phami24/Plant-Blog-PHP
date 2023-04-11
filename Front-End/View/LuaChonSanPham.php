@@ -5,10 +5,6 @@
     ?>
     <?php
     include "/xampp/htdocs/e-project1/Config/conn.php";
-    $sql = 'SELECT * FROM post WHERE post_category_id = 3 AND status =1;';
-    $result = mysqli_query($conn, $sql);
-    $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
-    $result1 = mysqli_query($conn, $sql1);
 
 
     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -28,47 +24,10 @@
 
     $sql = "SELECT * FROM post WHERE post_category_id = 3 AND status =1 LIMIT $start, $limit";
     $result = mysqli_query($conn, $sql);
-    $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
-    $result1 = mysqli_query($conn, $sql1);
+
 
     ?>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            overflow-x: hidden;
-        }
-
-        h1 {
-            text-shadow: 1px 1px 2px black, 0 0 35px green, 0 0 15px darkseagreen;
-            font-size: 50px;
-        }
-
-        .pagination a {
-            color: black;
-            padding: 8px 16px;
-            text-decoration: none;
-            transition: background-color .3s;
-
-        }
-
-        .pagination a.active {
-            background-color: green;
-            color: white;
-        }
-
-        div.pagination {
-            margin-left: 500px;
-        }
-
-        .pagination a:hover {
-            background-color: green;
-        }
-    </style>
     <div>
         <!---------- Slide ------------------------->
         <?php
@@ -135,12 +94,13 @@
             ?>
         </div>
         <!-- Sách liên quan: -->
-        <div class="container mt-3 mb-5">
-            <h3 class="text-success mb-5">You can read the books below to be more sure about gardening!</h3>
+        <div class="overlay-box">
+            <div class=" mt-3 mb-5  px-5 mx-3">
+                <h3 class="text-success mb-5">You can read the books below to be more sure about gardening!</h3>
 
-
-            <div class="row px-5 mx-3">
                 <?php
+                $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
+                $result1 = mysqli_query($conn, $sql1);
                 if (mysqli_num_rows($result1) > 0) {
                     while ($book = mysqli_fetch_assoc($result1)) {
 
@@ -153,8 +113,8 @@
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="card-body">
-                                            <h4 class="" style="max-height:100px"><?php echo $book['book_name'] ?></h4>
-                                            <small class=""><?php echo $book['book_content'] ?></small>
+                                            <h4 class="card-title" style="max-height:100px"><?php echo $book['book_name'] ?></h4>
+                                            <small class="card-title"><?php echo $book['book_content'] ?></small>
                                         </div>
                                     </div>
                                 </div>
@@ -164,6 +124,7 @@
                     }
                 }
                 ?>
+
 
             </div>
         </div>

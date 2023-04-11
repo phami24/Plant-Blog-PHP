@@ -49,6 +49,8 @@ nav {
 #navbar {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  top: 0px;
 }
 
 .search {

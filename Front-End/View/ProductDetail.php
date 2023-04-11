@@ -161,7 +161,6 @@
         <!-- to top of content -->
         <a href="#" class="totop">
             <ion-icon name="arrow-up-outline" style="font-size:30px; color: #0ece0e"></ion-icon>
-            <!-- <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg"> -->
         </a>
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
 
