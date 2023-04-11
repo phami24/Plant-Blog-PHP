@@ -1,6 +1,4 @@
 <body>
-
-
     <?php
     include "/xampp/htdocs/e-project1/Config/head.php";
     include "/xampp/htdocs/e-project1/Config/conn.php";
@@ -107,24 +105,50 @@
         .userComment {
             background-color: white;
             border: 0px solid white;
-            margin-left: 40px;
-            margin-bottom: 20px;
+            margin-left: 30px;
+            height: 50px;
             box-shadow: 0.5px 0.3px 1px gray;
             border-radius: 7px;
-            height: max-content;
         }
 
-        .form_label {
-            margin-right: 30px;
-            
+        .comment-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
         }
 
-        .form_input {
-            width: 45%;
+        .comment-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 400px;
+            margin: 0 auto;
         }
 
-        .form_container {
-            margin: 20px 40px;
+        .comment-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .comment-input,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .comment-add-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
         }
 
         .totop {
@@ -143,7 +167,7 @@
 
     <div class="container-fluid">
         <?php
-        $sql1 = "SELECT * FROM post WHERE post_id = '$post_id'";
+        $sql1 = "SELECT * FROM post WHERE post_id = '$post_id' and status = 1";
         $result1 = mysqli_query($conn, $sql1);
         $post = mysqli_fetch_assoc($result1);
         ?>
@@ -154,30 +178,42 @@
             <div class="row">
                 <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="inner-content">
-                        <aside class="toc">
-                            <h4 class="index">Index: </h4>
-                            <hr>
-                            <ul class="toc-list">
-                                <ul class="toc-list  is-collapsible">
-                                    <?php
-                                    $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
-                                    $result = mysqli_query($conn, $sql);
-                                    if (mysqli_num_rows($result) > 0) {
-                                        while ($topic = mysqli_fetch_assoc($result)) {
-                                            $text = $topic['content'];
-                                            if ($topic['topic_name'] != 'null') {
-                                    ?>
-                                                <li>
-                                                    <a href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
-                                                </li>
-                                    <?php
-                                            }
-                                        }
-                                    }
-                                    ?>
-                                </ul>
-                            </ul>
-                        </aside>
+                        <?php
+                        $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($topic = mysqli_fetch_assoc($result)) {
+                                if ($topic['topic_name'] != 'null') {
+                        ?>
+                                    <aside class="toc">
+                                        <h4 class="index">Index: </h4>
+                                        <hr>
+                                        <ul class="toc-list">
+                                            <ul class="toc-list  is-collapsible">
+                                                <?php
+                                                $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
+                                                $result = mysqli_query($conn, $sql);
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    while ($topic = mysqli_fetch_assoc($result)) {
+                                                        $text = $topic['content'];
+                                                        if ($topic['topic_name'] != 'null') {
+                                                ?>
+                                                            <li>
+                                                                <a href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
+                                                            </li>
+                                                <?php
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                            </ul>
+                                        </ul>
+                                    </aside>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                     <!---------------- nội dung -------------------->
 
@@ -186,11 +222,6 @@
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($topic = mysqli_fetch_assoc($result)) {
-                                $topicId = $topic['topic_id'];
-                                $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topicId'";
-                                $result1 = mysqli_query($conn, $sql1);
-                                $topic_img = mysqli_fetch_assoc($result1);
-
                         ?>
                                 <?php if ($topic['topic_name'] != 'null') { ?>
                                     <h4 style="text-align: left;text-decoration:double;">
@@ -206,21 +237,35 @@
                                         <?php echo nl2br($topic['content']) ?>
                                         </span>
                                     <?php } ?>
-                                    <?php if ($topic_img['img_url'] != 'null') { ?>
+
+                                    <?php
+                                    $topicId = $topic['topic_id'];
+                                    $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topicId'";
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    if (mysqli_num_rows($result1) > 0) {
+                                        while ($topic_img = mysqli_fetch_assoc($result1)) {
+                                            if ($topic_img['img_url'] != 'null') {
+                                    ?>
                                     <p style="text-align: left;" class="hover">
                                         <span class="notranslate">
                                             <img src="../../Admin/img/<?php echo $topic_img['img_url']; ?>" />
                                         </span>
                                     </p>
                                 <?php
-                                    }
+                                            }
                                 ?>
                             <?php } ?>
 
                         <?php
-                        }
+                                    }
 
                         ?>
+                    <?php } ?>
+
+                <?php
+                        }
+
+                ?>
                     </div>
                 </div>
                 <!---------------------------------------- kết thúc nội dung -------------------------------------->
@@ -300,43 +345,24 @@
                 <ion-icon name="arrow-up-outline" style="font-size:30px; color: #0ece0e"></ion-icon>
                 <!-- <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg"> -->
             </a>
-            <div class="cmt">
-                <h3 style="color: #4b0808;margin:20px;">Comments:</h3>
-                <div id="comment-section">
-                    <!-- Hiển thị các comment đã tồn tại -->
-                    <?php
-                    $sql = "SELECT * FROM comments  Where post_id = '$post_id' ORDER BY created_at ASC";
-                    $result = mysqli_query($conn, $sql);
+            
 
-                    // Hiển thị các comment
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class="userComment">';
-                        echo '<ion-icon name="person-circle-outline" style="font-size: 30px; color:green;"></ion-icon>';
-                        echo '<strong>' . $row['name'] . ' (' . $row['email'] . ') ' . '</strong>' . '<i style="float:right; font-size:13px;">' . $row['created_at'] . '</i>' . '<br>';
-                        echo '<u class="mx-5">' . $row['message'] . '</u>';
-                        echo '</div>';
-                    }
-                    ?>
-                </div>
-                <h3 style="color: #4b0808;margin:20px;">Add Comment</h3>
-                <form method="post" id="comment-form" action="#">
-                    <div class="form_container">
-                        <label class="form_label">Name: </label>
-                        <input class="form_input" type="text" name="name" required>
-                    </div>
-                    <div class="form_container">
-                        <label class="form_label">Email: </label>
-                        <input class="form_input" type="email" name="email" required>
-                    </div>
-                    <div class="form_container">
-                        <label>Comment:</label>
-                        <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
-                    </div>
-                    <label for="id">Post ID</label>
-                    <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>">
-                    <button type="submit" style="float:right" class="btn btn-success">Submit Comment</button>
-                </form>
-            </div>
+            <h2>Add Comment</h2>
+            <form method="post" id="comment-form" action="#">
+                <label>Name:</label>
+                <input type="text" name="name" required>
+                <br>
+                <label>Email:</label>
+                <input type="email" name="email" required>
+                <br>
+                <label>Comment:</label>
+                <textarea name="comment" required></textarea>
+                <br>
+                <label for="id">Post ID</label>
+                <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>">
+                <button type="submit">Submit Comment</button>
+            </form>
+
             <script src="../../Front-End/js/comment.js"></script>
 
         </div>
