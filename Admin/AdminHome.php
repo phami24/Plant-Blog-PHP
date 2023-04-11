@@ -232,25 +232,6 @@ $data = mysqli_fetch_assoc($result);
                     echo "<th>Status</th>";
                     echo "<th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>";
                     echo "</tr>";
-                    // echo "
-                    // <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                    //   <div class='modal-dialog'>
-                    //     <div class='modal-content'>
-                    //       <div class='modal-header'>
-                    //         <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
-                    //           <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                    //       </div>
-                    //       <div class='modal-body'>
-                    //         <!-- Form add Post -->
-                    //       </div>
-                    //       <div class='modal-footer'>
-                    //         <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                    //         <button type='button' class='btn btn-primary'>Create</button>
-                    //       </div>
-                    //     </div>
-                    //   </div>
-                    // </div>
-                    // ";
                     while ($row = mysqli_fetch_array($result)) {
                       echo "<td>" . $row['post_id'] . "</td>";
                       echo "<td>" . $row['title'] . "</td>";
@@ -364,7 +345,8 @@ $data = mysqli_fetch_assoc($result);
                 </tr>
                 <tr>
                   <td><label for="">Post Image</label></td>
-                  <td><input type="file" style="float: left;" name="post_img"></td>
+                  <td><label for="post_img" style="float:left; cursor: pointer; border:1px solid black ; padding:5px">Choose Image</label></td>
+                  <td><input type="file" style="display:none ;" name="post_img" id="post_img"></td>
                 </tr>
                 <tr>
                   <td><label for="">Post Type</label></td>
@@ -376,7 +358,7 @@ $data = mysqli_fetch_assoc($result);
                       if (mysqli_num_rows($result3) > 0) {
                         while ($post_category = mysqli_fetch_assoc($result3)) {
                       ?>
-                          <option value="<?php echo $post_category['post_category_id']?>"><?php echo $post_category['post_category_name']?></option>
+                          <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
                       <?php
 
                         }
