@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../../Config/css/title.css">
     <!-- <link rel="stylesheet" type="text/css" href="../../Config/css/css/chitietbaiviet.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../../Config/css/trangtonghop.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 
 <body class="bg-light-subtle">

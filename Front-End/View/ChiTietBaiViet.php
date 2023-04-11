@@ -164,13 +164,13 @@
             position: fixed;
             bottom: 10px;
             right: 10px;
-            /* background-color: #0ece0e ;
-            padding: 10px; */
-            border-radius: 20px;
+            background-color: #f3f5ee;
+            padding: 5px;
+            border-radius: 50px;
         }
 
         .totop img {
-            width: 45px;
+            width: 30px;
         }
     </style>
 
@@ -330,7 +330,8 @@
             </div>
             <!-- to top of content -->
             <a href="#" class="totop">
-                <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg">
+                <ion-icon name="arrow-up-outline" style="font-size:30px; color: #0ece0e"></ion-icon>
+                <!-- <img src="https://file.vfo.vn/hinh/2018/03/hinh-mui-ten-dep-mui-ten-chi-huong-len-huong-xuong-cong-20.jpg"> -->
             </a>
             <h2>Comments</h2>
             <div id="comment-section">

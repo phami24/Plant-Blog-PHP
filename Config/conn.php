@@ -1,6 +1,6 @@
 <?php 
 
-$password = 'Autoboy@2384';
+$password = 'minhbinh8877';
 
 // Thực hiện kết nối
 $conn = mysqli_connect('localhost', 'root', $password,'garden_world');
