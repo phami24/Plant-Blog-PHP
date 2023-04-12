@@ -156,6 +156,12 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <!-- video -->
+            <video width="665" height="400" controls autoplay loop style="padding-top: 20px">
+                <source src="../../Nội Dung/Trường/video/using_tools.mp4" type="video/mp4">
+            </video>
+        </div>
         <!-- to top of content -->
         <a href="#" class="totop">
             <ion-icon name="arrow-up-outline" style="font-size:30px; color: #0ece0e"></ion-icon>
