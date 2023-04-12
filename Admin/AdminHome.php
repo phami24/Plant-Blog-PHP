@@ -108,7 +108,7 @@ if (isset($_SESSION['id'])) {
               <img src="../Admin/img/admin.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
+              <a href="#" class="d-block">Admin Controller</a>
             </div>
           </div>
           <!-- Sidebar Menu -->

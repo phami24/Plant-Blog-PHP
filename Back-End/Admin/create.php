@@ -58,11 +58,13 @@ if (isset($_POST['title']) && isset($_POST['post_category_id']) && isset($_FILES
 if (isset($_POST['topic_name']) && isset($_POST['content'])) {
     $topic_name = isset($_POST['topic_name']) ? $_POST['topic_name'] : '';
     $content = isset($_POST['content']) ? $_POST['content'] : '';
-    $post_id = isset($_POST['post_id']) ? $_POST['post_id'] : '';
-
+    $post_id = $_GET['id'];
+    echo $topic_name . "</br>";
+    echo $content . "</br>" ;
+    echo $post_id . "</br>";
     $sql = "INSERT INTO topics(topic_name, content, post_id)VALUES('$topic_name','$content',$post_id)";
     mysqli_query($conn, $sql);
-    header("location:../../Admin/edit.php?id=$post_id");
+    // header("location:../../Admin/edit.php?id=$post_id");
     exit();
 }
 
