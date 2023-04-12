@@ -337,21 +337,21 @@ $data = mysqli_fetch_assoc($result);
             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
           </div>
           <div class='modal-body'>
-            <form action="create.php" method="post">
+            <form action="../Back-End/Admin/create.php?page=<?php echo $current_page?>" method="post" enctype="multipart/form-data">
               <table>
                 <tr>
                   <td><label for="">Title</label></td>
-                  <td><input type="text" style="width:300px ; float:left;" name="title"></td>
+                  <td><input type="text" style="width:300px ; float:left;" name="title" required></td>
                 </tr>
                 <tr>
                   <td><label for="">Post Image</label></td>
                   <td><label for="post_img" style="float:left; cursor: pointer; border:1px solid black ; padding:5px">Choose Image</label></td>
-                  <td><input type="file" style="display:none ;" name="post_img" id="post_img"></td>
+                  <td><input type="file" style="display:none;" name="post_img" id="post_img" required></td>
                 </tr>
                 <tr>
                   <td><label for="">Post Type</label></td>
                   <td>
-                    <select name="cars" id="cars" style="float: left;" name="post_type">
+                    <select style="float: left;" name="post_category_id" id="post_category_id" required>
                       <?php
                       $sql3 = "SELECT * FROM post_category";
                       $result3 = mysqli_query($conn, $sql3);
@@ -368,11 +368,11 @@ $data = mysqli_fetch_assoc($result);
                   </td>
                 </tr>
               </table>
+              <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                <button type='submit' class='btn btn-primary'>Create</button>
+              </div>
             </form>
-          </div>
-          <div class='modal-footer'>
-            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-            <button type='button' class='btn btn-primary'>Create</button>
           </div>
         </div>
       </div>

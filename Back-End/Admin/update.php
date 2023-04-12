@@ -20,7 +20,6 @@ if (isset($_POST['content'])) {
 
 if (isset($_FILES["topics_img"]["name"])) {
     $topic_img_id = isset($_POST['img_id']) ? $_POST['img_id'] : '';
-
     $target_dir = "../../Admin/img/";
     $target_file = $target_dir . basename($_FILES["topics_img"]["name"]);
     $uploadOk = 1;
@@ -63,6 +62,6 @@ if (isset($_FILES["topics_img"]["name"])) {
     mysqli_query($conn, $sql);
 }
 
+
 header("location:../../Admin/edit.php?id=$post_id");
 exit();
-

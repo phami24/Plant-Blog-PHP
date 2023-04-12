@@ -17,7 +17,7 @@ document.getElementById('comment-form').addEventListener('submit', function(even
         // Hiển thị comment mới
         var newComment = JSON.parse(xhr.responseText);
         var commentSection = document.getElementById('comment-section');
-        var commentHTML = '<div class="comment">';
+        var commentHTML = '<div class="userComment" >';
         commentHTML += '<strong>' + newComment.name + ' (' + newComment.email + ')</strong><br>';
         commentHTML += newComment.comment + '</div>';
         commentSection.insertAdjacentHTML('beforeend', commentHTML);
