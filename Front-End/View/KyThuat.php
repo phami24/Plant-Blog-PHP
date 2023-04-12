@@ -95,37 +95,37 @@
 
 
         <!-- Sách liên quan: -->
-        <div class="container mt-3 mb-5">
+        <div class="overlay-box px-5 mx-3">
             <h3 class="text-success mb-5">You can read the books below to be more sure about gardening!</h3>
+            <p class="h5 my-3">You buy it at the store or read it online</p>
 
+            <?php
+            $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() ";
+            $result1 = mysqli_query($conn, $sql1);
 
-            <div class="row ">
-                <?php
-                if (mysqli_num_rows($result1) > 0) {
-                    while ($book = mysqli_fetch_assoc($result1)) {
+            if (mysqli_num_rows($result1) > 0) {
+                while ($book = mysqli_fetch_assoc($result1)) {
 
-                ?>
-                        <article class="card mb-3" style="max-height:200px">
-                            <a href="../../Front-End/View/Book.php?id=<?php echo $book['book_id'] ?>" class="card-link nav-link">
-                                <div class="row g-0">
-                                    <div class="col-md-4 mb-3">
-                                        <img class="mt-3 px-2" style="max-width: 150px; max-height:150px" src="../../Admin/img/<?php echo $book['book_img']; ?>" alt="img">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="card-body">
-                                            <h4 style="max-height:100px"><?php echo $book['book_name'] ?></h4>
-                                            <small><?php echo $book['book_content'] ?></small>
-                                        </div>
-                                    </div>
+            ?>
+                    <article class="card mb-2" style="max-height:200px">
+                        <a href="../../Front-End/View/Book.php?id=<?php echo $book['book_id'] ?>" class="card-link nav-link ">
+                            <div class=" row">
+                                <figure class=" col-sm-4">
+                                    <img alt="" src="../../Admin/img/<?php echo $book['book_img']; ?>" class="img-fluid mt-3 px-2" style="border-radius: 5px; max-width: 150px; max-height:150px">
+                                </figure>
+                                <div class="col-sm-8">
+                                    <p class="card-title" style="max-height:100px"><?php echo $book['book_name'] ?></p>
+                                    <small style="font-size:small;"><?php echo $book['book_content'] ?></small>
                                 </div>
-                            </a>
-                        </article>
-                <?php
-                    }
-                }
-                ?>
+                            </div>
+                        </a>
+                    </article>
 
-            </div>
+            <?php
+                }
+            }
+
+            ?>
 
         </div>
     </div>

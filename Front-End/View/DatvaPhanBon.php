@@ -30,46 +30,9 @@
     $result = mysqli_query($conn, $sql);
     $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
     $result1 = mysqli_query($conn, $sql1);
-    
+
     ?>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-        h1 {
-            text-shadow: 1px 1px 2px black, 0 0 35px green, 0 0 15px darkseagreen;
-            font-size: 50px;
-        }
-
-        .pagination a {
-            color: black;
-            padding: 8px 16px;
-            text-decoration: none;
-            transition: background-color .3s;
-
-        }
-
-        .pagination a.active {
-            background-color: green;
-            color: white;
-        }
-
-        div.pagination {
-            margin-left: 500px;
-        }
-
-        .pagination a:hover {
-            background-color: green;
-        }
-    </style>
 
     <div>
 
@@ -106,67 +69,69 @@
                 ?>
                 <!-- End PHP code -->
             </div>
-        </div>
-        <!-- Phaan trang -->
-        <div class="pagination">
-            <?php
-            if ($total_page > 1) {
-                if ($current_page > 1 && $total_page > 1) {
-                    echo '<a href="DatvaPhanBon.php?page=' . ($current_page - 1) . '">Prev</a>';
-                }
-                // Lặp khoảng giữa
-                for ($i = 1; $i <= $total_page; $i++) {
-                    // Nếu là trang hiện tại thì hiển thị thẻ span
-                    // ngược lại hiển thị thẻ a
-                    if ($i == $current_page) {
-                        echo '<a class="active">' . $i . '</a>';
-                    } else {
-                        echo '<a href="DatvaPhanBon.php?page=' . $i . '">' . $i . '</a>';
+            <!-- Phaan trang -->
+            <div class="pagination">
+                <?php
+                if ($total_page > 1) {
+                    if ($current_page > 1 && $total_page > 1) {
+                        echo '<a href="DatvaPhanBon.php?page=' . ($current_page - 1) . '">Prev</a>';
+                    }
+                    // Lặp khoảng giữa
+                    for ($i = 1; $i <= $total_page; $i++) {
+                        // Nếu là trang hiện tại thì hiển thị thẻ span
+                        // ngược lại hiển thị thẻ a
+                        if ($i == $current_page) {
+                            echo '<a class="active">' . $i . '</a>';
+                        } else {
+                            echo '<a href="DatvaPhanBon.php?page=' . $i . '">' . $i . '</a>';
+                        }
+                    }
+
+                    // echo $current_page + 1;
+                    // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                    if ($current_page < $total_page && $total_page > 1) {
+                        echo '<a href="DatvaPhanBon.php?page=' . ($current_page + 1) . '">Next</a>';
                     }
                 }
+                ?>
+            </div>
+        </div>
 
-                // echo $current_page + 1;
-                // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-                if ($current_page < $total_page && $total_page > 1) {
-                    echo '<a href="DatvaPhanBon.php?page=' . ($current_page + 1) . '">Next</a>';
+        <!-- Sách liên quan: -->
+        <div class="overlay-box px-5 mx-3">
+            <h3 class="text-success mb-5">You can read the books below to be more sure about gardening!</h3>
+            <p class="h5 my-3">You buy it at the store or read it online</p>
+
+            <?php
+            $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() ";
+            $result1 = mysqli_query($conn, $sql1);
+
+            if (mysqli_num_rows($result1) > 0) {
+                while ($book = mysqli_fetch_assoc($result1)) {
+
+            ?>
+                    <article class="card mb-2" style="max-height:200px">
+                        <a href="../../Front-End/View/Book.php?id=<?php echo $book['book_id'] ?>" class="card-link nav-link ">
+                            <div class=" row">
+                                <figure class=" col-sm-4">
+                                    <img alt="" src="../../Admin/img/<?php echo $book['book_img']; ?>" class="img-fluid mt-3 px-2" style="border-radius: 5px; max-width: 150px; max-height:150px">
+                                </figure>
+                                <div class="col-sm-8">
+                                    <p class="card-title" style="max-height:100px"><?php echo $book['book_name'] ?></p>
+                                    <small style="font-size:small;"><?php echo $book['book_content'] ?></small>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+            <?php
                 }
             }
+
             ?>
-        </div>
-        <!-- Sách liên quan: -->
-        <div class="container mt-3 mb-5">
-            <h3 class="text-success mb-5">You can read the books below to be more sure about gardening!</h3>
-
-
-            <div class="row px-5 mx-3">
-                <?php
-                if (mysqli_num_rows($result1) > 0) {
-                    while ($book = mysqli_fetch_assoc($result1)) {
-
-                ?>
-                        <article class="card mb-3" style="max-height:200px">
-                            <a href="../../Front-End/View/Book.php?id=<?php echo $book['book_id'] ?>" class="card-link nav-link">
-                                <div class="row g-0">
-                                    <div class="col-md-4 mb-3">
-                                        <img class="mt-3 px-2" style="max-width: 150px; max-height:150px" src="../../Admin/img/<?php echo $book['book_img']; ?>" alt="img">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="card-body">
-                                            <h4 class="" style="max-height:100px"><?php echo $book['book_name'] ?></h4>
-                                            <small class=""><?php echo $book['book_content'] ?></small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                <?php
-                    }
-                }
-                ?>
-
-            </div>
 
         </div>
+
     </div>
 
 
