@@ -10,7 +10,7 @@ CREATE TABLE admin
     username varchar(255),
     password varchar(255)
 );
-
+INSERT INTO admin VALUES (1,'admin','admin12345');
 -- Phân loại sản phẩm
 CREATE TABLE product_type
 (
@@ -70,6 +70,7 @@ CREATE TABLE post
     title varchar(255),
     post_img varchar(255),
     post_category_id int ,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status int, -- 0 ẩn 1 hiển thị 
 	FOREIGN KEY (post_category_id) REFERENCES post_category(post_category_id)
 );
@@ -81,9 +82,7 @@ CREATE TABLE topics
     topic_name varchar(255),
     content text,
     post_id int,
-    product_id int, -- sản phẩm liên quan
-    FOREIGN KEY (post_id) REFERENCES post(post_id),
-	FOREIGN KEY (product_id) REFERENCES product(product_id)
+    FOREIGN KEY (post_id) REFERENCES post(post_id)
 );
 
 CREATE TABLE topics_img
@@ -144,8 +143,7 @@ VALUES
 );
 
 
-select * from post;
-SELECT * FROM post WHERE post_category_id = 2  AND status =1;
+
 -- Tips
 INSERT INTO post (title, post_img, post_category_id,status) 
 VALUES
@@ -261,10 +259,10 @@ VALUES
     
     
     INSERT INTO topics (topic_name, content, post_id) VALUES
-	('null', 'We all know the harmful effects of chemical pesticides for our ecosystems and environment. If you have thought of being organic solutions and looking for some natural ways to get rid of the gardens, you are on the right track. \ n 05 ingredients in the natural pesticide that we introduce in the article below will be eliminated the obnoxious insects that are harmful to the plants in your garden. \ n', '10 '),
-	('This homemade pesticide formula is completely easy to implement, all natural and easy to do at home', 'Commercial pesticides are one of the most effective ways to quickly solve pests and diseases, but if you want to use this self -made natural pesticide, and use it regularly will give you conclusion Incredibly. \ n You can apply this excellent pesticide using spraying to the vegetable garden and your common pests and diseases and it is really effective. Once a week is enough, however, if the invasion of insects is too much to apply more often. Once the plants began to recover, use it for 2 times per week or longer to prevent from pests. \ n', '10 '),
-	('1.What do you need to prepare', '• 2 garlic root \ n • 2 teaspoons of turmeric powder \ n • 2 tablespoons of pepper (or use any other type of chili) \ n • 2 less diluted dishwashing liquid \ n • 3 branches of fresh mint leaves \ n • 12 separate water \ n', '10 '),
-	('2.The steps to create natural pesticides', 'Step 1 \ n add garlic, mint and crush them in a blender for a few seconds. Then add water (in the amount mentioned above) and pepper to the mixture. Step 2 \ n Meave the mixture into a pot or boiler to boil this solution for a few minutes. Step 3 \ n When boiling, reminded from the stove and let it cool overnight. That\'s everything, your natural pesticide spray is ready. \ n Step 4 \ n Now you can use the solution to eliminate the hateful pests and diseases. Keep the solution into the bottle or spray bottle. \ n', '10 '),
+	('null', 'We all know the harmful effects of chemical pesticides for our ecosystems and environment. If you have thought of being organic solutions and looking for some natural ways to get rid of the gardens, you are on the right track. \ n 05 ingredients in the natural pesticide that we introduce in the article below will be eliminated the obnoxious insects that are harmful to the plants in your garden. \n', '10 '),
+	('This homemade pesticide formula is completely easy to implement, all natural and easy to do at home', 'Commercial pesticides are one of the most effective ways to quickly solve pests and diseases, but if you want to use this self -made natural pesticide, and use it regularly will give you conclusion Incredibly. \n You can apply this excellent pesticide using spraying to the vegetable garden and your common pests and diseases and it is really effective. Once a week is enough, however, if the invasion of insects is too much to apply more often. Once the plants began to recover, use it for 2 times per week or longer to prevent from pests. \ n', '10 '),
+	('1.What do you need to prepare', '• 2 garlic root \n • 2 teaspoons of turmeric powder \n • 2 tablespoons of pepper (or use any other type of chili) \n • 2 less diluted dishwashing liquid \n • 3 branches of fresh mint leaves \n • 12 separate water \n', '10 '),
+	('2.The steps to create natural pesticides', 'Step 1 \n add garlic, mint and crush them in a blender for a few seconds. Then add water (in the amount mentioned above) and pepper to the mixture. Step 2 \n Meave the mixture into a pot or boiler to boil this solution for a few minutes. Step 3 \n When boiling, reminded from the stove and let it cool overnight. That\'s everything, your natural pesticide spray is ready. \n Step 4 \n Now you can use the solution to eliminate the hateful pests and diseases. Keep the solution into the bottle or spray bottle. \ n', '10 '),
 	('3. How to use it', 'Shake well before using it. Spray the solution on all the leaves of the affected tree, do not forget the lower side. The best time to use it when the day is cloudy, preferably in the evening or early in the morning. \n', '10 ');
     
     INSERT INTO topics (topic_name, content, post_id) VALUES
@@ -399,9 +397,7 @@ VALUES
 	('1112203.jpg', '94 '),
 	('1111204.jpg', '95 '),
     ('1111205.jpg','96');
-    
-    SELECT * FROM post;
-    select * from topics;
+
     
 -- Đất , phân bón ,....
 INSERT INTO post (title, post_img, post_category_id, status ) VALUES
@@ -412,7 +408,6 @@ INSERT INTO post (title, post_img, post_category_id, status ) VALUES
 	('Balcony plants that are easy to care for, filter dust well for your home', 'title4.jpg', '8', '1 '),
 	('TOP 10 EASY TO GROW AT HOME VEGETABLE SEEDS YOU CAN RESEARCH', 'muopdang.jpg', '8', '1 ');
     
-
 -- Topics
 
 INSERT INTO topics (topic_name, content, post_id ) VALUES
@@ -545,7 +540,7 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
 	('title19.jpg', '164 '),
 	('title20.jpg', '165 '),
 	('cuoicung.jpg', '166 '),
-	('muop_dang.jpg', '168 '),
+	('muopdang.jpg', '168 '),
 	('rau_muong.jpg', '170 '),
 	('rau_cai.jpg', '171 '),
 	('rau_xa_lach.jpg', '172 '),
@@ -553,7 +548,7 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
 	('rau_mong_toi.jpg', '174 '),
 	('bi_ngo_chuoi.jpg', '175 '),
 	('bau_ho_lo.jpg', '175 '),
-	('muop_dang.jpg', '176 '),
+	('muopdang.jpg', '176 '),
 	('muop_huong.jpg', '177 ');
     
     INSERT INTO topics_img (img_url, topic_id) VALUES
@@ -561,7 +556,7 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
 	('dau_bap.jpg', '179 ');
     
     
-    select * from post;
+
     
     -- Design
     INSERT INTO post (title, post_img, post_category_id, status ) VALUES
@@ -921,8 +916,7 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
     
     INSERT INTO topics_img (img_url, topic_id ) VALUES
 	('mini_11.jpg', '287 ');
-    
-    
+
     -- Cong cụ
     INSERT INTO post (title, post_img, post_category_id, status) VALUES
 	('Some necessary tools when taking care of the garden at home ', '1201403.jpg', '5', '1');
@@ -1092,5 +1086,5 @@ INSERT INTO topics_img (img_url, topic_id ) VALUES
 	('Wormen','sach_04.png','These products can be very toxic and therefore harmful, so if you want to use them, take\nThis book will teach you how to prepare natural measures with the most popular herbs: Ghost trees, dandelion trees, bell flowers, and many others.','9'),
 	('Outdoor space: Garden, simple ideas, color, texture, materials','sach_06.jpg','In this book you will find the best ideas to design a garden in any space\nWhich balcony, terrace, solar energy ... no matter how many meters you have, you can have a place\nPerfect design thanks to Ula Maria, a designer, who was awarded the prize of the Hoang Garden Association Gia in 2018.','9'),
     ('Beautiful garden on small balconies','sach_05.png','In the beautiful garden book on a small balcony, you will learn about:\n+ The world of flowers and plants\n+ Overview knowledge about balcony flower garden art\n+ The secrets of decoration and care for balcony flower garden\n+ Typical balcony flower gardens\n"If humans can vote with flowers and flowers, watch the clouds early in the afternoon"','9');
-
-    select * from comments;
+         
+         

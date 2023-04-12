@@ -127,7 +127,7 @@
         </div>
         <div class="row justify-content-center">
             <?php
-            $sql1 = "SELECT * FROM post LIMIT 6";
+            $sql1 = "SELECT * FROM post Where status = 1 ORDER BY created_at DESC LIMIT 6";
             $result1 = mysqli_query($conn, $sql1);
             if (mysqli_num_rows($result1) > 0) {
                 while ($post = mysqli_fetch_assoc($result1)) {

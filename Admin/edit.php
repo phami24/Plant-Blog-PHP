@@ -1,4 +1,7 @@
 <?php
+
+include "/xampp/htdocs/e-project1/Config/conn.php";
+$post_id = $_GET['id'];
 session_start();
 if (isset($_SESSION['id'])) {
 ?>
@@ -30,13 +33,6 @@ if (isset($_SESSION['id'])) {
     </head>
 
     <body>
-        <?php
-
-        include "/xampp/htdocs/e-project1/Config/conn.php";
-        $post_id = $_GET['id'];
-        ?>
-
-
         <style>
             .input-right {
                 animation-name: example;
@@ -198,6 +194,10 @@ if (isset($_SESSION['id'])) {
                             if (mysqli_num_rows($result) > 0) {
                                 while ($topic = mysqli_fetch_assoc($result)) {
                             ?>
+                                    <div class="btn-group m-2 w-25" role="group">
+                                        <button type="button" class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editTopics<?php echo $topic['topic_id'] ?>'>Edit Topic</button>
+                                        <button type="button" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#addTopicsImg<?php echo $topic['topic_id'] ?>'>Add Image</button>
+                                    </div>
                                     <div class='modal fade' id='editTopics<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                                         <div class='modal-dialog'>
                                             <div class='modal-content'>
@@ -233,10 +233,6 @@ if (isset($_SESSION['id'])) {
                                                 <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
                                             </strong>
                                         </h4>
-                                        <div class="btn-group m-2 w-25" role="group">
-                                            <button type="button" class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editTopics<?php echo $topic['topic_id'] ?>'>Edit Topic</button>
-                                            <button type="button" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#addTopicsImg<?php echo $topic['topic_id'] ?>'>Add Image</button>
-                                        </div>
                                     <?php } ?>
 
                                     <div class="row">
@@ -319,6 +315,39 @@ if (isset($_SESSION['id'])) {
                             }
 
                     ?>
+                    <div class="row">
+
+                        <button type="button" class='btn btn-primary mb-5' data-bs-toggle='modal' data-bs-target='#addTopics'>Add Topic</button>
+                        <div class='modal fade' id='addTopics' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                            <div class='modal-dialog'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Topic</h1>
+                                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                    </div>
+                                    <div class='modal-body'>
+                                        <form action="../Back-End/Admin/create.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
+                                            <table>
+                                                <tr>
+                                                    <td><label for="">Topic Name</label></td>
+                                                    <td><input type="text" style="width:300px ; float:left;" name="topic_name"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="">Topic Content</label></td>
+                                                    <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
+                                                </tr>
+                                            </table>
+                                            <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
+                                            <div class='modal-footer'>
+                                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                                <button type='submit' class='btn btn-primary'>Create</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -329,7 +358,5 @@ if (isset($_SESSION['id'])) {
             header("location:../Admin/login_admin.php");
             exit();
         }
-
-
 
             ?>
