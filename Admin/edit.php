@@ -113,14 +113,10 @@
         $post = mysqli_fetch_assoc($result1);
         ?>
         <div class="text-center p-3">
-            <?php if ($post['title'] != 'null') {
-            ?>
-                <h1>
-                    <?php echo $post['title']; ?>
-                </h1>
-            <?php
-            }
-            ?>
+            <h1>
+                <?php echo $post['title']; ?>
+            </h1>
+
         </div>
         <div class="container">
             <div class="row">
@@ -210,6 +206,12 @@
                                         </strong>
                                     </h4>
                                 <?php } ?>
+                                <form action="../Back-End/Admin/create.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
+                                    <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
+                                    <input type="file" name="topics_img" id="topics_img">
+                                    <button style="padding: 5px;">Add Image</button>
+                                    <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
+                                </form>
 
                                 <?php if ($topic['content'] != 'null') { ?>
                                     <p style="text-align: justify;max-width:90%">
@@ -217,11 +219,6 @@
                                         <?php echo nl2br($topic['content']) ?>
                                         </span>
                                     <?php } ?>
-                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
-                                        <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
-                                        <input type="file" name="topics_img" id="topics_img">
-                                        <button style="padding: 5px;">Add Image</button>
-                                    </form>
                                     <?php
                                     $topicId = $topic['topic_id'];
                                     $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topicId'";
@@ -230,31 +227,32 @@
                                         while ($topic_img = mysqli_fetch_assoc($result1)) {
                                             if ($topic_img['img_url'] != 'null') {
                                     ?>
-                                                <p style="text-align: left;" class="hover">
-                                                    <span class="notranslate">
-                                                        <img src="../Admin/img/<?php echo $topic_img['img_url']; ?>" />
-                                                    </span>
-                                                <form action="../Back-End/Admin/update.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
-                                                    <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
-                                                    <input type="file" name="topics_img" id="topics_img">
-                                                    <button style="padding: 5px;">Train Image </button>
-                                                </form>
-                                                </p>
-                                            <?php
-                                            }
-                                            ?>
-                                        <?php } ?>
+                                    <p style="text-align: left;" class="hover">
+                                        <span class="notranslate">
+                                            <img src="../Admin/img/<?php echo $topic_img['img_url']; ?>" />
+                                        </span>
+                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
+                                        <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
+                                        <input type="file" name="topics_img" id="topics_img">
+                                        <button style="padding: 5px;">Train Image </button>
+                                    </form>
 
-                                    <?php
+                                    </p>
+                                <?php
+                                            }
+                                ?>
+                            <?php } ?>
+
+                        <?php
                                     }
 
-                                    ?>
-                                <?php } ?>
+                        ?>
+                    <?php } ?>
 
-                            <?php
+                <?php
                         }
 
-                            ?>
+                ?>
                     </div>
                 </div>
                 <!---------------------------------------- kết thúc nội dung -------------------------------------->
