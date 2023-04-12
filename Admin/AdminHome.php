@@ -1,9 +1,14 @@
 <?php
+
 include "/xampp/htdocs/e-project1/Config/conn.php";
 
 $sql = "SELECT COUNT(post_id) as post_total from post";
 $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_assoc($result);
+
+session_start();
+if (isset($_SESSION['id'])) {
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -135,7 +140,7 @@ $data = mysqli_fetch_assoc($result);
               </ul>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="test.html" style="color: white">
+              <a class="navbar-brand" href="../Back-End/Admin/logout.php" style="color: white">
                 <span class="ms-lg-5" style="font-weight:bold;">
                   <ion-icon name="exit-outline"></ion-icon>
                   <span class="pb-1">
@@ -380,3 +385,12 @@ $data = mysqli_fetch_assoc($result);
 </body>
 
 </html>
+<?php
+} else {
+  header("location:../Admin/login_admin.php");
+    exit();
+}
+
+
+
+?>

@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Animated Login Form | CodingNepal</title>
+  <title>Admin Login</title>
   <link rel="stylesheet" href="style.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
@@ -143,18 +143,14 @@
 </head>
 
 <body>
-  <?php
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  if ($username == 'admin' && $password == '123456') {
-    header('location: AdminHome.php');
-  } else {
-    echo "<script>alert('Wrong Username or Password')</script>";
-  }
-  ?>
   <div class="center">
     <h1>Login</h1>
-    <form method="post">
+    <?php
+    if (isset($_GET['error'])) {
+      $error = $_GET['error']; ?>
+      <p class="error"><?php echo $error ?></p>
+    <?php } ?>
+    <form method="post" action="../Back-End/Admin/login.php">
       <div class="txt_field">
         <input type="text" required name="username">
         <span></span>
