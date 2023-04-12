@@ -57,14 +57,11 @@
                             Home</a>
                     </li>
                     <li class="nav-item ms-4 dropdown">
-                        <!-- <a href="KyThuat.php" class="nav-link active">
-                            Kiến thức
-                        </a> -->
                         <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Knowledge
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Basic Knowledge</a></li>
+                            <li><a class="dropdown-item" href="KienThucCoBan.php">Basic Knowledge</a></li>
                             <li><a class="dropdown-item" href="KyThuat.php">Tips and Tricks</a></li>
                         </ul>
                     </li>

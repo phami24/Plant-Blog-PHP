@@ -19,7 +19,7 @@
                 <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="inner-content">
                         <aside class="toc">
-                            <h4 class="index">Index: </h4>
+                            <!-- <h4 class="index">Index: </h4> -->
                             <hr>
                             <ul class="toc-list">
                                 <ul class="toc-list  is-collapsible">
@@ -33,7 +33,7 @@
                                             if ($topic['topic_name'] != 'null') {
                                     ?>
                                                 <li>
-                                                    <a href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
+                                                    <a style="font-size: 18px;" href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
                                                 </li>
                                     <?php
                                             }

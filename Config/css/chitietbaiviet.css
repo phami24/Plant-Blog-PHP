@@ -9,7 +9,7 @@ body {
 }
 
 .card {
-    background-color: #c9ffc8;
+    
     -webkit-transform: scale(1);
     transform: scale(1);
     -webkit-transition: .2s ease-in-out;
@@ -17,9 +17,10 @@ body {
 }
 
 .toc {
-    /* background-color: #c9ffc8; */
+    
     margin-bottom: 10px;
-
+    border: 1px solid #dadada;
+    border-radius: 5px;
 }
 
 .toc ul li {
@@ -28,7 +29,7 @@ body {
 }
 
 .toc li a {
-    color: #429757;
+    color: rgb(20, 162, 29);
     text-decoration: none;
 }
 
@@ -54,14 +55,14 @@ body {
 }
 
 .h1 {
-    color: green;
+    color: rgb(20, 162, 29);
     font-size: 35px;
     text-shadow: 1px 1px 3px #429757;
 }
 
 
 .h3 {
-    color: #429757;
+    color: rgb(20, 162, 29);
     font-size: 20px;
 }
 
