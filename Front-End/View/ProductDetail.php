@@ -112,7 +112,7 @@
         </div>
     </div>
 
-    <div class=" container mx-5 px-5">
+    <div class="container mb-5">
         <p style="font-size:30px">Some other products: </p>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">

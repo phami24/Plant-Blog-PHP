@@ -12,12 +12,15 @@
         $result1 = mysqli_query($conn, $sql1);
         $post = mysqli_fetch_assoc($result1);
         ?>
-        <div class="text-center p-3">
+        <!-- <div class="text-center p-3">
             <h2 class="h1"><?php echo $post['title'] ?></h2>
-        </div>
+        </div> -->
         <div class="container">
             <div class="row">
                 <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="text-center py-3" style="padding-right: 80px;">
+                        <h2 class="h1"><?php echo $post['title'] ?></h2>
+                    </div>
                     <div class="inner-content">
                         <?php
                         $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
@@ -26,7 +29,7 @@
                             while ($topic = mysqli_fetch_assoc($result)) {
                                 if ($topic['topic_name'] != 'null') {
                         ?>
-                                    <aside class="toc">
+                                    <aside class="toc" style="width: 90%;">
                                         <h4 class="index">Index: </h4>
                                         <hr>
                                         <ul class="toc-list">
@@ -219,8 +222,8 @@
                         <label>Comment:</label>
                         <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
                     </div>
-                    
-                    <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>"style="display:none;">
+
+                    <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
                     <button type="submit" style="float:right" class="btn btn-success">Submit Comment</button>
                 </form>
             </div>
