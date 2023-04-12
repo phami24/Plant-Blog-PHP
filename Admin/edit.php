@@ -161,40 +161,37 @@
                     </div>
                     <!---------------- nội dung -------------------->
 
-                    <div>
+                    <div class="container">
                         <?php
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($topic = mysqli_fetch_assoc($result)) {
                         ?>
-                                <div class="row">
-                                    <button type=button class='btn btn-success w-25 m-2' data-bs-toggle='modal' data-bs-target='#editTopics<?php echo $topic['topic_id'] ?>'>Edit</button>
-                                    <div class='modal fade' id='editTopics<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                        <div class='modal-dialog'>
-                                            <div class='modal-content'>
-                                                <div class='modal-header'>
-                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit topic</h1>
-                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                                </div>
-                                                <div class='modal-body'>
-                                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
-                                                        <table>
-                                                            <tr>
-                                                                <td><label for="">Topic Name</label></td>
-                                                                <td><input type="text" style="width:300px ; float:left;" name="topic_name"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><label for="">Topic Content</label></td>
-                                                                <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
-                                                            </tr>
-                                                        </table>
-                                                        <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
-                                                        <div class='modal-footer'>
-                                                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                                                            <button type='submit' class='btn btn-primary'>Save</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                <div class='modal fade' id='editTopics<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                    <div class='modal-dialog'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                                <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit topic</h1>
+                                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                            </div>
+                                            <div class='modal-body'>
+                                                <form action="../Back-End/Admin/update.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
+                                                    <table>
+                                                        <tr>
+                                                            <td><label for="">Topic Name</label></td>
+                                                            <td><input type="text" style="width:300px ; float:left;" name="topic_name"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><label for="">Topic Content</label></td>
+                                                            <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
+                                                        </tr>
+                                                    </table>
+                                                    <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
+                                                    <div class='modal-footer'>
+                                                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                                        <button type='submit' class='btn btn-primary'>Save</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -205,13 +202,34 @@
                                             <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
                                         </strong>
                                     </h4>
+                                    <div class="btn-group m-2 w-25" role="group">
+                                        <button type="button" class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editTopics<?php echo $topic['topic_id'] ?>'>Edit Topic</button>
+                                        <button type="button" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#addTopicsImg<?php echo $topic['topic_id'] ?>'>Add Image</button>
+                                    </div>
                                 <?php } ?>
-                                <form action="../Back-End/Admin/create.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
-                                    <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
-                                    <input type="file" name="topics_img" id="topics_img">
-                                    <button style="padding: 5px;">Add Image</button>
-                                    <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
-                                </form>
+
+                                <div class="row">
+                                    <div class='modal fade' id='addTopicsImg<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>Add Image</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body'>
+                                                    <!-- Thêm ảnh -->
+                                                    <form action="../Back-End/Admin/create.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
+                                                        <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
+                                                        <input type="file" name="topics_img" id="topics_img">
+                                                        <button style="padding: 5px;">Add Image</button>
+                                                        <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <?php if ($topic['content'] != 'null') { ?>
                                     <p style="text-align: justify;max-width:90%">
@@ -231,11 +249,28 @@
                                         <span class="notranslate">
                                             <img src="../Admin/img/<?php echo $topic_img['img_url']; ?>" />
                                         </span>
-                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
-                                        <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
-                                        <input type="file" name="topics_img" id="topics_img">
-                                        <button style="padding: 5px;">Train Image </button>
-                                    </form>
+                                    </p>
+                                    <div class='modal fade' id='editTopicsImg<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit Image</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body'>
+                                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
+                                                        <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
+                                                        <input type="file" name="topics_img" id="topics_img">
+                                                        <button style="padding: 5px;">Train Image </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group m-2 " role="group">
+                                        <button type="button" class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#editTopicsImg<?php echo $topic['topic_id'] ?>'>Edit Image</button>
+                                        <button type="button" class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteTopicsImg<?php echo $topic['topic_id'] ?>'>Delete Image</button>
+                                    </div>
 
                                     </p>
                                 <?php
@@ -255,39 +290,5 @@
                 ?>
                     </div>
                 </div>
-                <!---------------------------------------- kết thúc nội dung -------------------------------------->
-                <div class="row">
-                    <button type=button class='btn btn-primary w-25 m-2' data-bs-toggle='modal' data-bs-target='#addTopic'>Create Topic</button>
-                    <div class='modal fade' id='addTopic' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                        <div class='modal-dialog'>
-                            <div class='modal-content'>
-                                <div class='modal-header'>
-                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Topic</h1>
-                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                </div>
-                                <div class='modal-body'>
-                                    <form action="../Back-End/Admin/create.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
-                                        <table>
-                                            <tr>
-                                                <td><label for="">Topic Name</label></td>
-                                                <td><input type="text" style="width:300px ; float:left;" name="topic_name"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="">Content</label></td>
-                                                <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
-                                            </tr>
-                                        </table>
-                                        <input style="display:none;" type="number" name="post_id" id="post_id" value="<?php echo $post_id ?>">
-                                        <div class='modal-footer'>
-                                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                                            <button type='submit' class='btn btn-primary'>Create</button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
+            <!---------------------------------------- kết thúc nội dung -------------------------------------->
