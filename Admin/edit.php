@@ -194,6 +194,10 @@ if (isset($_SESSION['id'])) {
                             if (mysqli_num_rows($result) > 0) {
                                 while ($topic = mysqli_fetch_assoc($result)) {
                             ?>
+                                    <div class="btn-group m-2 w-25" role="group">
+                                        <button type="button" class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editTopics<?php echo $topic['topic_id'] ?>'>Edit Topic</button>
+                                        <button type="button" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#addTopicsImg<?php echo $topic['topic_id'] ?>'>Add Image</button>
+                                    </div>
                                     <div class='modal fade' id='editTopics<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                                         <div class='modal-dialog'>
                                             <div class='modal-content'>
@@ -229,10 +233,6 @@ if (isset($_SESSION['id'])) {
                                                 <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
                                             </strong>
                                         </h4>
-                                        <div class="btn-group m-2 w-25" role="group">
-                                            <button type="button" class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editTopics<?php echo $topic['topic_id'] ?>'>Edit Topic</button>
-                                            <button type="button" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#addTopicsImg<?php echo $topic['topic_id'] ?>'>Add Image</button>
-                                        </div>
                                     <?php } ?>
 
                                     <div class="row">
@@ -317,7 +317,7 @@ if (isset($_SESSION['id'])) {
                     ?>
                     <div class="row">
 
-                        <button type="button" class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#addTopics'>Add Topic</button>
+                        <button type="button" class='btn btn-primary mb-5' data-bs-toggle='modal' data-bs-target='#addTopics'>Add Topic</button>
                         <div class='modal fade' id='addTopics' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                             <div class='modal-dialog'>
                                 <div class='modal-content'>
