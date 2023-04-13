@@ -79,9 +79,9 @@
             width: 30px;
         }
     </style>
-    <div class="container bg-secondary-subtle">
+    <!-- <div class="container bg-secondary-subtle"> -->
         <div class="row m-5 p-5 ">
-            <div class="img col-6 ">
+            <div class="img col-6" >
                 <?php
                 if (mysqli_num_rows($result) > 0) {
                     $product_detail = mysqli_fetch_assoc($result);
@@ -89,7 +89,7 @@
                     $result1 = mysqli_query($conn, $sql1);
                     $product_img = mysqli_fetch_assoc($result1);
                 ?>
-                    <img style="margin: 100px 100px 0 0;" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" alt="Ảnh sản phẩm">
+                    <img style="margin: 100px auto ;" class="img-fluid" src="../../Admin/img/<?php echo $product_img['product_img']; ?>" alt="Ảnh sản phẩm">
             </div>
             <div class="desc col-6 bg-white p-5">
                 <div>
@@ -110,9 +110,9 @@
 
         ?>
         </div>
-    </div>
+    <!-- </div> -->
 
-    <div class=" container mx-5 px-5">
+    <div class="container mb-5">
         <p style="font-size:30px">Some other products: </p>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
