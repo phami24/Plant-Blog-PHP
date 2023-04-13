@@ -2,7 +2,7 @@
 
 include "/xampp/htdocs/e-project1/Config/conn.php";
 
-$sql = "SELECT COUNT(post_id) as post_total from post";
+$sql = "SELECT COUNT(post_id) as post_total from post where status != 3";
 $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_assoc($result);
 
@@ -217,43 +217,77 @@ if (isset($_SESSION['id'])) {
                   $start = ($current_page - 1) * $limit;
                   ?>
                   <?php
-                  $sql = "SELECT post.post_id, post.title, post_category.post_category_name, post.status FROM post INNER JOIN post_category ON post.post_category_id = post_category.post_category_id ORDER BY post_id LIMIT $start, $limit";
+                  $sql = "SELECT post.post_id, post.title, post_category.post_category_name, post.status FROM post INNER JOIN post_category ON post.post_category_id = post_category.post_category_id AND status != 3  ORDER BY post_id DESC LIMIT $start,$limit ";
+                  $sql_id_total = "SELECT COUNT(post.post_id) AS id_total FROM post INNER JOIN post_category  ON post.post_category_id = post_category.post_category_id AND status != 3  ORDER BY post_id DESC ";
+                  $result_id_total = mysqli_query($conn, $sql_id_total);
+                  $id_total = mysqli_fetch_assoc($result_id_total);
+                  $i = 0;
                   if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
-                      echo "<table border=1>";
-                      echo "<th>Post ID</th>";
-                      echo "<th>Title</th>";
-                      echo "<th>Post Type</th>";
-                      echo "<th>Status</th>";
-                      echo "<th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>";
-                      echo "</tr>";
-                      while ($row = mysqli_fetch_array($result)) {
-                        echo "<td>" . $row['post_id'] . "</td>";
-                        echo "<td>" . $row['title'] . "</td>";
-                        echo "<td>" . $row['post_category_name'] . "</td>";
-                        echo "<td>" . $row['status'] . "</td>";
-                        if ($row['status'] == 1) {
-                          echo "<td>
-                        <a href='../Admin/edit.php?id=$row[post_id]'>
-                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Edit</button>
-                        </a>
-                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
-                        <button type=button class='btn btn-danger btn-xs'>Hide</button>
-                        </a>
-                        </td>";
-                        } else {
-                          echo "<td>
-                        <a href='../Admin/edit.php?id=$row[post_id]'>
-                        <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost' >Edit</button>
-                        </a>
-                        <a href='../Back-End/Admin/hideshow.php?id=$row[post_id]&page=$current_page'>
-                        <button type=button class='btn btn-primary btn-xs'>Show</button>
-                        </a>
-                        </td>";
+                  ?>
+                      <table border=1>
+                        <th>Post ID</th>
+                        <th>Title</th>
+                        <th>Post Type</th>
+                        <th>Status</th>
+                        <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>
+                        </tr>
+                        <?php
+                        while ($row = mysqli_fetch_array($result)) {
+                          if ($i <= $id_total['id_total'] && $current_page == 1) {
+                            $i++;
+                            $id = $i;
+                          }
+                          if ($i <= $id_total['id_total']  && $current_page > 1) {
+                            $i++;
+                            $id = $i + $current_page * 10 - 10;
+                          }
+                        ?>
+                          <td><?php echo $id;  ?></td>
+                          <td><?php echo $row['title']; ?></td>
+                          <td><?php echo $row['post_category_name']; ?> </td>
+                          <td><?php echo $row['status']; ?></td>
+                          <?php
+                          if ($row['status'] == 1) {
+                          ?>
+                            <td>
+                              <a href=''>
+                                <button type=button class='btn btn-secondary btn-xs'>Edit Post</button>
+                              </a>
+                              <a href='../Admin/edit.php?id=<?php echo $row['post_id'] ?>'>
+                                <button type=button class='btn btn-success btn-xs'>Edit Topic</button>
+                              </a>
+                              <a href='../Back-End/Admin/hideshow.php?id=<?php echo $row['post_id'] ?>&page=<?php echo $current_page ?>'>
+                                <button type=button class='btn btn-warning btn-xs'>Hide</button>
+                              </a>
+                              <a href='../Back-End/Admin/delete.php?id=<?php echo $row['post_id'] ?>&page=<?php echo $current_page ?>'>
+                                <button type=button class='btn btn-danger btn-xs'>Delete</button>
+                              </a>
+                            </td>
+                            </tr>
+                          <?php
+                          } else { ?>
+                            <td>
+                              <a href=''>
+                                <button type=button class='btn btn-secondary btn-xs'>Edit Post</button>
+                              </a>
+                              <a href='../Admin/edit.php?id=<?php echo $row['post_id'] ?>'>
+                                <button type=button class='btn btn-success btn-xs'>Edit Topic</button>
+                              </a>
+                              <a href='../Back-End/Admin/hideshow.php?id=<?php echo $row['post_id'] ?>&page=<?php echo $current_page ?>'>
+                                <button type=button class='btn btn-primary btn-xs'>Show</button>
+                              </a>
+                              <a href='../Back-End/Admin/delete.php?id=<?php echo $row['post_id'] ?>&page=<?php echo $current_page ?>'>
+                                <button type=button class='btn btn-danger btn-xs'>Delete</button>
+                              </a>
+                            </td>
+                            </tr>
+                        <?php
+                          }
                         }
-                        echo "</tr>";
-                      }
-                      echo "</table>" . "<br>";
+                        ?>
+                      </table><br>
+                  <?php
                     } else {
                       echo "Không có bản ghi nào được tìm thấy.";
                     }

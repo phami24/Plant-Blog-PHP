@@ -26,12 +26,12 @@ img {
     padding-bottom: 10px;   
 }
 
-.toc {
-    /* padding: 30px; */
+/* .toc {
+    padding: 30px; 
     border: 1px solid #dadada;
     border-radius: 5px;
     background-color: #d73131;
-}
+} */
 
 .toc-link {
     font-size: 100%;

@@ -1088,3 +1088,32 @@ INSERT INTO topics_img (img_url, topic_id ) VALUES
     ('Beautiful garden on small balconies','sach_05.png','In the beautiful garden book on a small balcony, you will learn about:\n+ The world of flowers and plants\n+ Overview knowledge about balcony flower garden art\n+ The secrets of decoration and care for balcony flower garden\n+ Typical balcony flower gardens\n"If humans can vote with flowers and flowers, watch the clouds early in the afternoon"','9');
          
          
+
+		 -- Kien thuc co ban
+	insert into post (title, post_img, post_category_id, status) VALUES
+    ('Some gardening basics','ktcb_04.jpg', 1 ,1);
+    
+    INSERT INTO topics (topic_name, content, post_id) VALUES
+    ('1. Soild preparation',' Use a shovel for a small bed or rent a tiler for a larger job\n Have your soil analyzed most plants like a slightly acid soil  a soil test lets you know if the needed nutrients are present in your garden.\n Add amendments such as compost, peat moss, and good top soil to improve the soil.',36),
+    ('2. Location - sun or shade',' Pulting the right plants in the right spot will definitely make them and you happy.\n Look to see what plants are available for bright light or heavy shade and what\'s in between\n If it\'s sun your plant wants, plan to use areas that receive a good 6-7 hours of direct sunlight\n Most veggies want that full sun, but lettuces, collards, carrots and pead will tolerate partial sun ( 4-6 hours of sun during the day)',36),
+    ('3. Is watering really that important?','Most plants like about an inch of water a week  can be from rain, rain barrel, water can, etc.\n Too much water can create problems for plants that don\'n like have their feet wet.\n Young tender plants need water when planted and then can do well as they become established with less water requirements. The young root systems need to be able to search and find water on their own.\n Watering routine may be twice a week depending on the weather. Be sure to water long enough to saturate at lease 5-6 inches of soil.\n Some plants are more drought tolerant than others. If your plants are wilting from hot sun exposure or lack of water, give them a drink.\n Water only in the early morning or late evening; otherwise, the water will evaporate due to the heat.\nThe best time to water is late afternoon, especially during the summer or if you live in arid or semi-arid regions. Now, there\'s one exception: if you have plants in the shade, that never get sunlight, and on the exact day you have to water them, it doesn\'t matter when you do the job. this in the morning.\nGood watering is to keep the soil moist, as that is the only way to ensure that the roots are properly hydrated. So pour in water until all the holes in the pot are empty, or until you see the soil soak if above ground.',36),
+    ('4. Care and maintenance are important to keep your garden healthy, productive and beautiful.','Yes, weeding, mowing, pruning, mulching, fertilizing, and general care are necessary to make your efforts fruitful.\n It is a good idea to set aside a little time a couple of times each week just to check everything.\n Lood at your plans  are they healthy and growing... or wilted, eaten, yellow or have even disappeared? Do you see any pests or insects that are creating for the nutrients? If so, it\'s definitely time to take action. Try to idenify the culprits and find a solution before damage occurs.',36),
+    ('5. Be patient','It takes time for plants to grow and mature. It seems as those tomatoes just won\'n hurry up and product!  And, when is that prize  winning dahlia or rose ever going to bloom?',36),
+    ('6.','6. By now you are aware that gardening is probably work related ( not a job though)… remember that nature rewards those creative efforts with much enjoyment and pride in the results. It\'s great fun to share the fruits of your labor with family and friends.',36),
+    ('7. Transplanting potted plants','In any case, whether small or large, it is important that the pot you choose has holes in the base, except if they are aquatic. But if a rose bush or a cactus (such as certain plants) is planted in a glass jar or porcelain pot, standing water will rot the roots and consequently the rest of the plants.',36),
+    ('8. Fertilize plants regularly','The former is very interesting when the effect needs to be quick, or when we want to fix a problem (for example, if we have a chlorinated crop, we can help it with a rich green fertilizer). iron). But the instructions must be followed for the letter; If not treated, the disease will get worse.\nAs for the latter, they are especially interesting when you want to fertilize garden plants, because fertilizing the plants also fertilizes the soil, making the soil more fertile. They are applied by applying a layer of about 2-3 cm, and then mixing them a little. NEVER mix different fertilizers, or fertilize them with fertilizers, as we can cause damage by overdose.',36),
+    ('9. Pest control','Where there are plants, there are insects, and even opportunistic microorganisms. So one of the main tasks of growers is to regularly inspect their crops for pests, fungi or any other enemies they have. A) Yes, It is important that you watch the leaves all over, as this is where the first symptoms and/or lesions usually appear.\nOf all the pests that exist, the most common are aphids, spider mites, mealybugs and white mocha. They are well treated with an eco-insecticide, such as potash soap (for sale here), diatomaceous earth or neem oil. Even if you have ladybugs, mantises or other beneficial insects around your garden, pests will be controlled.',36),
+    ('10. Tree pruning','At the end of winter, you have to get some pruning tools (scissors, small hand saw), to remove some unwanted elements from the plant, such as sucking worms, overgrown branches, wilted flowers , ... This will also be a good time to pose for shrubs, especially those that are kept as hedges.\nDuring the summer and fall, you can do small pruning, called pruning, mainly to control plant growth and keep them to the desired size. But be careful, cut only the green branches, or they may lose more sap than necessary.',36);
+    select * from topics;
+    
+    INSERT INTO topics_img (img_url, topic_id ) VALUES
+    ('null',296),
+    ('null',297),
+    ('ktcb_02.jpg',298),
+    ('null',299),
+    ('null',300),
+    ('ktcb_01.jpg',301),
+    ('null',302),
+    ('ktcb_03.jpg',303),
+    ('ktcb_05.jpg',304),
+    ('ktcb_04.jpg',305);

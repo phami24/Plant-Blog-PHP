@@ -30,7 +30,7 @@
                                 if ($topic['topic_name'] != 'null') {
                         ?>
                                     <aside class="toc" style="width: 90%;">
-                                        <h4 class="index">Index: </h4>
+                                        <!-- <h4 class="index">Index: </h4> -->
                                         <hr>
                                         <ul class="toc-list">
                                             <ul class="toc-list  is-collapsible">
@@ -43,7 +43,7 @@
                                                         if ($topic['topic_name'] != 'null') {
                                                 ?>
                                                             <li>
-                                                                <a href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
+                                                                <a style="font-size: 18px;" href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
                                                             </li>
                                                 <?php
                                                         }
@@ -243,15 +243,17 @@
 
                     // Hiển thị các comment
                     while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div>';
+                        echo '<ion-icon name="logo-wechat" style="color:green;font-size: 30px;"></ion-icon>';
                         echo '<div class="userComment">';
-                        echo '<ion-icon name="person-circle-outline" style="font-size: 30px; color:green;"></ion-icon>';
                         echo '<strong>' . $row['name'] . ' (' . $row['email'] . ') ' . '</strong>' . '<i style="float:right; font-size:13px;">' . $row['created_at'] . '</i>' . '<br>';
                         echo '<p class="mx-5">' . $row['message'] . '</p>';
+                        echo '</div>';
                         echo '</div>';
                     }
                     ?>
                 </div>
-                <h3 style="color: #4b0808;margin:20px;">Add Comment</h3>
+                <h5 style="color: #4b0808;margin:20px;">Add Comment</h5>
                 <form method="post" id="comment-form" action="#">
                     <div class="form_container">
                         <label class="form_label">Name: </label>
@@ -262,12 +264,12 @@
                         <input class="form_input" type="email" name="email" required>
                     </div>
                     <div class="form_container">
-                        <label>Comment:</label>
+                        <!-- <label>Comment:</label> -->
                         <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
                     </div>
 
                     <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
-                    <button type="submit" style="float:right" class="btn btn-success">Submit Comment</button>
+                    <button type="submit" style="float:right" class="btn btn-success"><ion-icon name="paper-plane-outline"></ion-icon></button>
                 </form>
             </div>
 
