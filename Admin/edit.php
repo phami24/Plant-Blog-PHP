@@ -1,123 +1,35 @@
 <?php
 
 include "/xampp/htdocs/e-project1/Config/conn.php";
+
+
 $post_id = $_GET['id'];
 session_start();
 if (isset($_SESSION['id'])) {
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
 
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Garden World</title>
-        <!-- Title Logo -->
-        <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin Panel</title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <!-- IonIcons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/adminlte.min.css">
         <!-- Bootstrap -->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" /> -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- <link rel="stylesheet" href="../../Lib/css/bootstrap.min.css"> -->
-        <!-- Icon -->
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <link rel="stylesheet" href="../../Config/css/style.css">
-        <link rel="stylesheet" type="text/css" href="/e-project1/Config/css/style.css">
-        <link rel="stylesheet" type="text/css" href="../../Config/css/title.css">
-        <link rel="stylesheet" type="text/css" href="../../Config/css/chitietbaiviet.css">
-        <link rel="stylesheet" type="text/css" href="../../Config/css/trangtonghop.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    </head>
-
-    <body>
+        <link rel="stylesheet" href="../Lib/css/bootstrap-grid.min.css">
+        <script src="../Lib/js/bootstrap.min.js"></script>
         <style>
-            .input-right {
-                animation-name: example;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                overflow-x: hidden;
-            }
-
-            .card {
-                background-color: #c9ffc8;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-                -webkit-transition: .2s ease-in-out;
-                transition: .2s ease-in-out;
-            }
-
-            .toc {
-                background-color: #c9ffc8;
-                margin-bottom: 10px;
-
-            }
-
-            .toc ul li {
-                list-style-type: none;
-
-            }
-
-            .toc li a {
-                color: #429757;
-                text-decoration: none;
-            }
-
-            .toc li a:hover {
-                color: #072f11;
-
-            }
-
-            img {
-                border-radius: 8px;
-            }
-
-            .left_1 div article {
-                position: sticky;
-                top: 15px;
-            }
-
-            .left_1 div {
-                position: sticky;
-                top: 20px;
-            }
-
-            .card:hover {
-                -webkit-transform: scale(1.15);
-                transform: scale(1.15);
-            }
-
-            h1 {
-                color: green;
-                font-size: 35px;
-                text-shadow: 1px 1px 3px #429757;
-            }
-
-
-            .h3 {
-                color: #429757;
-                font-size: 20px;
-            }
-
-            div .inner-content {
-                padding: 0;
-            }
-
-            h4 {
-                color: #4b0808;
-            }
-
             h1 {
                 text-align: center;
             }
@@ -131,232 +43,275 @@ if (isset($_SESSION['id'])) {
                 text-align: center;
                 padding: 5px;
             }
+
+            .pagination a {
+                color: black;
+                padding: 8px 16px;
+                text-decoration: none;
+                transition: background-color .3s;
+
+            }
+
+            .pagination a.active {
+                background-color: green;
+                color: white;
+            }
+
+            div.pagination {
+                float: right;
+            }
+
+            .pagination a:hover {
+                background-color: lightgreen;
+            }
         </style>
-        <a href="AdminHome.php">Go to Admin Panel</a>
-        <div class="container-fluid">
-            <?php
-            $sql1 = "SELECT * FROM post WHERE post_id = '$post_id' ";
-            $result1 = mysqli_query($conn, $sql1);
-            $post = mysqli_fetch_assoc($result1);
-            ?>
-            <div class="text-center p-3">
-                <h1>
-                    <?php echo $post['title']; ?>
-                </h1>
+    </head>
+    <!--
+`body` tag options:
 
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <div class="inner-content">
-                            <?php
-                            $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
-                            $result = mysqli_query($conn, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-                                while ($topic = mysqli_fetch_assoc($result)) {
-                                    if ($topic['topic_name'] != 'null') {
-                            ?>
-                                        <aside class="toc">
-                                            <h4 class="index">Index: </h4>
-                                            <hr>
-                                            <ul class="toc-list">
-                                                <ul class="toc-list  is-collapsible">
-                                                    <?php
-                                                    $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
-                                                    $result = mysqli_query($conn, $sql);
-                                                    if (mysqli_num_rows($result) > 0) {
-                                                        while ($topic = mysqli_fetch_assoc($result)) {
-                                                            $text = $topic['content'];
-                                                            if ($topic['topic_name'] != 'null') {
-                                                    ?>
-                                                                <li>
-                                                                    <a href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
-                                                                </li>
-                                                    <?php
-                                                            }
-                                                        }
-                                                    }
-                                                    ?>
-                                                </ul>
-                                            </ul>
-                                        </aside>
-                            <?php
-                                    }
-                                }
-                            }
-                            ?>
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
+
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+
+                <a href="index3.html" class="brand-link">
+                    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight-light">GardenWorld</span>
+                </a>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar user panel (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img src="../Admin/img/admin.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
-                        <!---------------- nội dung -------------------->
-
-                        <div class="container">
-                            <?php
-                            $result = mysqli_query($conn, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-                                while ($topic = mysqli_fetch_assoc($result)) {
-                            ?>
-                                    <div class="btn-group m-2 w-25" role="group">
-                                        <button type="button" class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editTopics<?php echo $topic['topic_id'] ?>'>Edit Topic</button>
-                                        <button type="button" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#addTopicsImg<?php echo $topic['topic_id'] ?>'>Add Image</button>
-                                    </div>
-                                    <div class='modal fade' id='editTopics<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                        <div class='modal-dialog'>
-                                            <div class='modal-content'>
-                                                <div class='modal-header'>
-                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit topic</h1>
-                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                                </div>
-                                                <div class='modal-body'>
-                                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
-                                                        <table>
-                                                            <tr>
-                                                                <td><label for="">Topic Name</label></td>
-                                                                <td><input type="text" style="width:300px ; float:left;" name="topic_name"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><label for="">Topic Content</label></td>
-                                                                <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
-                                                            </tr>
-                                                        </table>
-                                                        <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
-                                                        <div class='modal-footer'>
-                                                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                                                            <button type='submit' class='btn btn-primary'>Save</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php if ($topic['topic_name'] != 'null') { ?>
-                                        <h4 style="text-align: left;text-decoration:double;">
-                                            <strong>
-                                                <span class="notranslate" id="<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name'] ?></span>
-                                            </strong>
-                                        </h4>
-                                    <?php } ?>
-
-                                    <div class="row">
-                                        <div class='modal fade' id='addTopicsImg<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                            <div class='modal-dialog'>
-                                                <div class='modal-content'>
-                                                    <div class='modal-header'>
-                                                        <h1 class='modal-title fs-5' id='exampleModalLabel'>Add Image</h1>
-                                                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                                    </div>
-                                                    <div class='modal-body'>
-                                                        <!-- Thêm ảnh -->
-                                                        <form action="../Back-End/Admin/create.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
-                                                            <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
-                                                            <input type="file" name="topics_img" id="topics_img">
-                                                            <button style="padding: 5px;">Add Image</button>
-                                                            <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
-                                                        </form>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <?php if ($topic['content'] != 'null') { ?>
-                                        <p style="text-align: justify;max-width:90%">
-
-                                            <?php echo nl2br($topic['content']) ?>
-                                            </span>
-                                        <?php } ?>
-                                        <?php
-                                        $topicId = $topic['topic_id'];
-                                        $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topicId'";
-                                        $result1 = mysqli_query($conn, $sql1);
-                                        if (mysqli_num_rows($result1) > 0) {
-                                            while ($topic_img = mysqli_fetch_assoc($result1)) {
-                                                if ($topic_img['img_url'] != 'null') {
-                                        ?>
-                                        <p style="text-align: left;" class="hover">
-                                            <span class="notranslate">
-                                                <img src="../Admin/img/<?php echo $topic_img['img_url']; ?>" />
-                                            </span>
-                                        </p>
-                                        <div class='modal fade' id='editTopicsImg<?php echo $topic['topic_id'] ?>' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                            <div class='modal-dialog'>
-                                                <div class='modal-content'>
-                                                    <div class='modal-header'>
-                                                        <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit Image</h1>
-                                                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                                    </div>
-                                                    <div class='modal-body'>
-                                                        <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
-                                                            <input style="display:none;" type="number" id="img_id" name="img_id" value="<?php echo $topic_img['topic_img_id'] ?>">
-                                                            <input type="file" name="topics_img" id="topics_img">
-                                                            <button style="padding: 5px;">Train Image </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="btn-group m-2 " role="group">
-                                            <button type="button" class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#editTopicsImg<?php echo $topic['topic_id'] ?>'>Edit Image</button>
-                                            <!-- <button type="button" class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteTopicsImg<?php echo $topic['topic_id'] ?>'>Delete Image</button> -->
-                                        </div>
-
-                                        </p>
-                                    <?php
-                                                }
-                                    ?>
-                                <?php } ?>
-
-                            <?php
-                                        }
-
-                            ?>
-                        <?php } ?>
-
-                    <?php
-                            }
-
-                    ?>
-                    <div class="row">
-
-                        <button type="button" class='btn btn-primary mb-5' data-bs-toggle='modal' data-bs-target='#addTopics'>Add Topic</button>
-                        <div class='modal fade' id='addTopics' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                            <div class='modal-dialog'>
-                                <div class='modal-content'>
-                                    <div class='modal-header'>
-                                        <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Topic</h1>
-                                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                    </div>
-                                    <div class='modal-body'>
-                                        <form action="../Back-End/Admin/create.php?id=<?php echo $post['post_id'] ?>" method="post" enctype="multipart/form-data">
-                                            <table>
-                                                <tr>
-                                                    <td><label for="">Topic Name</label></td>
-                                                    <td><input type="text" style="width:300px ; float:left;" name="topic_name"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="">Topic Content</label></td>
-                                                    <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
-                                                </tr>
-                                            </table>
-                                            <input style="display:none;" type="number" name="topic_id" id="topic_id" value="<?php echo $topic['topic_id'] ?>">
-                                            <div class='modal-footer'>
-                                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                                                <button type='submit' class='btn btn-primary'>Create</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="info">
+                            <a href="#" class="d-block">Admin Controller</a>
                         </div>
                     </div>
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+                            <li class="nav-item menu-open">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Action
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="../Front-End/View/HomePage.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Go to Page</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../Back-End/Admin/logout.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Exit</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <h1 class="m-0">Admin Home Page</h1>
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.content-header -->
+
+                <!-- <form action="../Back-End/Admin/update.php?topic_id=>"></form> -->
+
+
+
+                <!-- Main content -->
+                <div class="content mt-5">
+                    <section class="content">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Topics Controller</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div id="jsGrid1">
+                                    <?php
+                                    $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
+                                    if ($result = mysqli_query($conn, $sql)) {
+                                        $i = 0;
+                                        if (mysqli_num_rows($result) > 0) {
+                                    ?>
+                                            <table border=1>
+                                                <th>Topic ID</th>
+                                                <th>Topic ID i</th>
+                                                <th>Topic Name</th>
+                                                <th>Image</th>
+                                                <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>
+                                                </tr>
+                                                <?php
+                                                while ($row = mysqli_fetch_array($result)) {
+                                                    $i++;
+                                                    $topic_id = $row['topic_id'];
+                                                ?>
+                                                    <td> <?php echo $topic_id ?></td>
+                                                    <td> <?php echo $i ?></td>
+                                                    <td> <?php echo $row['topic_name'] ?></td>
+                                                    <td>
+                                                        <a href='../Back-End/Admin/delete.php?id=$row[post_id]'>
+                                                            <button type=button class='btn btn-primary btn-xs'>Edit Image</button>
+                                                        </a>
+
+                                                    </td>
+                                                    <td>
+                                                        <a href='../Admin/edit.php?id=$row[post_id]'>
+                                                            <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost'>Edit</button>
+                                                        </a>
+                                                        <a href='../Back-End/Admin/delete.php?id=$row[post_id]'>
+                                                            <button type=button class='btn btn-danger btn-xs'>Delete</button>
+                                                        </a>
+                                                    </td>
+
+                                                    </tr>
+                                                <?php } ?>
+                                            </table>
+                                    <?php
+                                        } else {
+                                            echo "Không có bản ghi nào được tìm thấy.";
+                                        }
+                                    } else {
+                                        echo "ERROR: Không thể thực thi câu lệnh $sql. " . mysqli_error($conn);
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </section>
+                    <!-- /.content -->
+                </div>
+                <!-- /.content-wrapper -->
+
+                <!-- Control Sidebar -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- Control sidebar content goes here -->
+                </aside>
+                <!-- /.control-sidebar -->
+
+
+            </div>
+            <!-- ./wrapper -->
+
+            <!-- REQUIRED SCRIPTS -->
+
+            <!-- jQuery -->
+            <script src="plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- AdminLTE -->
+            <script src="dist/js/adminlte.js"></script>
+
+            <!-- OPTIONAL SCRIPTS -->
+            <script src="plugins/chart.js/Chart.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="dist/js/demo.js"></script>
+            <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+            <script src="dist/js/pages/dashboard3.js"></script>
+
+            <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                        </div>
+                        <div class='modal-body'>
+                            <form action="../Back-End/Admin/create.php?page=<?php echo $current_page ?>" method="post" enctype="multipart/form-data">
+                                <table>
+                                    <tr>
+                                        <td><label for="">Title</label></td>
+                                        <td><input type="text" style="width:300px ; float:left;" name="title" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="">Post Image</label></td>
+                                        <td><label for="post_img" style="float:left; cursor: pointer; border:1px solid black ; padding:5px">Choose Image</label></td>
+                                        <td><input type="file" style="display:none;" name="post_img" id="post_img" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="">Post Type</label></td>
+                                        <td>
+                                            <select style="float: left;" name="post_category_id" id="post_category_id" required>
+                                                <?php
+                                                $sql3 = "SELECT * FROM post_category";
+                                                $result3 = mysqli_query($conn, $sql3);
+                                                if (mysqli_num_rows($result3) > 0) {
+                                                    while ($post_category = mysqli_fetch_assoc($result3)) {
+                                                ?>
+                                                        <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
+                                                <?php
+
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class='modal-footer'>
+                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                    <button type='submit' class='btn btn-primary'>Create</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!---------------------------------------- kết thúc nội dung -------------------------------------->
+            </div>
+    </body>
 
-            <?php
-        } else {
-            header("location:../Admin/login_admin.php");
-            exit();
-        }
+    </html>
+<?php
+} else {
+    header("location:../Admin/login_admin.php");
+    exit();
+}
 
-            ?>
+
+
+?>
