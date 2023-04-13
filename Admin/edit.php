@@ -179,8 +179,7 @@ if (isset($_SESSION['id'])) {
                                         if (mysqli_num_rows($result) >= 0) {
                                     ?>
                                             <table border=1 class="table table-striped-columns">
-                                                <th>Topic ID</th>
-                                                <th>Topic ID i</th>
+                                                <th>Topic ID </th>
                                                 <th>Topic Name</th>
                                                 <th>Image</th>
                                                 <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#createTopic'>Add</button></th>
@@ -188,7 +187,6 @@ if (isset($_SESSION['id'])) {
                                                 <?php
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     $i++;
-                                                    $topic_id = $row['topic_id'];
                                                 ?>
                                                     <div class="modal fade" id="editImage<?php echo $topic_id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-xl">
@@ -279,7 +277,6 @@ if (isset($_SESSION['id'])) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <td> <?php echo $topic_id ?></td>
                                                     <td> <?php echo $i ?></td>
                                                     <td> <?php echo $row['topic_name'] ?></td>
                                                     <td>
@@ -288,18 +285,19 @@ if (isset($_SESSION['id'])) {
                                                         </button>
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#editTopic<?php echo $row['post_id'] ?>">
+                                                        <button type="button" class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#editTopic<?php echo $row['topic_id'] ?>">
                                                             Edit Topic
                                                         </button>
-                                                        <div class="modal fade" id="editTopic<?php echo $row['post_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal fade" id="editTopic<?php echo $row['topic_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Post</h1>
+                                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Topic</h1>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>&topic_id=<?php echo $row['topic_id'] ?>" method="post" enctype="multipart/form-data">
+
                                                                             <table>
                                                                                 <tr>
                                                                                     <td><label style="float: left;" for="">Topic Name</label></td>
@@ -307,7 +305,7 @@ if (isset($_SESSION['id'])) {
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td><label for="content">Content</label></td>
-                                                                                    <td><textarea name="content" id="" cols="50" rows="10"><?php echo  $row['content'] ?></textarea></td>
+                                                                                    <td><textarea name="content" id="content" cols="50" rows="10"><?php echo  $row['content'] ?></textarea></td>
                                                                                 </tr>
                                                                             </table>
                                                                             <div class="modal-footer">

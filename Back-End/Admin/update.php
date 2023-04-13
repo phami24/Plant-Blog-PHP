@@ -77,11 +77,13 @@ if (isset($_POST['topic_name']) || isset($_POST['content']) || isset($_FILES["to
         WHERE topic_id = $topic_id;";
         mysqli_query($conn, $sql);
     }
+    
     if (isset($_POST['content'])) {
         $content = isset($_POST['content']) ? $_POST['content'] : '';
+        echo $topic_id;
         $sql = "UPDATE topics
         SET content = '$content' 
-        WHERE topic_id = $topic_id;";
+        WHERE topic_id = $topic_id";
         mysqli_query($conn, $sql);
     }
 
@@ -124,10 +126,10 @@ if (isset($_POST['topic_name']) || isset($_POST['content']) || isset($_FILES["to
             $file_name = basename($_FILES["topics_img"]["name"]);
         }
         echo $topic_img_id;
-        $sql = "UPDATE topics_img
+        $sql3 = "UPDATE topics_img
          SET img_url = '$file_name' 
         WHERE topic_img_id = $topic_img_id;";
-        if (mysqli_query($conn, $sql)) {
+        if (mysqli_query($conn, $sql3)) {
             echo "done";
         }
     }

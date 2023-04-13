@@ -22,7 +22,7 @@ if (isset($_GET['page'])) {
     WHERE topic_id= '$topic_id';";
 
     if (mysqli_query($conn, $sql2)) {
-        // header("location:../../Admin/edit.php?id=$post_id");
+        header("location:../../Admin/edit.php?id=$post_id");
         echo 'Done';
         exit();
     }
