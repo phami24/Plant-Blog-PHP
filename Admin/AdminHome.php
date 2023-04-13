@@ -29,8 +29,8 @@ if (isset($_SESSION['id'])) {
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../Lib/css/bootstrap-grid.min.css">
-    <script src="../Lib/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
       h1 {
         text-align: center;
@@ -85,7 +85,7 @@ if (isset($_SESSION['id'])) {
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            <a class="nav-link ms-2" data-widget="pushmenu" style="font-size: 20px;" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
         </ul>
       </nav>
@@ -225,12 +225,17 @@ if (isset($_SESSION['id'])) {
                   if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                   ?>
-                      <table border=1>
+                      <table border=1 class="table table-striped-columns">
                         <th>Post ID</th>
                         <th>Title</th>
                         <th>Post Type</th>
                         <th>Status</th>
-                        <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>
+                        <th>
+                          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#createPost">
+                            Add
+                          </button>
+                        </th>
+
                         </tr>
                         <?php
                         while ($row = mysqli_fetch_array($result)) {
@@ -251,9 +256,56 @@ if (isset($_SESSION['id'])) {
                           if ($row['status'] == 1) {
                           ?>
                             <td>
-                              <a href=''>
-                                <button type=button class='btn btn-secondary btn-xs'>Edit Post</button>
-                              </a>
+                              <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#editPost<?php echo $row['post_id'] ?>">
+                                Edit Post
+                              </button>
+                              <div class="modal fade" id="editPost<?php echo $row['post_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Post</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form action="../Back-End/Admin/create.php" method="post" enctype="multipart/form-data">
+                                        <table>
+                                          <tr>
+                                            <td><label style="float: left;" for="">Title</label></td>
+                                            <td><input type="text" style="width:300px ; float:left;" name="title" required></td>
+                                          </tr>
+                                          <tr>
+                                            <td><label style="float: left;" for="post_img">Post Image</label></td>
+                                            <td><input style="float: left;" type="file" name="post_img"></td>
+                                          </tr>
+                                          <tr>
+                                            <td><label style="float: left;" for="">Post Type</label></td>
+                                            <td>
+                                              <select style="float: left;" name="post_category_id" required>
+                                                <?php
+                                                $sql3 = "SELECT * FROM post_category";
+                                                $result3 = mysqli_query($conn, $sql3);
+                                                if (mysqli_num_rows($result3) > 0) {
+                                                  while ($post_category = mysqli_fetch_assoc($result3)) {
+                                                ?>
+                                                    <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
+                                                <?php
+
+                                                  }
+                                                }
+                                                ?>
+                                              </select>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button type="submit" class="btn btn-primary">Save And Change</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                               <a href='../Admin/edit.php?id=<?php echo $row['post_id'] ?>'>
                                 <button type=button class='btn btn-success btn-xs'>Edit Topic</button>
                               </a>
@@ -268,9 +320,56 @@ if (isset($_SESSION['id'])) {
                           <?php
                           } else { ?>
                             <td>
-                              <a href=''>
-                                <button type=button class='btn btn-secondary btn-xs'>Edit Post</button>
-                              </a>
+                              <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#editPost<?php echo $row['post_id'] ?>">
+                                Edit Post
+                              </button>
+                              <div class="modal fade" id="editPost<?php echo $row['post_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Post</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form action="../Back-End/Admin/create.php" method="post" enctype="multipart/form-data">
+                                        <table>
+                                          <tr>
+                                            <td><label style="float: left;" for="">Title</label></td>
+                                            <td><input type="text" style="width:300px ; float:left;" name="title" required></td>
+                                          </tr>
+                                          <tr>
+                                            <td><label style="float: left;" for="post_img">Post Image</label></td>
+                                            <td><input style="float: left;" type="file" name="post_img"></td>
+                                          </tr>
+                                          <tr>
+                                            <td><label style="float: left;" for="">Post Type</label></td>
+                                            <td>
+                                              <select style="float: left;" name="post_category_id" required>
+                                                <?php
+                                                $sql3 = "SELECT * FROM post_category";
+                                                $result3 = mysqli_query($conn, $sql3);
+                                                if (mysqli_num_rows($result3) > 0) {
+                                                  while ($post_category = mysqli_fetch_assoc($result3)) {
+                                                ?>
+                                                    <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
+                                                <?php
+
+                                                  }
+                                                }
+                                                ?>
+                                              </select>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button type="submit" class="btn btn-primary">Save And Change</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                               <a href='../Admin/edit.php?id=<?php echo $row['post_id'] ?>'>
                                 <button type=button class='btn btn-success btn-xs'>Edit Topic</button>
                               </a>
@@ -329,83 +428,80 @@ if (isset($_SESSION['id'])) {
             <!-- /.card -->
           </section>
           <!-- /.content -->
+          <!-- /.content-wrapper -->
+
+          <!-- Control Sidebar -->
+          <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+          </aside>
+          <!-- /.control-sidebar -->
+
+
         </div>
-        <!-- /.content-wrapper -->
+        <!-- ./wrapper -->
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-          <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+        <!-- REQUIRED SCRIPTS -->
 
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE -->
+        <script src="dist/js/adminlte.js"></script>
 
-      </div>
-      <!-- ./wrapper -->
+        <!-- OPTIONAL SCRIPTS -->
+        <script src="plugins/chart.js/Chart.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard3.js"></script>
+        <div class="modal fade" id="createPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="../Back-End/Admin/create.php" method="post" enctype="multipart/form-data">
+                  <table>
+                    <tr>
+                      <td><label style="float: left;" for="">Title</label></td>
+                      <td><input type="text" style="width:300px ; float:left;" name="title" required></td>
+                    </tr>
+                    <tr>
+                      <td><label style="float: left;" for="post_img">Post Image</label></td>
+                      <td><input style="float: left;" type="file" name="post_img"></td>
+                    </tr>
+                    <tr>
+                      <td><label style="float: left;" for="">Post Type</label></td>
+                      <td>
+                        <select style="float: left;" name="post_category_id" required>
+                          <?php
+                          $sql3 = "SELECT * FROM post_category";
+                          $result3 = mysqli_query($conn, $sql3);
+                          if (mysqli_num_rows($result3) > 0) {
+                            while ($post_category = mysqli_fetch_assoc($result3)) {
+                          ?>
+                              <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
+                          <?php
 
-      <!-- REQUIRED SCRIPTS -->
-
-      <!-- jQuery -->
-      <script src="plugins/jquery/jquery.min.js"></script>
-      <!-- Bootstrap -->
-      <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- AdminLTE -->
-      <script src="dist/js/adminlte.js"></script>
-
-      <!-- OPTIONAL SCRIPTS -->
-      <script src="plugins/chart.js/Chart.min.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="dist/js/demo.js"></script>
-      <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-      <script src="dist/js/pages/dashboard3.js"></script>
-
-      <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
-              <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-            </div>
-            <div class='modal-body'>
-              <form action="../Back-End/Admin/create.php?page=<?php echo $current_page ?>" method="post" enctype="multipart/form-data">
-                <table>
-                  <tr>
-                    <td><label for="">Title</label></td>
-                    <td><input type="text" style="width:300px ; float:left;" name="title" required></td>
-                  </tr>
-                  <tr>
-                    <td><label for="">Post Image</label></td>
-                    <td><label for="post_img" style="float:left; cursor: pointer; border:1px solid black ; padding:5px">Choose Image</label></td>
-                    <td><input type="file" style="display:none;" name="post_img" id="post_img" required></td>
-                  </tr>
-                  <tr>
-                    <td><label for="">Post Type</label></td>
-                    <td>
-                      <select style="float: left;" name="post_category_id" id="post_category_id" required>
-                        <?php
-                        $sql3 = "SELECT * FROM post_category";
-                        $result3 = mysqli_query($conn, $sql3);
-                        if (mysqli_num_rows($result3) > 0) {
-                          while ($post_category = mysqli_fetch_assoc($result3)) {
-                        ?>
-                            <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
-                        <?php
-
+                            }
                           }
-                        }
-                        ?>
-                      </select>
-                    </td>
-                  </tr>
-                </table>
-                <div class='modal-footer'>
-                  <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                  <button type='submit' class='btn btn-primary'>Create</button>
-                </div>
-              </form>
+                          ?>
+                        </select>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
   </body>
 
   </html>
