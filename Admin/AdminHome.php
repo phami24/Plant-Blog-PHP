@@ -267,7 +267,7 @@ if (isset($_SESSION['id'])) {
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                      <form action="../Back-End/Admin/create.php" method="post" enctype="multipart/form-data">
+                                      <form action="../Back-End/Admin/update.php?id=<?php echo $row['post_id']?>" method="post" enctype="multipart/form-data">
                                         <table>
                                           <tr>
                                             <td><label style="float: left;" for="">Title</label></td>

@@ -13,7 +13,7 @@ if (isset($_GET['page'])) {
     SET status = 3
     WHERE post_id= '$post_id';";
     if (mysqli_query($conn, $sql1)) {
-        // header("location:../../Admin/AdminHome.php?page=$page");
+        header("location:../../Admin/AdminHome.php?page=$page");
         exit();
     }
 } else if (empty($_GET['topic_img_id'])) {
