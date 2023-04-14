@@ -177,18 +177,19 @@ if (isset($_SESSION['id'])) {
                                     if ($result = mysqli_query($conn, $sql)) {
                                         $i = 0;
                                         if (mysqli_num_rows($result) >= 0) {
-                                    ?>
+                                            ?>
                                             <table border=1 class="table table-striped-columns">
                                                 <th>Topic ID </th>
                                                 <th>Topic Name</th>
                                                 <th>Image</th>
                                                 <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#createTopic'>Add</button></th>
-                                                </tr>
-                                                <?php
+                                            </tr>
+                                            <?php
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     $i++;
+                                                    $topic_id = $row['topic_id'];
                                                 ?>
-                                                    <div class="modal fade" id="editImage<?php echo $topic_id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="editImage<?php echo $row['topic_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-xl">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -280,7 +281,7 @@ if (isset($_SESSION['id'])) {
                                                     <td> <?php echo $i ?></td>
                                                     <td> <?php echo $row['topic_name'] ?></td>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#editImage<?php echo $topic_id ?>">
+                                                        <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#editImage<?php echo $row['topic_id'] ?>">
                                                             Edit Image
                                                         </button>
                                                     </td>
