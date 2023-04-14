@@ -82,6 +82,7 @@ CREATE TABLE topics
     topic_name varchar(255),
     content text,
     post_id int,
+    status int DEFAULT 1,
     FOREIGN KEY (post_id) REFERENCES post(post_id)
 );
 
@@ -90,8 +91,10 @@ CREATE TABLE topics_img
 	topic_img_id int auto_increment primary key,
     img_url varchar(255),
     topic_id int ,
+    status int default 1,
     FOREIGN KEY (topic_id) REFERENCES topics(topic_id)
 );
+
 
 CREATE TABLE banner
 (
@@ -109,7 +112,9 @@ CREATE TABLE comments (
   post_id int ,
   foreign key(post_id) references post(post_id)
 );
-
+UPDATE topics_img
+SET status = 0
+WHERE topic_img_id= 297;
 
 
 
@@ -388,7 +393,7 @@ VALUES
 	('1111205.jpg', '85 '),
 	('1111206.jpg', '86 '),
 	('1111207.jpg', '87 '),
-	('111208.jpg', '88 '),
+	('1111208.jpg', '88 '),
 	('1111209.jpg', '89 '),
 	('1111210.jpg', '90 '),
 	('null', '91 '),
@@ -509,11 +514,11 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
     -- Img
     
     INSERT INTO topics_img (img_url, topic_id) VALUES
-	('hon_hop.jpg', '114 '),
+	('honhop.jpg', '114 '),
 	('phan_bon_vi_sinh.jpg', '107 '),
 	('phan_dam.jpg', '111 '),
 	('phan_kali.jpg', '113 '),
-	('phan_lan.jbg', '112 '),
+	('phan_lan.jpg', '112 '),
 	('phan_rac.jpg', '104 '),
 	('phanchuong.jpg', '103 '),
 	('sinh_hoc_huu_co.jpg', '108 '),
@@ -1104,7 +1109,7 @@ INSERT INTO topics_img (img_url, topic_id ) VALUES
     ('8. Fertilize plants regularly','The former is very interesting when the effect needs to be quick, or when we want to fix a problem (for example, if we have a chlorinated crop, we can help it with a rich green fertilizer). iron). But the instructions must be followed for the letter; If not treated, the disease will get worse.\nAs for the latter, they are especially interesting when you want to fertilize garden plants, because fertilizing the plants also fertilizes the soil, making the soil more fertile. They are applied by applying a layer of about 2-3 cm, and then mixing them a little. NEVER mix different fertilizers, or fertilize them with fertilizers, as we can cause damage by overdose.',36),
     ('9. Pest control','Where there are plants, there are insects, and even opportunistic microorganisms. So one of the main tasks of growers is to regularly inspect their crops for pests, fungi or any other enemies they have. A) Yes, It is important that you watch the leaves all over, as this is where the first symptoms and/or lesions usually appear.\nOf all the pests that exist, the most common are aphids, spider mites, mealybugs and white mocha. They are well treated with an eco-insecticide, such as potash soap (for sale here), diatomaceous earth or neem oil. Even if you have ladybugs, mantises or other beneficial insects around your garden, pests will be controlled.',36),
     ('10. Tree pruning','At the end of winter, you have to get some pruning tools (scissors, small hand saw), to remove some unwanted elements from the plant, such as sucking worms, overgrown branches, wilted flowers , ... This will also be a good time to pose for shrubs, especially those that are kept as hedges.\nDuring the summer and fall, you can do small pruning, called pruning, mainly to control plant growth and keep them to the desired size. But be careful, cut only the green branches, or they may lose more sap than necessary.',36);
-    select * from topics;
+    select * from topics_img where topic_id > 295;
     
     INSERT INTO topics_img (img_url, topic_id ) VALUES
     ('null',296),

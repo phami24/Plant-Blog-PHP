@@ -23,7 +23,7 @@
                     </div>
                     <div class="inner-content">
                         <?php
-                        $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
+                        $sql = "SELECT * FROM topics WHERE post_id = '$post_id' and status = 1";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($topic = mysqli_fetch_assoc($result)) {

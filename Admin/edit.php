@@ -27,8 +27,8 @@ if (isset($_SESSION['id'])) {
         <!-- Theme style -->
         <link rel="stylesheet" href="dist/css/adminlte.min.css">
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="../Lib/css/bootstrap-grid.min.css">
-        <script src="../Lib/js/bootstrap.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <style>
             h1 {
                 text-align: center;
@@ -173,37 +173,152 @@ if (isset($_SESSION['id'])) {
                             <div class="card-body">
                                 <div id="jsGrid1">
                                     <?php
-                                    $sql = "SELECT * FROM topics WHERE post_id = '$post_id'";
+                                    $sql = "SELECT * FROM topics WHERE post_id = '$post_id' AND status = 1";
                                     if ($result = mysqli_query($conn, $sql)) {
                                         $i = 0;
-                                        if (mysqli_num_rows($result) > 0) {
-                                    ?>
-                                            <table border=1>
-                                                <th>Topic ID</th>
-                                                <th>Topic ID i</th>
+                                        if (mysqli_num_rows($result) >= 0) {
+                                            ?>
+                                            <table border=1 class="table table-striped-columns">
+                                                <th>Topic ID </th>
                                                 <th>Topic Name</th>
                                                 <th>Image</th>
-                                                <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#addPost'>Add</button></th>
-                                                </tr>
-                                                <?php
+                                                <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#createTopic'>Add</button></th>
+                                            </tr>
+                                            <?php
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     $i++;
                                                     $topic_id = $row['topic_id'];
                                                 ?>
-                                                    <td> <?php echo $topic_id ?></td>
+                                                    <div class="modal fade" id="editImage<?php echo $row['topic_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-xl">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Image</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body ">
+                                                                    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                                        Add Image
+                                                                    </button>
+                                                                    <div class="row">
+                                                                        <?php
+                                                                        $sql1 = "SELECT * FROM topics_img WHERE topic_id = '$topic_id' and status = 1";
+                                                                        $result1 = mysqli_query($conn, $sql1);
+                                                                        if (mysqli_num_rows($result1) > 0) {
+                                                                            while ($topic_img = mysqli_fetch_assoc($result1)) {
+                                                                                if ($topic_img['img_url'] != 'null') {
+                                                                        ?>
+
+                                                                                    <div class="col-4">
+                                                                                        <div class="card" style="width: 18rem; max-height:100%">
+                                                                                            <img style="max-height:20vh ; min-height:20vh ;" src="../Admin/img/<?php echo $topic_img['img_url']; ?>" class="card-img-top" alt="<?php echo $topic_img['img_url']; ?>">
+                                                                                            <div class="card-body">
+                                                                                                <!-- Button trigger modal -->
+                                                                                                <?php $topic_img_id = $topic_img['topic_img_id'] ?>
+                                                                                                <input style="display:none;" type="text" value="<?php echo $topic_img_id ?>" id="topic_img_id1">
+                                                                                                <button onclick="getValue()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeImg">
+                                                                                                    Update
+                                                                                                </button>
+                                                                                                <script>
+                                                                                                    function getValue() {
+                                                                                                        var topic_img_id = document.getElementById('topic_img_id1').value;
+                                                                                                        document.getElementById('topic_img_id2').value = topic_img_id;
+                                                                                                    }
+                                                                                                </script>
+                                                                                                <a href="../Back-End/Admin/delete.php?id=<?php echo $post_id ?>&topic_img_id=<?php echo $topic_img['topic_img_id']; ?>" class="btn btn-danger">Delete</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                        <?php
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal fade" id="changeImg" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
+                                                                        <input style="display:none;" type="text" name="topic_img_id" id="topic_img_id2">
+                                                                        <input type="file" name="topics_img">
+                                                                        <button type="submit">Save</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Image</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="../Back-End/Admin/create.php?id=<?php echo $post_id ?>&topic_id=<?php echo $row['topic_id'] ?>" method="post" enctype="multipart/form-data">
+                                                                        <label for=""></label>
+                                                                        <input type="file" name="topics_img">
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-primary">Add</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <td> <?php echo $i ?></td>
                                                     <td> <?php echo $row['topic_name'] ?></td>
                                                     <td>
-                                                        <a href='../Back-End/Admin/delete.php?id=$row[post_id]'>
-                                                            <button type=button class='btn btn-primary btn-xs'>Edit Image</button>
-                                                        </a>
-
+                                                        <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#editImage<?php echo $row['topic_id'] ?>">
+                                                            Edit Image
+                                                        </button>
                                                     </td>
                                                     <td>
-                                                        <a href='../Admin/edit.php?id=$row[post_id]'>
-                                                            <button type=button class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#updatePost'>Edit</button>
-                                                        </a>
-                                                        <a href='../Back-End/Admin/delete.php?id=$row[post_id]'>
+                                                        <button type="button" class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#editTopic<?php echo $row['topic_id'] ?>">
+                                                            Edit Topic
+                                                        </button>
+                                                        <div class="modal fade" id="editTopic<?php echo $row['topic_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Topic</h1>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>&topic_id=<?php echo $row['topic_id'] ?>" method="post" enctype="multipart/form-data">
+
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td><label style="float: left;" for="">Topic Name</label></td>
+                                                                                    <td><input type="text" style="width:300px ; float:left;" name="topic_name" required></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td><label for="content">Content</label></td>
+                                                                                    <td><textarea name="content" id="content" cols="50" rows="10"><?php echo  $row['content'] ?></textarea></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary">Save And Change</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a href='../Back-End/Admin/delete.php?id=<?php echo $post_id ?>&topic_id=<?php echo $row['topic_id'] ?>'>
                                                             <button type=button class='btn btn-danger btn-xs'>Delete</button>
                                                         </a>
                                                     </td>
@@ -234,8 +349,6 @@ if (isset($_SESSION['id'])) {
                     <!-- Control sidebar content goes here -->
                 </aside>
                 <!-- /.control-sidebar -->
-
-
             </div>
             <!-- ./wrapper -->
 
@@ -255,54 +368,36 @@ if (isset($_SESSION['id'])) {
             <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
             <script src="dist/js/pages/dashboard3.js"></script>
 
-            <div class='modal fade' id='addPost' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>Create Post</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+
+            <div class="modal fade" id="createTopic" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class='modal-body'>
-                            <form action="../Back-End/Admin/create.php?page=<?php echo $current_page ?>" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <form action="../Back-End/Admin/create.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
                                 <table>
                                     <tr>
-                                        <td><label for="">Title</label></td>
-                                        <td><input type="text" style="width:300px ; float:left;" name="title" required></td>
+                                        <td><label style="float: left;" for="">Topic Name</label></td>
+                                        <td><input type="text" style="width:300px ; float:left;" name="topic_name" required></td>
                                     </tr>
                                     <tr>
-                                        <td><label for="">Post Image</label></td>
-                                        <td><label for="post_img" style="float:left; cursor: pointer; border:1px solid black ; padding:5px">Choose Image</label></td>
-                                        <td><input type="file" style="display:none;" name="post_img" id="post_img" required></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label for="">Post Type</label></td>
-                                        <td>
-                                            <select style="float: left;" name="post_category_id" id="post_category_id" required>
-                                                <?php
-                                                $sql3 = "SELECT * FROM post_category";
-                                                $result3 = mysqli_query($conn, $sql3);
-                                                if (mysqli_num_rows($result3) > 0) {
-                                                    while ($post_category = mysqli_fetch_assoc($result3)) {
-                                                ?>
-                                                        <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
-                                                <?php
-
-                                                    }
-                                                }
-                                                ?>
-                                            </select>
-                                        </td>
+                                        <td><label for="content">Content</label></td>
+                                        <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
                                     </tr>
                                 </table>
-                                <div class='modal-footer'>
-                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-                                    <button type='submit' class='btn btn-primary'>Create</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+
     </body>
 
     </html>
