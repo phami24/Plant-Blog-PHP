@@ -255,7 +255,7 @@ if (isset($_SESSION['id'])) {
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                      <form action="../Back-End/Admin/update.php?id=<?php echo $row['post_id']?>" method="post" enctype="multipart/form-data">
+                                      <form action="../Back-End/Admin/update.php?id=<?php echo $row['post_id'] ?>" method="post" enctype="multipart/form-data">
                                         <table>
                                           <tr>
                                             <td><label style="float: left;" for="">Title</label></td>
@@ -263,8 +263,32 @@ if (isset($_SESSION['id'])) {
                                           </tr>
                                           <tr>
                                             <td><label style="float: left;" for="post_img">Post Image</label></td>
-                                            <td><input style="float: left;" type="file" name="post_img"></td>
+                                            <td><input style="float: left;" type="file" name="post_img" onchange="readURL(this)"></td>
                                           </tr>
+                                          <tr>
+                                            <td></td>
+                                            <td>
+                                              <div class="col-4 m-2">
+                                                <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
+                                                  <img id="blah" style="max-height:30vh ; min-height:30vh ;">
+                                                </div>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          <script>
+                                            function readURL(input) {
+                                              if (input.files && input.files[0]) {
+                                                var reader = new FileReader();
+                                                var img = document.getElementById("blah");
+
+                                                reader.onload = function(e) {
+                                                  img.setAttribute('src', e.target.result);
+                                                };
+
+                                                reader.readAsDataURL(input.files[0]);
+                                              }
+                                            }
+                                          </script>
                                           <tr>
                                             <td><label style="float: left;" for="">Post Type</label></td>
                                             <td>
@@ -459,8 +483,32 @@ if (isset($_SESSION['id'])) {
                     </tr>
                     <tr>
                       <td><label style="float: left;" for="post_img">Post Image</label></td>
-                      <td><input style="float: left;" type="file" name="post_img"></td>
+                      <td><input style="float: left;" type="file" name="post_img" onchange="readURL(this)"></td>
                     </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <div class="col-4 m-2">
+                          <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
+                            <img id="blah" style="max-height:30vh ; min-height:30vh ;">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <script>
+                      function readURL(input) {
+                        if (input.files && input.files[0]) {
+                          var reader = new FileReader();
+                          var img = document.getElementById("blah");
+
+                          reader.onload = function(e) {
+                            img.setAttribute('src', e.target.result);
+                          };
+
+                          reader.readAsDataURL(input.files[0]);
+                        }
+                      }
+                    </script>
                     <tr>
                       <td><label style="float: left;" for="">Post Type</label></td>
                       <td>
