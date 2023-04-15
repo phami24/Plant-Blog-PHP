@@ -41,11 +41,16 @@ nav {
   color: rgb(155, 195, 82);
   opacity: 1;
 }
-.nav-link.active:hover {
-  color: rgb(155, 195, 82);
-  opacity: 1;
-}
 
+.navbar-collapse ul li a{
+  border-radius: 8px;
+  background-color: #68b614;
+}
+a.active, a:hover {
+  background-color: #68b614;
+  opacity: 1;
+  transition: .5s;
+}
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -389,4 +394,12 @@ svg {
   90% {width: 90%;}
   /* 95% {width: 95%;} */
   100% {width: 100%;}
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }

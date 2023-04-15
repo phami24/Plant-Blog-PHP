@@ -24,11 +24,9 @@
     <link rel="stylesheet" type="text/css" href="../../Config/css/trangtonghop.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <style>
-        .sticky {
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
+        
+
+        
     </style>
 </head>
 
@@ -60,7 +58,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0 flex-wrap ms-auto me-auto ">
                         <li class="nav-item ms-4">
-                            <a class="nav-link" aria-current="page" href="HomePage.php">
+                            <a class="nav-link active" aria-current="page" href="HomePage.php">
                                 Home</a>
                         </li>
                         <li class="nav-item ms-4 dropdown">
@@ -71,7 +69,7 @@
                                 Knowledge
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Basic Knowledge</a></li>
+                                <li><a class="dropdown-item" href="KienThucCoBan.php">Basic Knowledge</a></li>
                                 <li><a class="dropdown-item" href="KyThuat.php">Tips and Tricks</a></li>
                             </ul>
                         </li>
