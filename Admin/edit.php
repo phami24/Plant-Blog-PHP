@@ -87,7 +87,7 @@ if (isset($_SESSION['id'])) {
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                        <a class="nav-link ms-2" data-widget="pushmenu" style="font-size: 20px;" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
                 </ul>
             </nav>
@@ -228,10 +228,10 @@ if (isset($_SESSION['id'])) {
                                                                                         </div>
                                                                                         <div class="modal-hide m-2" id="updateForm<?php echo $topic_img_id ?>">
                                                                                             <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>&topic_img_id=<?php echo $topic_img_id ?>" method="post" enctype="multipart/form-data">
-                                                                                                <input type="file" name="topics_img" id="myFileInput" onchange="readURL(this)">
                                                                                                 <div class="col-4 m-2">
+                                                                                                    <input type="file" name="topics_img" id="myFileInput<?php echo $topic_img_id ?>" onchange="readURL(this)">
                                                                                                     <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
-                                                                                                        <img id="blah" style="max-height:30vh ; min-height:30vh ;">
+                                                                                                        <img id="blah<?php echo $topic_img_id ?>" style="max-height:30vh ; min-height:30vh ;">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div class="btn-group mt-2" role="group" aria-label="Basic example">
@@ -243,7 +243,7 @@ if (isset($_SESSION['id'])) {
                                                                                                 function readURL(input) {
                                                                                                     if (input.files && input.files[0]) {
                                                                                                         var reader = new FileReader();
-                                                                                                        var img = document.getElementById("blah");
+                                                                                                        var img = input.parentNode.querySelector('img');
 
                                                                                                         reader.onload = function(e) {
                                                                                                             img.setAttribute('src', e.target.result);

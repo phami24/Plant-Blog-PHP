@@ -263,50 +263,32 @@ if (isset($_SESSION['id'])) {
                                           </tr>
                                           <tr>
                                             <td><label style="float: left;" for="post_img">Post Image</label></td>
-                                            <td><input style="float: left;" type="file" name="post_img" onchange="readURL(this)"></td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
                                             <td>
                                               <div class="col-4 m-2">
-                                                <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
-                                                  <img id="blah" style="max-height:30vh ; min-height:30vh ;">
+                                                <input style="float: left;" type="file" name="post_img" id="post_img<?php echo $id ?>" onchange="readURL2(this)">
+                                                <div class="card" style="width: 18rem; max-height:100%">
+                                                  <img id="blah<?php echo $id ?>" style="max-height:30vh ; min-height:30vh ;">
                                                 </div>
                                               </div>
                                             </td>
                                           </tr>
-                                          <script>
-                                            function readURL(input) {
-                                              if (input.files && input.files[0]) {
-                                                var reader = new FileReader();
-                                                var img = document.getElementById("blah");
+                                          <td><label style="float: left;" for="">Post Type</label></td>
+                                          <td>
+                                            <select style="float: left;" name="post_category_id" required>
+                                              <?php
+                                              $sql3 = "SELECT * FROM post_category";
+                                              $result3 = mysqli_query($conn, $sql3);
+                                              if (mysqli_num_rows($result3) > 0) {
+                                                while ($post_category = mysqli_fetch_assoc($result3)) {
+                                              ?>
+                                                  <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
+                                              <?php
 
-                                                reader.onload = function(e) {
-                                                  img.setAttribute('src', e.target.result);
-                                                };
-
-                                                reader.readAsDataURL(input.files[0]);
-                                              }
-                                            }
-                                          </script>
-                                          <tr>
-                                            <td><label style="float: left;" for="">Post Type</label></td>
-                                            <td>
-                                              <select style="float: left;" name="post_category_id" required>
-                                                <?php
-                                                $sql3 = "SELECT * FROM post_category";
-                                                $result3 = mysqli_query($conn, $sql3);
-                                                if (mysqli_num_rows($result3) > 0) {
-                                                  while ($post_category = mysqli_fetch_assoc($result3)) {
-                                                ?>
-                                                    <option value="<?php echo $post_category['post_category_id'] ?>"><?php echo $post_category['post_category_name'] ?></option>
-                                                <?php
-
-                                                  }
                                                 }
-                                                ?>
-                                              </select>
-                                            </td>
+                                              }
+                                              ?>
+                                            </select>
+                                          </td>
                                           </tr>
                                         </table>
                                         <div class="modal-footer">
@@ -314,6 +296,20 @@ if (isset($_SESSION['id'])) {
                                           <button type="submit" class="btn btn-primary">Save And Change</button>
                                         </div>
                                       </form>
+                                      <script>
+                                        function readURL2(input) {
+                                          if (input.files && input.files[0]) {
+                                            var reader = new FileReader();
+                                            var img = input.parentNode.querySelector('img');
+
+                                            reader.onload = function(e) {
+                                              img.setAttribute('src', e.target.result);
+                                            };
+
+                                            reader.readAsDataURL(input.files[0]);
+                                          }
+                                        }
+                                      </script>
                                     </div>
                                   </div>
                                 </div>
@@ -466,6 +462,7 @@ if (isset($_SESSION['id'])) {
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+
         <script src="dist/js/pages/dashboard3.js"></script>
         <div class="modal fade" id="createPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -489,26 +486,12 @@ if (isset($_SESSION['id'])) {
                       <td></td>
                       <td>
                         <div class="col-4 m-2">
-                          <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
-                            <img id="blah1" style="max-height:30vh ; min-height:30vh ;">
+                          <div class="card" style="width: 18rem; max-height:100%">
+                            <img id="blah" style="max-height:30vh ; min-height:30vh ;">
                           </div>
                         </div>
                       </td>
                     </tr>
-                    <script>
-                      function readURL(input) {
-                        if (input.files && input.files[0]) {
-                          var reader = new FileReader();
-                          var img = document.getElementById("blah1");
-
-                          reader.onload = function(e) {
-                            img.setAttribute('src', e.target.result);
-                          };
-
-                          reader.readAsDataURL(input.files[0]);
-                        }
-                      }
-                    </script>
                     <tr>
                       <td><label style="float: left;" for="">Post Type</label></td>
                       <td>
@@ -538,6 +521,20 @@ if (isset($_SESSION['id'])) {
             </div>
           </div>
         </div>
+        <script>
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              var img = document.getElementById("blah");
+
+              reader.onload = function(e) {
+                img.setAttribute('src', e.target.result);
+              };
+
+              reader.readAsDataURL(input.files[0]);
+            }
+          }
+        </script>
   </body>
 
   </html>
