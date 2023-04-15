@@ -199,7 +199,7 @@
                     border-radius: 100px;
                     font-weight: bold;
                     border: none;
-                    
+
                 }
 
                 #scroll-to-top:hover {
@@ -236,7 +236,7 @@
 
             <div class="cmt">
                 <h3 style="color: #4b0808;margin:20px;">Comments:</h3>
-                  <div id="comment-section">
+                <div id="comment-section">
                     <!-- Hiển thị các comment đã tồn tại -->
                     <?php
                     $sql = "SELECT * FROM comments  Where post_id = '$post_id' ORDER BY created_at ASC";
@@ -244,7 +244,7 @@
 
                     // Hiển thị các comment
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div>';
+                        echo '<div class="comment">';
                         echo '<ion-icon name="logo-wechat" style="color:green;font-size: 30px;"></ion-icon>';
                         echo '<div class="userComment">';
                         echo '<strong>' . $row['name'] . ' (' . $row['email'] . ') ' . '</strong>' . '<i style="float:right; font-size:13px;">' . $row['created_at'] . '</i>' . '<br>';
@@ -255,30 +255,31 @@
                     ?>
                 </div>
 
-                
+
 
 
             </div>
+
+
+            <h5 style="color: #4b0808;margin:20px;">Add Comment</h5>
+            <form method="post" id="comment-form" action="#" style="padding-bottom:70px ;">
+                <div class="form_container">
+                    <label class="form_label">Name: </label>
+                    <input class="form_input" type="text" name="name" required>
+                </div>
+                <div class="form_container">
+                    <label class="form_label">Email: </label>
+                    <input class="form_input" type="email" name="email" required>
+                </div>
+                <div class="form_container">
+                    <!-- <label>Comment:</label> -->
+                    <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
+                </div>
+
+                <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
+                <button type="submit" style="float:right;" class="btn btn-success">Submit Comment</button>
+            </form>
         </div>
-
-        <h5 style="color: #4b0808;margin:20px;">Add Comment</h5>
-        <form method="post" id="comment-form" action="#" style="padding-bottom:70px ;">
-            <div class="form_container">
-                <label class="form_label">Name: </label>
-                <input class="form_input" type="text" name="name" required>
-            </div>
-            <div class="form_container">
-                <label class="form_label">Email: </label>
-                <input class="form_input" type="email" name="email" required>
-            </div>
-            <div class="form_container">
-                <!-- <label>Comment:</label> -->
-                <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
-            </div>
-
-            <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
-            <button type="submit" style="float:right;" class="btn btn-success">Submit Comment</button>
-        </form>
     </div>
 
     <script src="../../Front-End/js/comment.js"></script>
