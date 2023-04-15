@@ -229,14 +229,17 @@ if (isset($_SESSION['id'])) {
                                                                                         <div class="modal-hide m-2" id="updateForm<?php echo $topic_img_id ?>">
                                                                                             <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>&topic_img_id=<?php echo $topic_img_id ?>" method="post" enctype="multipart/form-data">
                                                                                                 <div class="col-4 m-2">
-                                                                                                    <input type="file" name="topics_img" id="myFileInput<?php echo $topic_img_id ?>" onchange="readURL(this)">
                                                                                                     <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
                                                                                                         <img id="blah<?php echo $topic_img_id ?>" style="max-height:30vh ; min-height:30vh ;">
+                                                                                                        <div class="card-body">
+                                                                                                            <label class="btn btn-success" for="myFileInput<?php echo $topic_img_id ?>">Choose Image</label>
+                                                                                                            <input style="display: none;" type="file" name="topics_img" id="myFileInput<?php echo $topic_img_id ?>" onchange="readURL(this)">
+                                                                                                            <div class="btn-group mt-2" role="group" aria-label="Basic example">
+                                                                                                                <button type="button" id="cancel<?php echo $topic_img_id ?>" class="btn btn-secondary">Cancel</button>
+                                                                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                                                                            </div>
+                                                                                                        </div>
                                                                                                     </div>
-                                                                                                </div>
-                                                                                                <div class="btn-group mt-2" role="group" aria-label="Basic example">
-                                                                                                    <button type="button" id="cancel<?php echo $topic_img_id ?>" class="btn btn-secondary">Cancel</button>
-                                                                                                    <button type="submit" class="btn btn-primary">Save</button>
                                                                                                 </div>
                                                                                             </form>
                                                                                             <script>
@@ -324,8 +327,8 @@ if (isset($_SESSION['id'])) {
                                                         <button type="button" class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#editTopic<?php echo $row['topic_id'] ?>">
                                                             Edit Topic
                                                         </button>
-                                                        <div class="modal fade" id="editTopic<?php echo $row['topic_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
+                                                        <div class="modal fade " id="editTopic<?php echo $row['topic_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Topic</h1>
@@ -333,15 +336,14 @@ if (isset($_SESSION['id'])) {
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>&topic_id=<?php echo $row['topic_id'] ?>" method="post" enctype="multipart/form-data">
-
                                                                             <table>
                                                                                 <tr>
-                                                                                    <td><label style="float: left;" for="">Topic Name</label></td>
-                                                                                    <td><input type="text" style="width:300px ; float:left;" name="topic_name" required></td>
+                                                                                    <th><label style="float: left;" for="">Topic Name</label></th>
+                                                                                    <th><input type="text" style="width:300px ; float:left;" name="topic_name" value="<?php echo $row['topic_name']?>" required></th>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td><label for="content">Content</label></td>
-                                                                                    <td><textarea name="content" id="content" cols="50" rows="10"><?php echo  $row['content'] ?></textarea></td>
+                                                                                    <td><textarea style="float:left;" name="content" id="content" cols="80" rows="10"><?php echo  $row['content'] ?></textarea></td>
                                                                                 </tr>
                                                                             </table>
                                                                             <div class="modal-footer">
@@ -405,7 +407,7 @@ if (isset($_SESSION['id'])) {
 
 
             <div class="modal fade" id="createTopic" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
@@ -420,7 +422,7 @@ if (isset($_SESSION['id'])) {
                                     </tr>
                                     <tr>
                                         <td><label for="content">Content</label></td>
-                                        <td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
+                                        <td><textarea style="float:left;" name="content" id="" cols="80" rows="10"></textarea></td>
                                     </tr>
                                 </table>
                                 <div class="modal-footer">

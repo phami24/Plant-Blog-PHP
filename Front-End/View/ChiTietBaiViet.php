@@ -275,7 +275,6 @@
                     <!-- <label>Comment:</label> -->
                     <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
                 </div>
-
                 <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
                 <button type="submit" style="float:right;" class="btn btn-success">Submit Comment</button>
             </form>

@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli('localhost', 'root', '12345678', 'garden_world');
+$conn = new mysqli('localhost', 'root', 'minhbinh8877', 'garden_world');
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
@@ -24,14 +24,19 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
   $post_id = $_REQUEST['post_id'];
 
   // Attempt to execute the prepared statement
+
   if (mysqli_stmt_execute($stmt)) {
-    echo "Records inserted successfully.";
+    // Trả về comment mới vừa được lưu
+    $comment = array(
+      'name' => $name,
+      'email' => $email,
+      'comment' => $comment,
+      'post_id' => $post_id
+    );
+    echo json_encode($comment);
   } else {
-    echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
+    echo "Lỗi khi lưu comment.";
   }
-} else {
-  echo "ERROR: Could not prepare query: $sql. " . mysqli_error($conn);
-}
 
 
 
@@ -44,20 +49,8 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
 // Lưu comment vào cơ sở dữ liệu
 // $sql = "INSERT INTO comments (name, email, message , post_id) VALUES ('$name', '$email', '$comment' ,'$post_id')";
 // $result = $conn->query($sql);
+ "Lỗi khi lưu comment.";
+}
 
-// if ($result) {
-    // Trả về comment mới vừa được lưu
-  //   $comment = array(
-  //     'name' => $name,
-  //     'email' => $email,
-  //     'comment' => $comment,
-  //     'post_id' => $post_id
-  //   );
-  //   echo json_encode($comment);
-  // } else {
-  //   echo "Lỗi khi lưu comment.";
-  // }
-  
-  // Đóng kết nối cơ sở dữ liệu
-  $conn->close();
-?>  
+// Đóng kết nối cơ sở dữ liệu
+$conn->close();

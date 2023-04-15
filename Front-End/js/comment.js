@@ -7,6 +7,8 @@ document.getElementById('comment-form').addEventListener('submit', function(even
     var email = document.getElementsByName('email')[0].value;
     var comment = document.getElementsByName('comment')[0].value;
     var post_id = document.getElementsByName('post_id')[0].value;
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   
     // Gửi dữ liệu comment lên server bằng AJAX
     var xhr = new XMLHttpRequest();
@@ -17,9 +19,13 @@ document.getElementById('comment-form').addEventListener('submit', function(even
         // Hiển thị comment mới
         var newComment = JSON.parse(xhr.responseText);
         var commentSection = document.getElementById('comment-section');
-        var commentHTML = '<div class="userComment" >';
-        commentHTML += '<strong>' + newComment.name + ' (' + newComment.email + ')</strong><br>';
-        commentHTML += newComment.comment + '</div>';
+        var commentHTML = '<div class="comment" >';
+        commentHTML += '<ion-icon name="logo-wechat" style="color:green;font-size: 30px;"></ion-icon>';
+        commentHTML += '<div class="userComment">';
+        commentHTML += '<strong>' + newComment.name + ' (' +  newComment.email + ') ' + '</strong>' + '<i style="float:right; font-size:13px;">' + date +'</i>' + '<br>';
+        commentHTML += '<p class="mx-5">' + newComment.comment + '</p>';
+        commentHTML += '</div>';
+        commentHTML += '</div>';
         commentSection.insertAdjacentHTML('beforeend', commentHTML);
       } else {
         alert('Lỗi khi lưu comment.');

@@ -34,7 +34,7 @@
                                             if ($topic['topic_name'] != 'null') {
                                     ?>
                                                 <li>
-                                                    <a style="font-size: 18px;" href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
+                                                    <a style="font-size: 18px;"href="#<?php echo $topic['topic_id'] ?>"><?php echo $topic['topic_name']; ?></a>
                                                 </li>
                                     <?php
                                             }
@@ -185,26 +185,25 @@
                 }
                 ?>
             </div>
+            <h4 style="color: #4b0808;margin:20px;">Add Comment</h4>
+            <form method="post" id="comment-form" action="#">
+                <div class="form_container">
+                    <label class="form_label">Name: </label>
+                    <input class="form_input" type="text" name="name" required>
+                </div>
+                <div class="form_container">
+                    <label class="form_label">Email: </label>
+                    <input class="form_input" type="email" name="email" required>
+                </div>
+                <div class="form_container">
+                    <label>Comment:</label>
+                    <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
+                </div>
+
+                <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
+                <button type="submit" style="float:right" class="btn btn-success">Submit Comment</button>
+            </form>
         </div>
-        <h4 style="color: #4b0808;margin:20px;">Add Comment</h4>
-        <form method="post" id="comment-form" action="#" style="padding-bottom:70px ;">
-            <div class="form_container">
-                <label class="form_label">Name: </label>
-                <input class="form_input" type="text" name="name" required>
-            </div>
-            <div class="form_container">
-                <label class="form_label">Email: </label>
-                <input class="form_input" type="email" name="email" required>
-            </div>
-            <div class="form_container">
-                <!-- <label>Comment:</label> -->
-                <textarea name="comment" required class="form-control" placeholder="Comment..."></textarea>
-            </div>
-
-            <input name="post_id" type="number" placeholder="<?php echo $post_id ?>" value="<?php echo $post_id ?>" style="display:none;">
-            <button type="submit" style="float:right" class="btn btn-success">Submit Comment</button>
-        </form>
-
 
         <script src="../../Front-End/js/comment.js"></script>
     </div>
