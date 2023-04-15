@@ -393,7 +393,7 @@ VALUES
 	('1111205.jpg', '85 '),
 	('1111206.jpg', '86 '),
 	('1111207.jpg', '87 '),
-	('111208.jpg', '88 '),
+	('1111208.jpg', '88 '),
 	('1111209.jpg', '89 '),
 	('1111210.jpg', '90 '),
 	('null', '91 '),
@@ -514,11 +514,11 @@ INSERT INTO topics (topic_name, content, post_id ) VALUES
     -- Img
     
     INSERT INTO topics_img (img_url, topic_id) VALUES
-	('hon_hop.jpg', '114 '),
+	('honhop.jpg', '114 '),
 	('phan_bon_vi_sinh.jpg', '107 '),
 	('phan_dam.jpg', '111 '),
 	('phan_kali.jpg', '113 '),
-	('phan_lan.jbg', '112 '),
+	('phan_lan.jpg', '112 '),
 	('phan_rac.jpg', '104 '),
 	('phanchuong.jpg', '103 '),
 	('sinh_hoc_huu_co.jpg', '108 '),
