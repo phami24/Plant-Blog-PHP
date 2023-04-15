@@ -490,7 +490,7 @@ if (isset($_SESSION['id'])) {
                       <td>
                         <div class="col-4 m-2">
                           <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
-                            <img id="blah" style="max-height:30vh ; min-height:30vh ;">
+                            <img id="blah1" style="max-height:30vh ; min-height:30vh ;">
                           </div>
                         </div>
                       </td>
@@ -499,7 +499,7 @@ if (isset($_SESSION['id'])) {
                       function readURL(input) {
                         if (input.files && input.files[0]) {
                           var reader = new FileReader();
-                          var img = document.getElementById("blah");
+                          var img = document.getElementById("blah1");
 
                           reader.onload = function(e) {
                             img.setAttribute('src', e.target.result);
