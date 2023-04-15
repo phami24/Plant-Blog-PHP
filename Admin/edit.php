@@ -216,7 +216,7 @@ if (isset($_SESSION['id'])) {
 
                                                                                     <div class="col-4">
                                                                                         <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
-                                                                                            <img style="max-height:20vh ; min-height:20vh ;" src="../Admin/img/<?php echo $topic_img['img_url']; ?>" class="card-img-top" alt="<?php echo $topic_img['img_url']; ?>">
+                                                                                            <img style="max-height:30vh ; min-height:30vh ;" src="../Admin/img/<?php echo $topic_img['img_url']; ?>" class="card-img-top" alt="<?php echo $topic_img['img_url']; ?>">
                                                                                             <div class="card-body">
                                                                                                 <!-- Button trigger modal -->
                                                                                                 <input style="display:none;" type="text" value="<?php echo $topic_img_id ?>" id="topic_img_id1">
@@ -228,12 +228,31 @@ if (isset($_SESSION['id'])) {
                                                                                         </div>
                                                                                         <div class="modal-hide m-2" id="updateForm<?php echo $topic_img_id ?>">
                                                                                             <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>&topic_img_id=<?php echo $topic_img_id ?>" method="post" enctype="multipart/form-data">
-                                                                                                <input type="file" name="topics_img">
+                                                                                                <input type="file" name="topics_img" id="myFileInput" onchange="readURL(this)">
+                                                                                                <div class="col-4 m-2">
+                                                                                                    <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
+                                                                                                        <img id="blah" style="max-height:30vh ; min-height:30vh ;">
+                                                                                                    </div>
+                                                                                                </div>
                                                                                                 <div class="btn-group mt-2" role="group" aria-label="Basic example">
                                                                                                     <button type="button" id="cancel<?php echo $topic_img_id ?>" class="btn btn-secondary">Cancel</button>
                                                                                                     <button type="submit" class="btn btn-primary">Save</button>
                                                                                                 </div>
                                                                                             </form>
+                                                                                            <script>
+                                                                                                function readURL(input) {
+                                                                                                    if (input.files && input.files[0]) {
+                                                                                                        var reader = new FileReader();
+                                                                                                        var img = document.getElementById("blah");
+
+                                                                                                        reader.onload = function(e) {
+                                                                                                            img.setAttribute('src', e.target.result);
+                                                                                                        };
+
+                                                                                                        reader.readAsDataURL(input.files[0]);
+                                                                                                    }
+                                                                                                }
+                                                                                            </script>
                                                                                         </div>
                                                                                     </div>
 
@@ -241,10 +260,10 @@ if (isset($_SESSION['id'])) {
                                                                                         var btnUpdateForm = document.getElementById('updateImg<?php echo $topic_img_id ?>');
                                                                                         btnUpdateForm.addEventListener('click', hideUpdateForm);
 
-                                                                                        
+
                                                                                         var btnClose = document.getElementById('closeBtn');
                                                                                         btnClose.addEventListener('click', resetModal);
-                                                                                        
+
                                                                                         var btnCancel = document.getElementById('cancel<?php echo $topic_img_id ?>');
                                                                                         btnCancel.addEventListener('click', resetModal);
 
