@@ -101,7 +101,7 @@
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($postlienquan = mysqli_fetch_assoc($result2)) {
                                 ?>
-                                        <article class="card mb-2">
+                                        <article class="card mb-2 card_dt">
                                             <a href="CHiTietBaiViet.php?id=<?php echo $postlienquan['post_id']; ?>" class="card-link nav-link ">
                                                 <div class=" row">
                                                     <figure class=" col-sm-4">
@@ -133,7 +133,7 @@
                                 $result4 = mysqli_query($conn, $sql4);
                                 $product_img = mysqli_fetch_assoc($result4)
                         ?>
-                                <article class="card mb-2">
+                                <article class="card mb-2 card_dt">
                                     <a href="ProductDetail.php?product_id=<?php echo $product['product_id'] ?>" class="card-link nav-link ">
                                         <div class=" row">
                                             <figure class=" col-sm-4">

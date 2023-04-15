@@ -8,8 +8,8 @@ body {
     overflow-x: hidden;
 }
 
-.card {
-    
+.card_dt {
+    background-color: #c9ffc8;
     -webkit-transform: scale(1);
     transform: scale(1);
     -webkit-transition: .2s ease-in-out;
@@ -49,9 +49,13 @@ body {
     top: 20px;
 }
 
-.card:hover {
+.card_dt:hover {
     -webkit-transform: scale(1.08);
     transform: scale(1.08);
+}
+.card_t:hover {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
 }
 
 .h1 {

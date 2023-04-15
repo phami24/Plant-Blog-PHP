@@ -55,7 +55,7 @@
                 ?>
                         <div class="col-sm-6 col-md-4 mb-3">
                             <a href="../../Front-End/View/ChiTietBaiViet.php?id=<?php echo $post['post_id'] ?>" class="card-link nav-link">
-                                <div class="card col">
+                                <div class="card col card_t">
                                     <img style="min-height: 250px; max-height:250px" src="../../Admin/img/<?php echo $post['post_img']; ?>" alt="img" class="card-img-top">
                                     <div class="card-body text">
                                         <h4 class="card-title " style="min-height: 100px; max-height:100px"><?php echo $post['title'] ?></h4>
