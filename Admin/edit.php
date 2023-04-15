@@ -64,6 +64,10 @@ if (isset($_SESSION['id'])) {
             .pagination a:hover {
                 background-color: lightgreen;
             }
+
+            .modal-hide {
+                display: none;
+            }
         </style>
     </head>
     <!--
@@ -177,24 +181,24 @@ if (isset($_SESSION['id'])) {
                                     if ($result = mysqli_query($conn, $sql)) {
                                         $i = 0;
                                         if (mysqli_num_rows($result) >= 0) {
-                                            ?>
+                                    ?>
                                             <table border=1 class="table table-striped-columns">
                                                 <th>Topic ID </th>
                                                 <th>Topic Name</th>
                                                 <th>Image</th>
                                                 <th><button type=button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#createTopic'>Add</button></th>
-                                            </tr>
-                                            <?php
+                                                </tr>
+                                                <?php
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     $i++;
                                                     $topic_id = $row['topic_id'];
                                                 ?>
-                                                    <div class="modal fade" id="editImage<?php echo $row['topic_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="editImage<?php echo $row['topic_id'] ?>" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-xl">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Image</h1>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBtn" onclick="resetModal()"></button>
                                                                 </div>
                                                                 <div class="modal-body ">
                                                                     <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -207,52 +211,64 @@ if (isset($_SESSION['id'])) {
                                                                         if (mysqli_num_rows($result1) > 0) {
                                                                             while ($topic_img = mysqli_fetch_assoc($result1)) {
                                                                                 if ($topic_img['img_url'] != 'null') {
+                                                                                    $topic_img_id = $topic_img['topic_img_id'];
                                                                         ?>
 
                                                                                     <div class="col-4">
-                                                                                        <div class="card" style="width: 18rem; max-height:100%">
+                                                                                        <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
                                                                                             <img style="max-height:20vh ; min-height:20vh ;" src="../Admin/img/<?php echo $topic_img['img_url']; ?>" class="card-img-top" alt="<?php echo $topic_img['img_url']; ?>">
                                                                                             <div class="card-body">
                                                                                                 <!-- Button trigger modal -->
-                                                                                                <?php $topic_img_id = $topic_img['topic_img_id'] ?>
                                                                                                 <input style="display:none;" type="text" value="<?php echo $topic_img_id ?>" id="topic_img_id1">
-                                                                                                <button onclick="getValue()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeImg">
+                                                                                                <button id="updateImg<?php echo $topic_img_id ?>" type="button" class="btn btn-primary" onclick="showUpdateForm">
                                                                                                     Update
                                                                                                 </button>
-                                                                                                <script>
-                                                                                                    function getValue() {
-                                                                                                        var topic_img_id = document.getElementById('topic_img_id1').value;
-                                                                                                        document.getElementById('topic_img_id2').value = topic_img_id;
-                                                                                                    }
-                                                                                                </script>
-                                                                                                <a href="../Back-End/Admin/delete.php?id=<?php echo $post_id ?>&topic_img_id=<?php echo $topic_img['topic_img_id']; ?>" class="btn btn-danger">Delete</a>
+                                                                                                <a href="../Back-End/Admin/delete.php?id=<?php echo $post_id ?>&topic_img_id=<?php echo $topic_img_id ?>" class="btn btn-danger">Delete</a>
                                                                                             </div>
                                                                                         </div>
+                                                                                        <div class="modal-hide m-2" id="updateForm<?php echo $topic_img_id ?>">
+                                                                                            <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>&topic_img_id=<?php echo $topic_img_id ?>" method="post" enctype="multipart/form-data">
+                                                                                                <input type="file" name="topics_img">
+                                                                                                <div class="btn-group mt-2" role="group" aria-label="Basic example">
+                                                                                                    <button type="button" id="cancel<?php echo $topic_img_id ?>" class="btn btn-secondary">Cancel</button>
+                                                                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                                                                </div>
+                                                                                            </form>
+                                                                                        </div>
                                                                                     </div>
+
+                                                                                    <script>
+                                                                                        var btnUpdateForm = document.getElementById('updateImg<?php echo $topic_img_id ?>');
+                                                                                        btnUpdateForm.addEventListener('click', hideUpdateForm);
+
+                                                                                        
+                                                                                        var btnClose = document.getElementById('closeBtn');
+                                                                                        btnClose.addEventListener('click', resetModal);
+                                                                                        
+                                                                                        var btnCancel = document.getElementById('cancel<?php echo $topic_img_id ?>');
+                                                                                        btnCancel.addEventListener('click', resetModal);
+
+                                                                                        function hideUpdateForm() {
+                                                                                            var updateForm = document.getElementById('updateForm<?php echo $topic_img_id ?>');
+                                                                                            var editImgForm = document.getElementById('editImgForm<?php echo $topic_img_id ?>');
+                                                                                            updateForm.classList.remove('modal-hide');
+                                                                                            editImgForm.classList.add('modal-hide');
+                                                                                        }
+
+                                                                                        function resetModal() {
+                                                                                            var updateForm = document.getElementById('updateForm<?php echo $topic_img_id ?>');
+                                                                                            var editImgForm = document.getElementById('editImgForm<?php echo $topic_img_id ?>');
+                                                                                            editImgForm.classList.remove('modal-hide');
+                                                                                            updateForm.classList.add('modal-hide');
+                                                                                        }
+                                                                                    </script>
+
                                                                         <?php
                                                                                 }
                                                                             }
                                                                         }
                                                                         ?>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="modal fade" id="changeImg" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form action="../Back-End/Admin/update.php?id=<?php echo $post_id ?>" method="post" enctype="multipart/form-data">
-                                                                        <input style="display:none;" type="text" name="topic_img_id" id="topic_img_id2">
-                                                                        <input type="file" name="topics_img">
-                                                                        <button type="submit">Save</button>
-                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>

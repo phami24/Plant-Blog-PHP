@@ -88,7 +88,8 @@ if (isset($_POST['topic_name']) || isset($_POST['content']) || isset($_FILES["to
     }
 
     if (isset($_FILES["topics_img"]["name"])) {
-        $topic_img_id = isset($_POST['topic_img_id']) ? $_POST['topic_img_id'] : '';
+        $topic_img_id = isset($_GET['topic_img_id']) ? $_GET['topic_img_id'] : '';
+        echo $topic_img_id;
         $target_dir = "../../Admin/img/";
         $target_file = $target_dir . basename($_FILES["topics_img"]["name"]);
         $uploadOk = 1;
