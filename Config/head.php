@@ -138,3 +138,8 @@
             document.getElementById("search2").focus();
         }
     </script>
+    <script type= "text/javascript">
+        $(document).on('click','ul','li','a', function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>

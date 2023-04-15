@@ -4,9 +4,9 @@ $conn = new mysqli('localhost', 'root', '12345678', 'garden_world');
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
+// chuan bi csdl
 $sql = "INSERT INTO comments (name, email, message, post_id) VALUES (?, ?, ?, ?)";
-
+// lay dl tu form
 $name = isset($_POST['name']) ? $_POST['name'] : "";
 $email = isset($_POST['email']) ? $_POST['email'] : "";
 $comment = isset($_POST['comment']) ? $_POST['comment'] : "";

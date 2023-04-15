@@ -36,26 +36,17 @@ nav {
   font-size: large;
   font-weight: 500;
 }
-
 .nav-link:hover {
   color: rgb(155, 195, 82);
   opacity: 1;
 }
-
-.navbar-collapse ul li a{
-  border-radius: 8px;
-  background-color: #68b614;
-}
-a.active, a:hover {
-  background-color: #68b614;
+.nav-link.active:hover {
+  color: rgb(155, 195, 82);
   opacity: 1;
-  transition: .5s;
 }
 #navbar {
   display: flex;
   justify-content: space-between;
-  /* position: fixed;
-  top: 0px; */
 }
 
 .search {
