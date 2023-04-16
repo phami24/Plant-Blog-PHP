@@ -37,11 +37,11 @@ nav {
   font-weight: 500;
 }
 .nav-link:hover {
-  color: rgb(155, 195, 82);
+  color: rgb(113, 81, 33);
   opacity: 1;
 }
 .nav-link.active:hover {
-  color: rgb(155, 195, 82);
+  color: rgb(113, 81, 33);
   opacity: 1;
 }
 #navbar {

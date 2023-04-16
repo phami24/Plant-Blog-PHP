@@ -5,10 +5,6 @@
     ?>
     <?php
     include "/xampp/htdocs/e-project1/Config/conn.php";
-    $sql = 'SELECT * FROM post WHERE post_category_id = 4 AND status =1;';
-    $result = mysqli_query($conn, $sql);
-    $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
-    $result1 = mysqli_query($conn, $sql1);
 
 
     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;

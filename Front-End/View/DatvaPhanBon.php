@@ -5,11 +5,6 @@
     ?>
     <?php
     include "/xampp/htdocs/e-project1/Config/conn.php";
-    $sql = 'SELECT * FROM post WHERE post_category_id = 6 AND status =1;';
-    $result = mysqli_query($conn, $sql);
-    $sql1 = "SELECT * FROM book WHERE post_category_id = 9 ORDER BY RAND() LIMIT 4";
-    $result1 = mysqli_query($conn, $sql1);
-
 
     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
     $limit = 5;
@@ -110,7 +105,7 @@
                 while ($book = mysqli_fetch_assoc($result1)) {
 
             ?>
-                    <article class="card mb-2" style="max-height:200px">
+                    <article class="card mb-2 card_book" style="max-height:200px">
                         <a href="../../Front-End/View/Book.php?id=<?php echo $book['book_id'] ?>" class="card-link nav-link ">
                             <div class=" row">
                                 <figure class=" col-sm-4">

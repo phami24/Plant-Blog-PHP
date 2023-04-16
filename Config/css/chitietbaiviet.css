@@ -22,6 +22,12 @@ body {
     border: 1px solid #dadada;
     border-radius: 5px;
 }
+.card_book{
+    background-color: #c9ffc8;
+    margin-bottom: 10px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
 
 .toc ul li {
     list-style-type: none;

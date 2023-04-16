@@ -283,6 +283,6 @@
 
     <script src="../../Front-End/js/comment.js"></script>
 
-    </div>
-    </div>
+
     <?php include "/xampp/htdocs/e-project1/Config/footer.php" ?>
+</body>
