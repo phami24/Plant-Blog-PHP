@@ -231,9 +231,9 @@ if (isset($_SESSION['id'])) {
                                                                                                 <div class="col-4 m-2">
                                                                                                     <div class="card" id="editImgForm<?php echo $topic_img_id ?>" style="width: 18rem; max-height:100%">
                                                                                                         <img id="blah<?php echo $topic_img_id ?>" style="max-height:30vh ; min-height:30vh ;">
+                                                                                                        <input style="display: none;" type="file" name="topics_img" id="myFileInput<?php echo $topic_img_id ?>" onchange="readURL(this)">
                                                                                                         <div class="card-body">
                                                                                                             <label class="btn btn-success" for="myFileInput<?php echo $topic_img_id ?>">Choose Image</label>
-                                                                                                            <input style="display: none;" type="file" name="topics_img" id="myFileInput<?php echo $topic_img_id ?>" onchange="readURL(this)">
                                                                                                             <div class="btn-group mt-2" role="group" aria-label="Basic example">
                                                                                                                 <button type="button" id="cancel<?php echo $topic_img_id ?>" class="btn btn-secondary">Cancel</button>
                                                                                                                 <button type="submit" class="btn btn-primary">Save</button>

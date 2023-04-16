@@ -34,7 +34,7 @@
 <body class="bg-light-subtle">
     <!-- Navbar -->
     <div id="header">
-        <a class="navbar-brand logo2 bg-body-tertiary me-lg-5" href="test.html" style="color: rgb(20, 162, 29)">
+        <a class="navbar-brand logo2 bg-body-tertiary me-lg-5" href="HomePage.php" style="color: rgb(20, 162, 29)">
             <span class="ms-lg-5" style="font-weight:bold;">
                 <ion-icon name="leaf-outline" class="ms-lg-5"></ion-icon>𝔾𝕒𝕣𝕕𝕖𝕟𝕎𝕠𝕣𝕝𝕕
             </span>
